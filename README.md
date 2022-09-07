@@ -3,7 +3,7 @@
 <br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
 <br/>Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
 <br/><br/>Örneğin; Linux terminalinde deneme.txt dosyası oluşturalım.
-<br/>•	**“cat > deneme.txt”** komutu ortamda deneme.txt dosyası yok ise önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
+<br/>•	** “cat > deneme.txt” ** komutu ortamda deneme.txt dosyası yok ise önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
 <br/>Bu işlemden sonra cat komutu ile dosyayı okuyalım 
 <br/> •	**cat deneme.txt**
 <br/>Lakin dosyayı yeni yarattığımız için içi boş olacak ve herhangi bir yazı ile karşılaşmayacağız. 
@@ -13,10 +13,10 @@
 <br/><br/>Eğer ortamda önceden oluşturulmuş deneme.txt dosyası bulunuyorsa cat > deneme.txt komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
 <br/><br/>Eğer dosyanın üzerine yazmak istiyorsak **cat >>deneme.txt** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
 <br/><br/>Konsolda bir dosyanın içeriğini görüntülemek yerine sonucu > kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
-<br/>•**cat kaynak.txt > hedef.txt**
+<br/>• **cat kaynak.txt > hedef.txt**
 <br/>Eğer hedef dosya bulunmuyorsa o zaman komut bu dosyayı yaratacak veya var olan dosyanın üzerine yazacaktır.
 <br/><br/>Mevcut konumdaki bütün metin dosyalarının içeriğini görüntülemek için aşağıdaki komutu terminal’de kullanın:
-<br/>•**cat *.txt**
+<br/>• **cat *.txt**
 
 <br/><br/>Cat komutu satır sonlarını, $ karakterini her satırın sonunda görüntüleyerek işaretleyebilir. Bu özelliği kullanmak için cat komutuyla birlikte -E seçeneğini kullanın:
 <br/>•**cat -E dosyaadi.txt**
