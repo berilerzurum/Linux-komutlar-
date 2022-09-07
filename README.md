@@ -1,5 +1,5 @@
 # Linux komutları
-<h3><br/><u>CAT:</u></h3>
+<h3><br/><ins>CAT:</ins></h3>
 <br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
 <br/>Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
 <br/>Örneğin; Linux terminalinde deneme.txt dosyası oluşturalım.
@@ -25,19 +25,19 @@
 
 <br/>Cat komutuyla ilgili daha fazla bilgi için cat’in el kılavuzu sayfasına man cat komutu ile ulaşabilirsiniz.
 
-<br/><h3><u>More</u></h3>
+<br/><h3><ins>More</ins></h3>
 <br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı tek sayfada gösterilemeyecek olan dosyalar okunurken boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 <br/>more file_path
-<br/><h3><u>Less</u></h3>
+<br/><h3><ins>Less</ins></h3>
 <br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
 <br/>•	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
 <br/>•	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
 <br/>•	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
-<br/><h3><u>Head</u></h3>
+<br/><h3><ins>Head</ins></h3>
 <br/>Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 <br/>head dosya.txt
 
-<br/><h3><u>Tail</h3></u>
+<br/><h3><ins>Tail</h3></ins>
 <br/>Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
 <br/>tail dosya.txt
 
