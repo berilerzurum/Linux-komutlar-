@@ -30,7 +30,7 @@
 
 <br/><h3><ins>More</ins></h3>
 <br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı tek sayfada gösterilemeyecek olan dosyalar okunurken boşluk tuşu ile kaydırma olanağı sağlamasıdır.
-<br/>more file_path
+<br/>• more file_path
 <br/><h3><ins>Less</ins></h3>
 <br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
 <br/>•	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
