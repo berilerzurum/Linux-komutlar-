@@ -50,3 +50,6 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 <br/>tail -n 25 dosya.txt
 
 <br/>Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
+
+
+<h1> STDIN, STDOUT, STDERR </h1>
