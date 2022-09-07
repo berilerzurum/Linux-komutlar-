@@ -3,7 +3,7 @@
 <br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
 <br/>Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
 <br/><br/>Örneğin; Linux terminalinde deneme.txt dosyası oluşturalım.
-<br/> **cat > deneme.txt** komutu ortamda deneme.txt dosyası yok ise önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
+<br/> <strong> cat > deneme.txt </strong> komutu ortamda deneme.txt dosyası yok ise önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
 <br/>Bu işlemden sonra cat komutu ile dosyayı okuyalım 
 <br/> •	**cat deneme.txt**
 <br/>Lakin dosyayı yeni yarattığımız için içi boş olacak ve herhangi bir yazı ile karşılaşmayacağız. 
