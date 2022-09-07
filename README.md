@@ -53,3 +53,19 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 
 
 <h1> STDIN, STDOUT, STDERR </h1>
+
+<br/>Linux sistemlerinde giriş-çıkış işlemleri stdin, stdout, stderr akış araçlarıyla sağlanır. Bunlar terminalin bizimle iletişim kurmak için oluşturduğu 3 temel noktadır.
+
+<br/>stdin --> Klavyeden ya da başka bir uygulamadan giriş içerir.
+<br/>stdout --> Uygulamanın çıktısıdır.
+<br/>stderr --> Hata mesajı göndermek için kullanılan çıktıdır.
+
+<br/>Örneğin; klavyeden bir veri girdik. Bu önce uygulamanın Stdin akışına gider, uygulama buna cevap oluşturursa, bu cevabı stdout çıkışına gönderir. Terminalde bu çıkışı izlediği için bunu yakalar ve ekranda gösterir, aynı şekilde bu akış sırasında herhangi bir error oluşursa terminal bunu da yakalar ve ekranda gösterir.
+
+<br/>Mesela terminale ls/beril komutunu girdik ama bulunduğumuz dizinde böyle bir klasör yok. Stderr bir hata mesajı üretir ve "no such file or directory" çıktısını gönderir. Ama dizinde olan bir dosyayı komut olarak girseydik Stdout bunu yakalayacak ve o çıktıyı gönderecekti.
+
+<br/>Docker ile ilgili de birkaç örnek verelim.
+<br/>Terminale --> docker run -d --name app berilerzurum/app komutunu girerek bir konteyner oluşturalım.
+<br/>Konteynerimiz başlangıçta app uygulaması çalışacak şekilde ayarlı. App --> merhaba ben app. çıktısını bastırıyor. Bu çıktıyı önce stdout'a gönderiyor. Lakin bizim terminalimiz konteynerin terminaline bağlı değil ve konteyner -d ile arkaplanda çalıştığı için mesaj arkaplanada oluştu fakat biz çıktıyı terminalde göremedik. 
+
+<br/>Docker logs tam bu durumu çözebilecek bir komut. Docker logs konteyner çalıştığı sürece, biz logs komutunu girene kadar oluşan tüm logları (stdout,stderr) yakalıyor ve onları komutu girince listeliyor ve bana göremediğim mesajları görebilme imkanı sunuyor.
