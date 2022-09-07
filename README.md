@@ -1,5 +1,5 @@
 # Linux komutları
-<h2><br/>CAT:</h2>
+<h3><br/><b>CAT:</b></h3>
 <br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
 <br/>Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
 <br/>Örneğin; Linux terminalinde deneme.txt dosyası oluşturalım.
