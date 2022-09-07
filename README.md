@@ -12,7 +12,7 @@
 <br/>Yazımızı ekledikten sonda Ctrl+D ile dosyadan çıkabiliriz.
 <br/><br/>Eğer ortamda önceden oluşturulmuş deneme.txt dosyası bulunuyorsa cat > deneme.txt komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
 <br/><br/>Eğer dosyanın üzerine yazmak istiyorsak **cat >>deneme.txt** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
-![Alt text](Ekran Görüntüsü (728).png "Cat")
+</br> ![Alt text](/Linux-komutlar-/Ekran Görüntüsü (728).png "Cat")
 
 <br/><br/>Konsolda bir dosyanın içeriğini görüntülemek yerine sonucu > kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
 <br/>• cat kaynak.txt > hedef.txt
