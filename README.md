@@ -1,1 +1,1 @@
-# Linux-komutlar-
+# Linux komutları
