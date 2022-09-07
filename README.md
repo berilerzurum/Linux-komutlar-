@@ -30,7 +30,7 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 <br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in el kılavuzu sayfasına man cat komutu ile ulaşabilirsiniz.
 
 <br/><h3><ins>More</ins></h3>
-<br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı tek sayfada gösterilemeyecek olan dosyalar okunurken boşluk tuşu ile kaydırma olanağı sağlamasıdır.
+<br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 <br/>• more file_path
 <br/><h3><ins>Less</ins></h3>
 <br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
