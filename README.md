@@ -25,19 +25,19 @@
 
 <br/>Cat komutuyla ilgili daha fazla bilgi için cat’in el kılavuzu sayfasına man cat komutu ile ulaşabilirsiniz.
 
-<br/>More
+<br/><h3>More</h3>
 <br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı tek sayfada gösterilemeyecek olan dosyalar okunurken boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 <br/>more file_path
-<br/>Less
+<br/><h3>Less</h3>
 <br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
 <br/>•	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
 <br/>•	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
 <br/>•	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
-<br/>Head
+<br/><h3>Head</h3>
 <br/>Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 <br/>head dosya.txt
 
-<br/>Tail
+<br/><h3>Tail</h3>
 <br/>Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
 <br/>tail dosya.txt
 
