@@ -27,16 +27,38 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 <br/><br/>Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
 <br/>•cat -n dosyaadi.txt
 
-<br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in el kılavuzu sayfasına man cat komutu ile ulaşabilirsiniz.
+<br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in kılavuz sayfasına man cat komutu ile ulaşabilirsiniz.
+---------------------LINKKKKKKKKKKK
+
+Cat’in bir diğer kullanımı da <<EOF>> ile olan kullanımıdır. Bu komutta çok satırlı olarak dosyaya metin ekleyebilmemizi sağlar. EOF komutunu yazarak dosyayı işimiz bittikten sonra kapatabiliriz.
+Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
+--------------------------LİNKKKKKKKKKKKKKKKKKKKKKKKKKK
+
+
 
 <br/><h3><ins>More</ins></h3>
 <br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 <br/>• more file_path
+ <br/>Ek olarak more komutu;
+<br/>more +5 dosya.txt
+<br/>5’inci satırdan itibaren dosya içeriğini çekmemizi sağlar.
+<br/>>> more +/”kelime” dosya.txt
+<br/>belirtilen kelime ile başlayan satırı çekmemizi sağlar.
+
 <br/><h3><ins>Less</ins></h3>
 <br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
 <br/>•	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
 <br/>•	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
 <br/>•	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
+<br/>G : basarsak sayfa sonuna gider.
+<br/>g : basarsak sayfa başına gider.
+<br/>“16g” : ile 16.satıra gider.
+<br/>“u” : sayfa yarı yukarı
+<br/>“d” : sayfa yarı aşağı
+<br/>“k” : bir satır yukarı
+<br/>“j” : bir satır aşağı
+
+ 
 <br/><h3><ins>Head</ins></h3>
 <br/>Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 <br/>head dosya.txt
