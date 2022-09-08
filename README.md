@@ -24,7 +24,7 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 <br/><br/>Cat komutu satır sonlarını, $ karakterini her satırın sonunda görüntüleyerek işaretleyebilir. Bu özelliği kullanmak için cat komutuyla birlikte -E seçeneğini kullanın:
 <br/>•cat -E dosyaadi.txt
 
-<br/><br/>Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
+<br/><br/>Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
 <br/>•cat -n dosyaadi.txt
 
 <br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in el kılavuzu sayfasına man cat komutu ile ulaşabilirsiniz.
