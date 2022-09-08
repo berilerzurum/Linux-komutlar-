@@ -65,7 +65,7 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 <br/>Mesela terminale ls/deneme komutunu girdik ama bulunduğumuz dizinde böyle bir klasör yok. Stderr bir hata mesajı üretir ve "no such file or directory" çıktısını gönderir. Ama dizinde olan bir dosyayı komut olarak girseydik Stdout bunu yakalayacak ve o çıktıyı gönderecekti.
 
 <br/>Docker ile ilgili de birkaç örnek verelim.
-<br/>Terminale --> docker run -d --name app berilerzurum/app komutunu girerek bir konteyner oluşturalım.
+<br/>Terminale --> docker run -d --name app deneme/app komutunu girerek bir konteyner oluşturalım.
 <br/>Konteynerimiz başlangıçta app uygulaması çalışacak şekilde ayarlı. App --> merhaba ben app. çıktısını bastırıyor. Bu çıktıyı önce stdout'a gönderiyor. Lakin bizim terminalimiz konteynerin terminaline bağlı değil ve konteyner -d ile arkaplanda çalıştığı için mesaj arkaplanada oluştu fakat biz çıktıyı terminalde göremedik. 
 
 <br/>Docker logs tam bu durumu çözebilecek bir komut. Docker logs konteyner çalıştığı sürece, biz logs komutunu girene kadar oluşan tüm logları (stdout,stderr) yakalıyor ve onları komutu girince listeliyor ve bana göremediğim mesajları görebilme imkanı sunuyor.
