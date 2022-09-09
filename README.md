@@ -26,14 +26,14 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 
 <br/><br/>Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
 <br/>•cat -n dosyaadi.txt
-https://github.com/berilerzurum/Linux-komutlar-/blob/9296e7cef055acee93659c54efbe9337e02c3d1d/image/2.1.png
+<br/> https://github.com/berilerzurum/Linux-komutlar-/blob/9296e7cef055acee93659c54efbe9337e02c3d1d/image/2.1.png
 
 <br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in kılavuz sayfasına man cat komutu ile ulaşabilirsiniz.
 <br/>
 
 Cat’in bir diğer kullanımı da << EOF >> ile olan kullanımıdır. Bu komutta çok satırlı olarak dosyaya metin ekleyebilmemizi sağlar. EOF komutunu yazarak dosyayı işimiz bittikten sonra kapatabiliriz.
 Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
-<br/>--------------------------LİNKKKKKKKKKKKKKKKKKKKKKKKKKK
+<br/> https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/4.png
 
 
 
@@ -74,10 +74,10 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/>Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
 
-<br/>---------------LINKKKK
+<br/> https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/tail.png
 
 
-<br/>Tail komutuna yukarıdaki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
+<br/>Tail komutuna yukarıdaki linkteki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
 <br/>tail [options] <files>
 <br/>• -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
 <br/>-> tail -n 5 dosya.txt komutu ile dosyanın son 5 satırı görüntülenir. 
@@ -87,8 +87,9 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>->tail -q dosya.txt
 <br/>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
 <br/>->tail -v dosya.txt
-<br/>--------------v ve -q komutlarının örneklerine aşağıdaki linkten ulaşabilirsiniz.
-<br/>------------------------------LİNKKKKKKKKKKKK
+<br/>v ve -q komutlarının örneklerine aşağıdaki linkten ulaşabilirsiniz.
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/1.png
+ <br/>
 <br/>• –retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
 <br/>• -f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
 <br/>Birim zaman başına çok sayıda erişim varsa bu yaklaşım pratik değildir. Bu durumda, günlük o kadar hızlı değişir ki terminal verilerle dolup taşar.
@@ -175,9 +176,9 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Birden fazla dosyayı tek seferde kaldırmak istersek;
 <br/>  rm dosya1 dosya2 dosya3  ; şeklinde komut girebiliriz.
 <br/>-f (Silmeyi Zorla): Bir dosya yazmaya karşı korumalıysa, rm onayın kaldırılmasını ister. -f seçeneği bu küçük korumayı geçersiz kılar ve dosyayı zorla kaldırır.
-<br/>------------------------LINKKKK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/7.png
 <br/>-r komutu ile dosyanın içindeki ve onun tüm alt dizinindeki dosyaları siler.
-<br/>-------------------------------LINKKKKKKKKKK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/8.png
 <br/>rmdir -> boş klasörleri silmek için kullanılır.
 <br/>rm -i -> interaktif modda çalışır ve sileceği her dosya için onay ister.
 <br/>rm -rf /*  -> root dizinini ve altındaki bütün dosyaları siler.
@@ -186,13 +187,14 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Touch komutu dosya yaratmak içindir.
 <br/>touch <filename>
 <br/>Eğer bulunduğumuz dizinde oluşturmak istediğimiz dosya isimli dosya yok ise,
-<br/>Yeni bir dosya yaratır. Aynı isimde dosya zaten bulunuyorsa, sadece dosyanın oluşturulma zamanı(timestamp) güncellenir.
-<br/>----------------------LINK
+<br/>Yeni bir dosya yaratır. Dizinde aynı isimde dosya zaten bulunuyorsa, sadece dosyanın oluşturulma zamanı(timestamp) güncellenir.
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/ts1.png
 <br/>Birden çok dosya yaratmak istersek dosya adlarını ard arda yazmamız yeterlidir.
 <br/>touch dosya1 dosya2 dosya3
 <br/>touch test{1..10} Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
 <br/>touch test_{a..j} Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
-<br/>-----------LINK
+<br/> https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/ts3.png
+ <br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/ts2.png
 
 <br/><h3><br/><ins>>PWD.</h3></ins>
 <br/>pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
@@ -201,7 +203,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/><h3><br/><ins>WHOAMI.</h3></ins>
 <br/>Bu komut çağrıldığında mevcut kullanıcının kullanıcı adını görüntüler.
-<br/>--------------------------------LINKKKKKKKKK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/9.png
 
 <br/><h3><br/><ins>WHEREIS.</h3></ins>
 <br/>whereis, belirli bir komut için binary (ikili), source (kaynak) ve manuel sayfa dosyalarının konumunu bulmanızı sağlayan bir komut satırı yardımcı programıdır. <br/>SYNTAX;
@@ -213,12 +215,12 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/>Örneğin, CAT komutu hakkında bilgi almak için aşağıdaki komutu yazabiliriz.
 <br/>whereis cat
-<br/>-------------------------------------------LINKKKKKKKKKKKK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/10.png
 <br/>/usr/bin/cat  binary (ikili) dosyanın yolu, /usr/share/man/man1/cat.1.gz ise man dosyasının yeridir.
 <br/>Ayrıca, whereis komutuna birden fazla argüman sağlayabilirsiniz.
-<br/>------------------------------------------LINK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/11.png
 <br/>Yalnızca komutun  binary (ikili) dosyalarını aramak için -b seçeneğini kullanabiliriz.
-<br/>----------------------------LINKKKKKKKKKK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/12.png
 <br/>Yalnızca source dosyaları için -s, yalnızca man dosyalarının yeri için -m seçeneğini kullanabiliriz.
 <br/>-u seçeneği, olağandışı girdilerin nerede aranacağını söyler. İstenen her türden, (binary (ikili), manuel ve kaynak) tam olarak bir girişi olmayan dosyalar, olağandışı dosyalar (komutlar) olarak kabul edilir.
 <br/>Örneğin, /bin dizinindeki kılavuz sayfaları olmayan veya birden fazla belgeye sahip tüm binary (ikili) dosyaları aramak için aşağıdaki komutu yazabiliriz.
@@ -227,7 +229,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/><h3><br/><ins>WHATIS.</h3></ins>
 <br/>whatis komutu aranan içeriği kütüphane içerisinde arayarak sonucu ekrana yansıtır.
 <br/>#whatis ping
-<br/>-------------------LINK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/13.png
 
 
 <br/><h3><br/><ins>TAR.</h3></ins>
@@ -299,16 +301,16 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/><h3><br/><ins>NETSTAT.</h3></ins>
 <br/>Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
-<br/># netstat -a | more   dinlenen ve dinlenmeyen tüm soketleri gösterir.
-<br/>#netstat -at  tüm TCP portlarını listeler.
-<br/># netstat -au tüm UDP portlarını listeler.
-<br/>#netstat -l   Sadece dinlenen portları listeler.
-<br/># netstat -lt  sadece dinlenen TCP portlarını listeler.
-<br/># netstat -lu  sadece dinlenen UDP portlarını listeler.
-<br/># netstat -s  tüm portların istatistiklerini listeler.
-<br/># netstat -r  Kernel routing (yönlendirme) bilgilerini listelemek için kullanılır.
-<br/># netstat -i  Ağ arayüzlerini (network interfaces) listeler.
-<br/>#netstat -e: Ethernet İstatistiklerini Gösterir.
+<br/># netstat -a | more  --> dinlenen ve dinlenmeyen tüm soketleri gösterir.
+<br/>#netstat -at  -->tüm TCP portlarını listeler.
+<br/># netstat -au -->tüm UDP portlarını listeler.
+<br/>#netstat -l --> Sadece dinlenen portları listeler.
+<br/># netstat -lt --> sadece dinlenen TCP portlarını listeler.
+<br/># netstat -lu --> sadece dinlenen UDP portlarını listeler.
+<br/># netstat -s --> tüm portların istatistiklerini listeler.
+<br/># netstat -r --> Kernel routing (yönlendirme) bilgilerini listelemek için kullanılır.
+<br/># netstat -i --> Ağ arayüzlerini (network interfaces) listeler.
+<br/>#netstat -e  --> Ethernet İstatistiklerini Gösterir.
 
 
 <br/><h3><br/><ins>NSLOOKUP.</h3></ins>
@@ -423,9 +425,9 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/><h3><br/><ins>IFCONFIG.</h3></ins>
 <br/>Argümansız “ifconfig” komutu, tüm aktif arayüz ayrıntılarını görüntüler. ifconfig komutu ayrıca bir sunucunun atanan IP adresini kontrol etmek için de kullanılır.
-<br/>-----------------LNKKK
+<br/>https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/ifcon%20(1).png
 <br/>-a argümanıyla birlikte aşağıdaki ifconfig komutu, sunucudaki tüm etkin veya etkin olmayan ağ arabirimlerinin bilgilerini görüntüler. eth0, lo, sit0 ve tun0 için sonuçları görüntüler.
-<br/>------------LINKKKK
+<br/> https://github.com/berilerzurum/Linux-komutlar-/blob/cc67a0f30f9e37509633c25a1f53c6f59f42907b/image/ifcon%20(2).png
 <br/>Belirttiğiniz bir interface'in bilgilerini görüntüleyebilirsiniz. (eth0 , eth1 vs.)
 <br/>Örneğin; ifconfig eth0
 <br/>Bir interface 'i aktif etmek için ifconfig kullanabilirsiniz. bunun için up parametresini kullanıyoruz.  ifconfig eth0 up
