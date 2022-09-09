@@ -381,8 +381,138 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/><br/>CHOWN.
 <br/>Dosya Sahibini veya grubunu değiştirmek için” chown” komutu kullanılır.
+<br/>Bir dosyanın sahipliğini değiştirmek için temel komut:
+<br/>chown kullanici dosyaadi
+<br/>Aynı dosya chownOrnegi.txt içinse sahipliği kökten, deneme adlı başka bir kullanıcıya değiştirmenize izin verir. Bu komutun bir örneği aşağıdaki gibidir:
+<br/>chown deneme chownOrnegi.txt
+<br/>Komut grubu değiştirmek için düzenlenebilir. Sahipliği ve grubu değiştirmek için temel formatsa:
+<br/>chown kullanici[:grup] dosyaadi
+<br/>Eğer aynı dosyayı chownOrnegi.txt deneme adlı sahibe ve grup1 adlı grupla değiştirmek istersek o zaman komut da böyle olacaktır:
+<br/>chown deneme: grup1 chownOrnegi.txt
+<br/>Eğer yalnızca grup değiştirilecekse sahipliği atlayabilirsiniz. Örnek olarak komut satırına bu komutu girin:
+<br/>chown :grup1 chownOrnegi.txt
+<br/>Tıpkı dosyalar gibi dizinler için de sahipliği ve grubu değiştirebilirsiniz. Bu komutun bir örneği böyledir:
+<br/>chown deneme /TestUnix
+<br/>Chown komutunun yinelemeli kullanımı tüm dizin ve alt dizinlerin sahipliğini veya grubunu kesin olarak değiştirir.
+
+<br/>Yinelemeli bir kullanım içinse -R seçeneğini kullanmanız gerekir. İşte bu komutun bir örneği:
+<br/>chown -R [KULLANICI][:GRUP] Dizin
+<br/>Eğer TestUnix olarak çok alt dizinli bir dizine sahipseniz aşağıdaki komut bütün dizinlerin ve alt dizinlerin sahipliğini deneme kullanıcısına verecektir.
+<br/>chown -R deneme /TestUnix
+<br/>Linkler için chown:
+<br/>chown deneme symlink
+
 <br/><br/>USERADD.
+<br/>Linux makinenizi birden fazla kişi kullanıyorsa veya birden çok kullanıcıya erişim sağlayan bir sunucuyu yönetiyorsanız, kullanıcı oluşturmak için useradd komutu gereklidir. SYNTAX;
+<br/>#sudo useradd [options] USERNAME
+<br/>Örneğin; sudo useradd test 
+<br/>Herhangi bir seçenek olmadan çalıştırıldığında useradd, /etc/default/useradd dosyasında belirtilen varsayılan ayarları kullanarak yeni bir kullanıcı hesabı oluşturur. 
+<br/>Bu, test adında bir kullanıcı yaratacaktır, ancak bu sınırlı bir işlemdir ve ana dizini veya şifresi gibi başka yararlı şeyler yaratmaz!
+<br/>Varsayılan ana dizine sahip bir kullanıcı oluşturmak için aşağıdaki seçeneği kullanın:
+<br/>sudo useradd -m test
+<br/>Bu kullanıcının artık bir /home/test dizini var.
+<br/>Ana dizini değiştirmek için, aşağıdaki komutu girebilirsiniz.
+<br/>sudo useradd -m -d /alternatif test
+
 <br/><br/>PASSWD.
+<br/>passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:#sudo passwd test. 
+<br/>Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
+
+<br/><br/><br/>IFCONFIG.
+<br/>Argümansız “ifconfig” komutu, tüm aktif arayüz ayrıntılarını görüntüler. ifconfig komutu ayrıca bir sunucunun atanan IP adresini kontrol etmek için de kullanılır.
+<br/>-----------------LNKKK
+<br/>-a argümanıyla birlikte aşağıdaki ifconfig komutu, sunucudaki tüm etkin veya etkin olmayan ağ arabirimlerinin bilgilerini görüntüler. eth0, lo, sit0 ve tun0 için sonuçları görüntüler.
+<br/>------------LINKKKK
+<br/>Belirttiğiniz bir interface'in bilgilerini görüntüleyebilirsiniz. (eth0 , eth1 vs.)
+<br/>Örneğin; ifconfig eth0
+<br/>Bir interface 'i aktif etmek için ifconfig kullanabilirsiniz. bunun için up parametresini kullanıyoruz.  ifconfig eth0 up
+<br/>Tam tersi interface’i kapatmak içinse down parametresini kullanıyoruz.
+<br/> - ifconfig eth0 down
+<br/>Belirttiğimiz interface 'e ip atamak için kullanabiliriz. 
+<br/>	İfconfig eth0 172.16.25.125
+<br/>Belirttiğiniz interface 'e subnet mask 'ı  atamak için kullanabiliriz.
+<br/>ifconfig eth0 netmask 255.255.255.224
+<br/>Belirttiğiniz interface 'e broadcast ip'i atamak için kullanabiliriz.
+<br/>ifconfig eth0 broadcast 172.16.25.63
+<br/>Belirttiğiniz interface 'e ip , mask ve broadcast 'i tek satırda verebiliriz
+<br/>ifconfig eth0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63
+<br/>ifconfig yardımcı programı, alias özelliğini kullanarak ek ağ arabirimlerini yapılandırmanıza olanak tanır.Örneğin; eth0'ın alias ağ arabirimini eklemek için aşağıdaki komut kullanılır.
+<br/> Alias ağ adresinin aynı subnet maskesinde olduğunu lütfen unutmayın. Örneğin, eth0 ağ ip adresiniz 172.16.25.125 ise, alias ip adresi 172.16.25.127 olmalıdır.
+<br/>ifconfig eth0:0 172.16.25.127
+<br/>Alias network interface’i kaldırmak içinse aşağıdaki komutu girmeniz yeterlidir.
+<br/>ifconfig eth0:0 down
+
+
+
+
+<br/><br/>IPTABLES
+<br/>Siber olaylardan korunmaya öncelikle kendi alacağımız tedbirler ile başlamalıyız. Dosya izinlerimizi kontrol etmeli, kullandığımız yazılımların güncel olup olmadığına kendimizin karar vermesi lazım. Network trafiğimizin de kontrolünü ilk aşamada kendi belirlediğimiz kuralların yazılması ile başlamalıyız. Iptables komutu işte tam bu konuda bize yardımcı olan bir yapıdır. İşletim sistemlerinde dışarıdan gelebilecek zararlara karşı koruma sağlayan bazı yapılar bulunur. Bu yapılara örnek olarak güvenlik duvarları diyebiliriz. Windows için sistemde hazır olarak bulunan güvenlik duvarı Windows Defender’dır. Linux işletim sistemlerinde ise hazırda bulunan güvenlik duvarı ise iptables’tır.
+<br/>Bu güvenlik duvarı sistemde görev yapan servislerin çalıştığı portlar üzerinde çalışır. İnternete bağlandığımız zaman ağ trafiği üzerindeki bütün veriler paketler halinde gönderilir. Linux kernel yapısında bu gelen ve giden trafik üzerinde hareket eden paketlerin paket filtreleme tablosu kullanarak daha önceden yazılan kurallara göre filtreleme yapabilmemizi sağlayan bir arayüz bulunur.
+<br/>Iptables, bu paket filtreleme tablolarını kurmamızı, yönetmemizi ve incelememizi sağlar.
+<br/>Iptables ile ağınıza gelen network trafiğini kontrol edebilir veya başka bir adrese yönlendirebilir.
+<br/>Birden fazla tablo belirlenebilir ve her tablo birden fazla zincir yapısına sahip olabilir.
+<br/>Zincir kuralların bütünüdür.
+<br/>Her kural, ağ trafiği üzerinden gelen her bir paketin bu kurala uyduğundan ne yapılacağına karar veren bir yol haritasıdır.
+<br/><br/>Kuralı sağlayan veya sağlamayan pakete ne olur?
+<br/>ACCEPT (KABUL ET): Paketin ağ trafiği üzerinden geçmesine izin verir
+<br/>DROP (REDDET): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilmez.
+<br/>REJECT (KABUL ETME): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilir.
+<br/>RETURN (GERİ ÇEVİR): Şimdiki zincirin pas geçilmesi ve çağrıldığı zincirde bir sonraki kurala geçilmesi gerektiği anlamına gelir.
+
+<br/><br/>Paketlerin Yönleri nelerdir ?
+<br/>INPUT: Gelen paketlerin kontrol edileceğini belirtmek için kullanırız. Gelen paketler port numarası, protokol türü ve source IP değerine göre engellenebilir veya paketin geçişine izin verilir.
+<br/>FORWARD: Sistem tarafından yönlendirilen paketlerin kontrolü için kullanılır.
+<br/>OUTPUT: Giden paketleri kontrolü için kullanılır.
+
+<br/><br/>Iptables Genel Kural Yapısı
+<br/>iptables -A <paketin yönü> -i <interface> -p <protokol tipi> -s <kaynak> — dport <port no.> -j <pakete ne olacak?>
+<br/>A = Hangi zincir tipine eklemek istediğimizi belirtiyoruz. Input, Output, Forward zincirlerinden biri olabilir.
+<br/>D = Belirtilen kuralın silinmesi için kullanılır. Yani daha önceden –A ile eklediğimiz kuralı bu sefer –D parametresi koyarak silebiliriz.
+<br/>i = Hangi interface için bu kuralı uygulayacağımız söylüyoruz.
+<br/>p = Hangi protokol için uygulayacağımız söylüyoruz. TCP, UDP vb. protokoller olabilir.
+<br/>s = Gelen paketlerin IP adreslerini kontrol edilmesi için yazılır.
+<br/>j = Bu paketin ne olacağı ile alakalı durumu belirtiriz. Paket ACCEPT, DROP veya RETURN edilebilir.
+
+<br/><br/>Iptables Örnekleri
+<br/>Spesifik Bir IP adresini engellemek
+<br/>→ iptables -A INPUT -s xxx.xxx.xxx.xxx -j DROP
+<br/>Açıklamak gerekirse INPUT a gelen paketlerden source IP adresi xxx.xxx.xxx.xxx olan paketleri DROP yani kabul etme diyoruz. Yani bir IP adresinin zararlı olduğunu biliyorsak bu komutu kullanabiliriz.
+<br/>→iptables -A INPUT -p tcp -s xxx.xxx.xxx.xxx -j DROP
+<br/>Bu örnekte ise bir IP adresinin bize TCP paketleri atmasını engellemek için yazdığımız bir kuraldır. İlk kuralda herhangi bir paket tipi atarsa paket direk DROP edilecekti. Ama buradaki kuralda sadece TCP paketi atarsa engellemeyi tercih etmişiz.
+<br/>Engellenen IP adresinin Engeleni Kaldırmak (Kural Silmek)
+<br/>→ iptables -D INPUT -s xxx.xxx.xxx.xxx -j DROP
+<br/>Önceki örnekte –A parametresi ile bu kuralı eklemiştik. Şimdi daha sonra eğer karar değiştirirsek yani kuralı silmek istersek bu önceden yazmış olduğun kuralın aynısını yazarak bu sefer –D parametresi ile silebiliriz
+<br/>Belli bir portu engellemek
+<br/>→iptables -A OUTPUT -p tcp — dport <port numarası> -j DROP
+<br/>Kullanmadığınız portların durumunu belirtin. Kendiniz için alabileceğiniz en büyük güvenlik önlemi budur. Eğer bir portu kullanmayacaksınız onu manuel olarak kapatmanız gerekir. Böylelikle olası bir saldırı durumda dışarıya veri sızıntısını engelleyebilirsiniz.
+<br/>→iptables -A INPUT -p tcp — dport xxx -j DROP
+<br/>Bu kuralda ise benim bilgisayarımdan dışarıya giden ve xxx portunu kullanan tüm paketler drop edilir. Bu kuralın mantığı ise dışarıdan gelen herhangi bir paketin xxx numaralı port ile olan iletişimini kesiyorum. Gelen paketleri DROP ediyorum.
+<br/>Ping İsteklerinin Engellenmesi
+<br/>→iptables -A INPUT -p icmp -i eth0 -j DROP
+<br/>Günümüzde zafiyet taraması yapan araçlar bir ağda çalışan bilgisayarın varlığını tespit edebilmek için o bilgisayarlara ping paketi gönderir. Bu pakete cevap verilirse de saldırgan sizin o ağ içinde olan bir bilgisayar diye işaretleyerek hedef haline gelirsiniz. Biz de bu durumdan kurtulmak için gelen ping paketlerini engelleyebiliriz. Ping paketleri icmp protokolünü kullanır ve eth0 ise bizim kendi network kartımızın interface değeridir.
+<br/>DoS ataklardan korunmak
+<br/>→iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-burst 100 -j ACCEPT
+<br/>Iptables ile network kartımıza gelen trafiği yönetebileceğimiz söylemiştik. DoS saldırılarından korunmak üzere kendimiz de bir şeyler yapabiliriz. 80 portunu HTTP bağlantısı kullanır. Dışarıdan gelen ve 80 portunu kullanan paketlerden sayısı dakika başına belirledğimiz sayısı aşmadığı sürece kabul edilmesini söylediğimiz kuralı yazdık.
+
+
+<br/><br/>TRACEROUTE.
+<br/>Tracert bir sorgulama komutudur. Neyi sorguladığına gelecek olursak hedefe giden yoldaki durakları gösterir. Paket transferi sırasında hatanın kaynağını bulmada yardımcı olur. Tracert bu işlemi yaparken İnternet Denetim İletisi Protokolü (ICMP) ve Ip yaşam süresi (TTL) değerlerini kullanılır. Bu komut Windowsta “tracert <IP address>” ile çalışır.
+<br/>En sık kullanılan parametreler
+<br/>-d: IP adreslerinin bilgisayar çözümlenmesini yapmadan sonuç verir. Yani 212.156.38.21.static.turktelekom.com.tr [212.156.38.21] yerine sadece 212.156.38.21 verir.
+<br/>-j: ana bilgisayar listesi (Ana bilgisayar listesinde zorunlu olmayan kaynak yolunu belirtir)
+<br/>-h: en fazla atlama sayısı (Hedef aranırken kullanılacak en fazla atlama sayısını belirtir)
+<br/>-w: zaman aşımı (Her yanıt için milisaniye olarak belirtilen zaman aşımı değeri kadar bekler)
+
+<br/><br/>IP komutları.
+<br/>IP komutu, sistem ve ağ yöneticileri için bir Linux ağ aracıdır. IP, İnternet Protokolü anlamına gelir ve adından da anlaşılacağı gibi, araç ağ arayüzlerini <br/>yapılandırmak için kullanılır.
+<br/>Daha eski Linux dağıtımları, benzer şekilde çalışan ”ifconfig“ komutunu kullanırdı. Ancak ifconfig, ip komutuna kıyasla sınırlı bir yetenek yelpazesine sahiptir.
+<br/>SYNTAX;
+<br/>ip [OPTION] OBJECT {COMMAND | help}
+<br/>Sık kullanılan objeler;
+<br/>1. link (l) –network interfaceleri görüntülemek ve değiştirmek için kullanılır.
+<br/>2. address (addr/a) –protocol addreslerini (IP, IPv6) görüntülemek ve değiştirmek için kullanılır.
+<br/>3. route (r) –routing tablosunu görüntülemek ve değiştirmek için kullanılır.
+<br/>4. neigh (n) – komşu nesneleri (ARP tablosu) görüntülemek ve işlemek için kullanılır.
 
 
 
