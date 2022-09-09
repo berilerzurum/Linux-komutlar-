@@ -30,7 +30,7 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 <br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in kılavuz sayfasına man cat komutu ile ulaşabilirsiniz.
 <br/>---------------------LINKKKKKKKKKKK
 
-Cat’in bir diğer kullanımı da <<EOF>> ile olan kullanımıdır. Bu komutta çok satırlı olarak dosyaya metin ekleyebilmemizi sağlar. EOF komutunu yazarak dosyayı işimiz bittikten sonra kapatabiliriz.
+Cat’in bir diğer kullanımı da << EOF >> ile olan kullanımıdır. Bu komutta çok satırlı olarak dosyaya metin ekleyebilmemizi sağlar. EOF komutunu yazarak dosyayı işimiz bittikten sonra kapatabiliriz.
 Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>--------------------------LİNKKKKKKKKKKKKKKKKKKKKKKKKKK
 
