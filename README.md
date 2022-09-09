@@ -49,23 +49,23 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 <br/>• more file_path
  <br/>Ek olarak more komutu;
-<br/>more +5 dosya.txt
+<br/>• more +5 dosya.txt
 <br/>5’inci satırdan itibaren dosya içeriğini çekmemizi sağlar.
-<br/>>> more +/”kelime” dosya.txt
+<br/>•  more +/”kelime” dosya.txt
 <br/>belirtilen kelime ile başlayan satırı çekmemizi sağlar.
 
 <br/><h3><ins>Less</ins></h3>
 <br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
-<br/>•	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
-<br/>•	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
-<br/>•	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
-<br/> G : basarsak sayfa sonuna gider.
-<br/> g : basarsak sayfa başına gider.
-<br/>“16g” : ile 16.satıra gider.
-<br/>“u” : sayfa yarı yukarı
-<br/>“d” : sayfa yarı aşağı
-<br/>“k” : bir satır yukarı
-<br/>“j” : bir satır aşağı
+<br/><b><i>1)</i></b>	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
+<br/><b><i>2)</i></b>	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
+<br/><b><i>3)</i></b>	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
+<br/>•"G" : basarsak sayfa sonuna gider.
+<br/> •"g" : basarsak sayfa başına gider.
+<br/>•“16g” : ile 16.satıra gider.
+<br/>•“u” : sayfa yarı yukarı
+<br/>•“d” : sayfa yarı aşağı
+<br/>•“k” : bir satır yukarı
+<br/>•“j” : bir satır aşağı
 
  
 <br/><h3><ins>Head</ins></h3>
