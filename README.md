@@ -170,11 +170,11 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
   
 <br/><br/>CP komutunun;
-<br/><br/><b><i>3)</i></b>Bir dosyayı başka bir dosyaya kopyalamaya,
+<br/><br/><b><i>1)</i></b>Bir dosyayı başka bir dosyaya kopyalamaya,
  <br/> <p align="center">
   <img src="image/6.png" />
 </p>
-<br/><br/><b><i>3)</i></b>Birden çok dosyayı bir dizinin içine kopyalamaya veya
+<br/><br/><b><i>2)</i></b>Birden çok dosyayı bir dizinin içine kopyalamaya veya
 <br/><br/><b><i>3)</i></b>Bir dizinin içeriğini tamamen başka bir dizinin içine kopyalama gibi farklı işlevler görmesi için yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
 
 <br/><br/>•Bir dosyayı başka bir dosyaya kopyalamak:
@@ -285,7 +285,9 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <h2><br/><ins><i>Sıkıştırılmış dosya ile ilgili komutlar (tar,gzip,unzip) </i></ins></h2> 
 <br/><h3><br/><ins>TAR.</h3></ins>
-<br/>Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır. Tar <br/>dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır
+  
+<br/>Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır. Tar <br/>dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır.
+  
 <br/>Syntax:
 <br/>tar [options] [archive-file] [file or directory to be archived]
 <br/>
@@ -302,37 +304,38 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>•-W : Verifies an archive file
 <br/>•-r : updates or adds file or directory in already existing .tar file
 
-<br/>Linux’da Bir .tar Arşiv Dosyası Oluşturma
-<br/>tar -cvf ornekArsiv.tar /home/ornekArsiv  -- Bu örnekte sıkıştırılması gereken dizin /home/ornekArsiv‘dir ve bunun sonucu olarak ornekArsiv.tar oluşacaktır.
-<br/>tar cfv archive.tar file1 file2 file3  --> dosyalardan arşiv yaratır.
-<br/>tar cfv archive.tar *.txt -> Geçerli dizindeki tüm .txt dosyalarının sıkıştırılmamış bir arşivini oluşturur.
+<br/><br/><b><i>1)</i></b>Linux’da Bir .tar Arşiv Dosyası Oluşturma
+<br/>•tar -cvf ornekArsiv.tar /home/ornekArsiv  -- Bu örnekte sıkıştırılması gereken dizin /home/ornekArsiv‘dir ve bunun sonucu olarak ornekArsiv.tar oluşacaktır.
+<br/>•tar cfv archive.tar file1 file2 file3  --> dosyalardan arşiv yaratır.
+<br/>•tar cfv archive.tar *.txt -> Geçerli dizindeki tüm .txt dosyalarının sıkıştırılmamış bir arşivini oluşturur.
 
-<br/>.tar.gz Dosyası Oluşturma:
-<br/>tar -cvzf ornekArsivArchive.tar.gz /home/ornekArsiv
+<br/><br/><b><i>2)</i></b>.tar.gz Dosyası Oluşturma:
+<br/>•tar -cvzf ornekArsivArchive.tar.gz /home/ornekArsiv
 
-<br/>Ek z seçeneği gzip sıkıştırılmasını temsil eder. Alternatif olarak .tar.gz dosyasına oldukça benzer olan .tgz dosyası oluşturabilirsiniz. Bunun bir örneğiyse:
-<br/>tar -cvzf ornekArsiv.tgz /home/ornekArsiv
+<br/><br/><b><i>3)</i></b>Ek z seçeneği gzip sıkıştırılmasını temsil eder. Alternatif olarak .tar.gz dosyasına oldukça benzer olan .tgz dosyası oluşturabilirsiniz. Bunun bir örneğiyse:
+<br/>•tar -cvzf ornekArsiv.tgz /home/ornekArsiv
 
-<br/>tar.bz2 Dosyası Oluşturma:
-<br/>.bz2 dosyası gzip’e kıyasla daha fazla sıkıştırılma sağlar. Ancak, sıkıştırma ve sıkıştırma işlemini geri almak daha uzun sürecektir. Bunu oluşturmak için -j seçeneğini kullanmanız gerekir. Bu işlemin bir örneğiyse:
-<br/>tar -cvjf ornekArsiv.tar.bz2 /home/ornekArsiv
+<br/><br/><b><i>4)</i></b>tar.bz2 Dosyası Oluşturma:
+<br/>•.bz2 dosyası gzip’e kıyasla daha fazla sıkıştırılma sağlar. Ancak, sıkıştırma ve sıkıştırma işlemini geri almak daha uzun sürecektir. Bunu oluşturmak için -j seçeneğini kullanmanız gerekir. Bu işlemin bir örneğiyse:
+<br/>•tar -cvjf ornekArsiv.tar.bz2 /home/ornekArsiv
 
-<br/>.tar Dosyalarını Açma
+<br/><br/><b><i>5)</i></b>.tar Dosyalarını Açma
 <br/>Linux tar komutu ayrıca bir dosyanın içindekileri çıkarmak için kullanılabilir. Aşağıdaki komut dosyaları mevcut dizine çıkaracaktır:
-<br/>tar -xvf Arsiv.tar  -> (Options: x = extract, f = file, v = verbose)
-<br/>Eğer dosyaları farklı bir dizine çıkarmak istiyorsanız -C seçeneğini kullanabilirsiniz. Bunun bir örneğiyse aşağıdaki gibidir:
-<br/>tar -xvf ornekArsiv.tar -C /home/ExtractedFiles/
+<br/>•tar -xvf Arsiv.tar  -> (Options: x = extract, f = file, v = verbose)
+<br/>•Eğer dosyaları farklı bir dizine çıkarmak istiyorsanız -C seçeneğini kullanabilirsiniz. Bunun bir örneğiyse aşağıdaki gibidir:
+<br/>•tar -xvf ornekArsiv.tar -C /home/ExtractedFiles/
 
-<br/>Arşiv oluşturulduktan sonra içerikleri aşağıdakine benzer bir komut kullanarak listeleyebilirsiniz:
-<br/>tar -tvf ornekArsiv.tar  arşivdeki tüm dosyaları gösterir.
+<br/><br/><b><i>6)</i></b>Arşiv oluşturulduktan sonra içerikleri aşağıdakine benzer bir komut kullanarak listeleyebilirsiniz:
+<br/>•tar -tvf ornekArsiv.tar --> arşivdeki tüm dosyaları gösterir.
 
-<br/>Arşiv oluşturulduktan sonra tek bir dosya çıkartabilirsiniz. Bunun bir örneği aşağıdaki gibidir:
-<br/>tar -xvf ornekArsiv.tar example.sh
-<br/>Eğer birden fazla dosya çıkarmak istiyorsanız aşağıdaki formatta bir komut kullanın:
-<br/>tar -xvf ornekArsiv.tar "file1" "file2"
+<br/><br/><b><i>7)</i></b>Arşiv oluşturulduktan sonra tek bir dosya çıkartabilirsiniz. Bunun bir örneği aşağıdaki gibidir:
+<br/>•tar -xvf ornekArsiv.tar example.sh
+  
+<br/><br/><b><i>8)</i></b>Eğer birden fazla dosya çıkarmak istiyorsanız aşağıdaki formatta bir komut kullanın:
+<br/>•tar -xvf ornekArsiv.tar "file1" "file2"
 
-<br/>Belirli türden dosyaları çıkarabildiğiniz gibi var olan bir arşive dosya da ekleyebilirsiniz. Bunu yapmak için karşılığı append olan -r seçeneğini <br/>kullanmalısınız. Tar hem dosya hem de dizin ekleyebilir.
-<br/>Var olan ornekArsiv.tar‘a example.jpg dosyasını eklediğimiz örnek:
+<br/><br/><b><i>9)</i></b>Belirli türden dosyaları çıkarabildiğiniz gibi var olan bir arşive dosya da ekleyebilirsiniz. Bunu yapmak için karşılığı append olan -r seçeneğini kullanmalısınız. Tar hem dosya hem de dizin ekleyebilir.
+<br/>•Var olan ornekArsiv.tar‘a example.jpg dosyasını eklediğimiz örnek:
 <br/>tar -rvf ornekArsiv.tar example.jpg
 
 <br/><h3><br/><ins>UNZIP.</h3></ins>
