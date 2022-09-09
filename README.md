@@ -50,8 +50,8 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>•	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
 <br/>•	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
 <br/>•	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
-<br/>G : basarsak sayfa sonuna gider.
-<br/>g : basarsak sayfa başına gider.
+<br/> G : basarsak sayfa sonuna gider.
+<br/> g : basarsak sayfa başına gider.
 <br/>“16g” : ile 16.satıra gider.
 <br/>“u” : sayfa yarı yukarı
 <br/>“d” : sayfa yarı aşağı
@@ -78,22 +78,22 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/>Tail komutuna yukarıdaki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
 <br/>tail [options] <files>
-<br/>-n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
+<br/>• -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
 <br/>-> tail -n 5 dosya.txt komutu ile dosyanın son 5 satırı görüntülenir. 
-<br/>-c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
+<br/>• -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
 <br/>->tail -c 5 dosya.txt komutu ile dosyadan son 5 byte görüntülenir.
-<br/>-q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
+<br/>• -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
 <br/>->tail -q dosya.txt
-<br/>-v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
+<br/>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
 <br/>->tail -v dosya.txt
 <br/>--------------v ve -q komutlarının örneklerine aşağıdaki linkten ulaşabilirsiniz.
 <br/>------------------------------LİNKKKKKKKKKKKK
-<br/>–retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
-<br/>-f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
+<br/>• –retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
+<br/>• -f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
 <br/>Birim zaman başına çok sayıda erişim varsa bu yaklaşım pratik değildir. Bu durumda, günlük o kadar hızlı değişir ki terminal verilerle dolup taşar.
  Canlı kuyruğun geçerli yürütmesini iptal etmek içinse "Ctrl + C" tuşuna basılması gerekir.
 <br/>->tail -f dosya.txt
-<br/>--pid=PID komutu
+<br/>• --pid=PID komutu
 <br/>-f seçeneğiyle birlikte kullanıldığında, belirtilen işlem kimliğine sahip işlem(PID), sona erdiğinde tail komutu sonlandırılır. Dosya yazma programı sonlandırıldığında, canlı kuyruğu iptal etmek için kullanışlıdır.
 <br/>->tail -f dosya.txt –pid=1
 
@@ -104,14 +104,14 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <h3><br/><ins>CD.</h3></ins>
 <br/>Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
 <br/>SYNTAX;
-<br/>cd [DIRNAME]
+<br/>•cd [DIRNAME]
 <br/> Mesela bulunduğumuz konumdan desktop konumuna geçmek istiyoruz. Bunun için aşağıdaki komutu, dizin adını girmemiz yeterlidir.
 <br/>cd /home/user/Desktop
 
 <br/>Bu komutun eşdeğeri  “cd ~/Desktop” komutudur.” ~ “ işareti kök dizini gösterir yani /home/user/ dizinidir.
- <br/>cd ~ komutu /home/user dizinine gitmemizi sağlar.
- <br/>cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
-<br/> cd .. komutu /home dizinine geçer.
+ <br/>•cd ~ komutu /home/user dizinine gitmemizi sağlar.
+ <br/>•cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
+<br/> •cd .. komutu /home dizinine geçer.
 
 <br/>
 <h3><br/><ins>MKDIR.</h3></ins>
@@ -126,17 +126,18 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/> • -v : (--verbose) Oluşturulan her dizini ekranda gösterir. Çoğunlukla -p ile birlikte kullanılır.
 <br/> • -m : Oluşturulan dizinin, erişim izinlerini belirler. Erişim izinleri ya sayısal olarak ya da r/w/x şeklinde belirtilmelidir. Genellikle bazı dizinlerin erişime engellenmesinde kullanılır.
 
-<br/>Aşağıdaki örnekte tam erişimli dosya yaratma işleminin komutu var.
+<br/>•Aşağıdaki örnekte tam erişimli dosya yaratma işleminin komutu var.
 <br/>mkdir -m 777 newDir
 <br/>Bu komut mkdir -m=rwx <file> komutuna eş değerdir.
-<br/>Sadece okuma ve yazma işlemi için "mkdir -m=rw <file>"
-<br/>Sadece yazma işlemi için "mkdir -m=r <file>"
-<br/>Sadece okuma işlemi için "mkdir -m=w <file>"
-<br/>Sadece execute işlemi için "mkdir -m=x <file>"
+ 
+<br/>•Sadece okuma ve yazma işlemi için "mkdir -m=rw <file>"
+<br/>•Sadece yazma işlemi için "mkdir -m=r <file>"
+<br/>•Sadece okuma işlemi için "mkdir -m=w <file>"
+<br/>•Sadece execute işlemi için "mkdir -m=x <file>"
 
 <br/><h3><br/><ins>RMDIR.</h3></ins>
 <br/>Mkdir’in tam tersine varolan dizini kaldırmak için kullanılır. SYNTAX;
-<br/>rmdir [DIRNAME]
+<br/>•rmdir [DIRNAME]
 
 <br/><h3><br/><ins>MV.</h3></ins>
 <br/>mv(move) komutu dosya ve dizinleri taşımak için kullanılır, ayrıca dosya ve dizinleri yeniden adlandırmak için de kullanılabilir. SYNTAX; 
@@ -516,6 +517,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>4. neigh (n) – komşu nesneleri (ARP tablosu) görüntülemek ve işlemek için kullanılır.
 
 <br/><br/>Örneğin;
+<br/>Link için;<br/>
 <br/>Mevcut tüm aygıtların link-layer bilgilerini görmek için şu komutu kullanın:
 <br/>ip link show
 <br/>Belirli bir aygıt için bilgileri görüntülemesini istiyorsanız, aşağıdakini yazın:
@@ -529,6 +531,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Aşağıdakileri girerek bir arayüzü (çevrimdışı) devre dışı bırakın:
 <br/>ip link set[interface] down
 
+<br/>Address için;
 <br/><br/>IPv4 addreslerini listelemek için:
 <br/>ip -4 addr
 <br/>IPv6 addreslerini listelemek için:
@@ -540,6 +543,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Bir interface den IP adresini kaldırmak istersek;
 <br/>ip addr del [ip_address] dev [interface]
 
+ <br/>Route için;
 <br/><br/>Tüm route girişlerini listelemek istersek;
 <br/>ip route -ya da- ip route list
 <br/>Yukarıdaki komutlarla çıktı, kerneldeki tüm route girişlerini görüntüler. Aramayı daraltmanız gerekirse, SELECTOR nesnesini ekleyin:
@@ -555,6 +559,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>ip route del default
 <br/>ip route del [ip_address] dev [interface]
 
+ <br/>Neigh için;
 <br/><br/>neighbor table’ları görüntülermek için;
 <br/>ip neigh show
 <br/>yeni giriş eklemek için;
