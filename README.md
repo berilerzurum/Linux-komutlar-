@@ -1,4 +1,7 @@
 # Linux komutları
+
+<h2><br/><ins><i>Dosya/dizin ile ilgili komutlar (cd,mkdir,mv,cp,rm,touch) </i></ins></h2> 
+
 <h3><br/><ins>CAT:</ins></h3>
 <br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
 <br/>Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
