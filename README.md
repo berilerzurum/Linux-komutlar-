@@ -26,9 +26,10 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 
 <br/><br/>Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
 <br/>•cat -n dosyaadi.txt
+https://github.com/berilerzurum/Linux-komutlar-/blob/9296e7cef055acee93659c54efbe9337e02c3d1d/image/2.1.png
 
 <br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in kılavuz sayfasına man cat komutu ile ulaşabilirsiniz.
-<br/>---------------------LINKKKKKKKKKKK
+<br/>
 
 Cat’in bir diğer kullanımı da << EOF >> ile olan kullanımıdır. Bu komutta çok satırlı olarak dosyaya metin ekleyebilmemizi sağlar. EOF komutunu yazarak dosyayı işimiz bittikten sonra kapatabiliriz.
 Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
