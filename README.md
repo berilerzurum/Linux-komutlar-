@@ -59,7 +59,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/><b><i>1)</i></b>	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
 <br/><b><i>2)</i></b>	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
 <br/><b><i>3)</i></b>	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
-<br/>•"G" : basarsak sayfa sonuna gider.
+<p><br/>•"G" : basarsak sayfa sonuna gider.
 <br/> •"g" : basarsak sayfa başına gider.
 <br/>•“16g” : ile 16.satıra gider.
 <br/>•“u” : sayfa yarı yukarı
