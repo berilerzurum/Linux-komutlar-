@@ -514,6 +514,53 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>3. route (r) –routing tablosunu görüntülemek ve değiştirmek için kullanılır.
 <br/>4. neigh (n) – komşu nesneleri (ARP tablosu) görüntülemek ve işlemek için kullanılır.
 
+<br/><br/>Örneğin;
+<br/>Mevcut tüm aygıtların link-layer bilgilerini görmek için şu komutu kullanın:
+<br/>ip link show
+<br/>Belirli bir aygıt için bilgileri görüntülemesini istiyorsanız, aşağıdakini yazın:
+<br/>ip link show dev [cihaz]
+<br/>Tüm ağ arabirimlerinin istatistiklerini (aktarılan veya bırakılan paketler, hatalar gibi ayrıntılar) görmek için şunu kullanın:
+<br/>ip -s link
+<br/>Yalnızca çalışan arayüzlerin listesini görmek için şunu kullanın:
+<br/>ip link ls up
+<br/>Bir ağ arayüzünü (çevrimiçi) açmak istiyorsanız, şu komutu kullanın:
+<br/>ip link set[interface] up
+<br/>Aşağıdakileri girerek bir arayüzü (çevrimdışı) devre dışı bırakın:
+<br/>ip link set[interface] down
+
+<br/><br/>IPv4 addreslerini listelemek için:
+<br/>ip -4 addr
+<br/>IPv6 addreslerini listelemek için:
+<br/>ip -6 addr
+<br/>Bir arayüze IP atamak istersek:
+<br/>ip addr add [ip_address] dev [interface]
+<br/>Bir interfce’e broadcast address eklemek istersek;
+<br/>ip addr add brd [ip_address] dev [interface]
+<br/>Bir interface den IP adresini kaldırmak istersek;
+<br/>ip addr del [ip_address] dev [interface]
+
+<br/><br/>Tüm route girişlerini listelemek istersek;
+<br/>ip route -ya da- ip route list
+<br/>Yukarıdaki komutlarla çıktı, kerneldeki tüm route girişlerini görüntüler. Aramayı daraltmanız gerekirse, SELECTOR nesnesini ekleyin:
+<br/>ip route list SELECTOR
+<br/>Distinct network için;
+<br/>ip route list [ip_address]
+<br/>Belirli bir cihazda erişilebilen routing tablosuna yeni bir giriş eklemek için;
+<br/>ip route add [ip_address] dev [interface]  
+<br/>Ya da gateway aracılığı ile;
+<br/>ip route add [ip_address] via [gatewayIP]
+<br/>Varolan routing table’ı silmek için aşağıdaki komutları deneyin.
+<br/>ip route del [ip_address]
+<br/>ip route del default
+<br/>ip route del [ip_address] dev [interface]
+
+<br/><br/>neighbor table’ları görüntülermek için;
+<br/>ip neigh show
+<br/>yeni giriş eklemek için;
+<br/>ip neigh add [ip_address] dev [interface]
+<br/>ARP girişini silmek için;
+<br/>ip neigh del [ip_address] dev [interface]
+
 
 
 
