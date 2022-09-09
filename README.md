@@ -76,14 +76,14 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>head dosya.txt
 
 <br/><h3><ins>Tail</h3></ins>
-<br/>Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
+<br/>•Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
 <br/>tail dosya.txt
 
-<br/>head ve tail komutları için varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örnekler:
+<br/>•head ve tail komutları için varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örnekler:
 <br/>head -n 5 dosya.txt
 <br/>tail -n 25 dosya.txt
 
-<br/>Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
+<br/>•Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
 
 <br/> <p align="center">
   <img src="image/tail.png" />
@@ -94,22 +94,22 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>tail [options] <files>
 <br/><br/><b><i>1)</i></b>• -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
 <br/>-> tail -n 5 dosya.txt komutu ile dosyanın son 5 satırı görüntülenir. <br/>
-<br/><br/><b><i>1)</i></b>• -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
+<br/><br/><b><i>2)</i></b>• -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
 <br/>->tail -c 5 dosya.txt komutu ile dosyadan son 5 byte görüntülenir.<br/>
-<br/><br/><b><i>1)</i></b>• -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
+<br/><br/><b><i>3)</i></b>• -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
 <br/>->tail -q dosya.txt<br/>
-<br/><br/><b><i>1)</i></b>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
+<br/><br/><b><i>4)</i></b>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
 <br/>->tail -v dosya.txt
 <br/><p align="center">
   <img src="image/1.png" />
 </p>
  <br/>
-<br/>• –retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
-<br/>• -f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
+<br/><br/><b><i>5)</i></b> –retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
+<br/><br/><b><i>6)</i></b> -f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
 <br/>Birim zaman başına çok sayıda erişim varsa bu yaklaşım pratik değildir. Bu durumda, günlük o kadar hızlı değişir ki terminal verilerle dolup taşar.
  Canlı kuyruğun geçerli yürütmesini iptal etmek içinse "Ctrl + C" tuşuna basılması gerekir.
 <br/>->tail -f dosya.txt
-<br/>• --pid=PID komutu
+<br/><br/><b><i>7)</i></b> --pid=PID komutu
 <br/>-f seçeneğiyle birlikte kullanıldığında, belirtilen işlem kimliğine sahip işlem(PID), sona erdiğinde tail komutu sonlandırılır. Dosya yazma programı sonlandırıldığında, canlı kuyruğu iptal etmek için kullanışlıdır.
 <br/>->tail -f dosya.txt –pid=1
 
