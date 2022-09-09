@@ -254,7 +254,8 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
   
 <br/>•Herhangi bir seçenek olmadan kullanıldığında, argüman olarak belirtilen komut için, binary (ikili), source (kaynak) ve manuel dosyalarını arar.
 
-<br/>•Varsayılan olarak whereis, ortam değişkenlerinde listelenen sabit kodlanmış yollarda ve dizinlerde komutun dosyalarını arar. 
+<br/>•Varsayılan olarak whereis, ortam değişkenlerinde listelenen sabit kodlanmış yollarda ve dizinlerde komutun dosyalarını arar.
+  
 <br/>•whereis komutunun aradığı dizinleri bulmak için -l seçeneğini kullanabiliriz (whereis -l).
 
 <br/>Örneğin, CAT komutu hakkında bilgi almak için aşağıdaki komutu yazabiliriz.
