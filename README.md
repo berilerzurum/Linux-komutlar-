@@ -611,3 +611,6 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>ls-l yaparak da access.log ve error.log dosyalarının /dev/stdout ve /dev/stderr dosyalarına bağlandığını görebiliriz. İşte bu bağlama görevini de önceden de bahsettiğim gibi symlink gerçekleştirir.
 
 
+
+ 
+ ![tail](https://user-images.githubusercontent.com/50303910/189340611-55ade941-6c41-42dd-baf2-5c15edbe4e36.png)
