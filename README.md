@@ -92,15 +92,14 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/>Tail komutuna yukarıdaki linkteki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
 <br/>tail [options] <files>
-<br/>• -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
-<br/>-> tail -n 5 dosya.txt komutu ile dosyanın son 5 satırı görüntülenir. 
-<br/>• -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
-<br/>->tail -c 5 dosya.txt komutu ile dosyadan son 5 byte görüntülenir.
-<br/>• -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
-<br/>->tail -q dosya.txt
-<br/>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
+<br/><br/><b><i>1)</i></b>• -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
+<br/>-> tail -n 5 dosya.txt komutu ile dosyanın son 5 satırı görüntülenir. <br/>
+<br/><br/><b><i>1)</i></b>• -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
+<br/>->tail -c 5 dosya.txt komutu ile dosyadan son 5 byte görüntülenir.<br/>
+<br/><br/><b><i>1)</i></b>• -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
+<br/>->tail -q dosya.txt<br/>
+<br/><br/><b><i>1)</i></b>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
 <br/>->tail -v dosya.txt
-<br/>v ve -q komutlarının örneklerine aşağıdaki linkten ulaşabilirsiniz.
 <br/><p align="center">
   <img src="image/1.png" />
 </p>
