@@ -101,7 +101,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 <br/>
 
-<br/>CD.
+<h3><br/><ins>CD.</h3></ins>
 <br/>Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
 <br/>SYNTAX;
 <br/>cd [DIRNAME]
@@ -113,7 +113,8 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
  <br/>cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
 <br/> cd .. komutu /home dizinine geçer.
 
-<br/><br/>MKDIR.
+<br/>
+<h3><br/><ins>MKDIR.</h3></ins>
 <br/>mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. Syntax;
 <br/>mkdir dizin_adı  şeklindedir.
 <br/> Yukarıda yazıldığı gibi kullanıldığında yeni dizin şu anki dizinin içinde oluşturulur. 
@@ -133,18 +134,18 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Sadece okuma işlemi için "mkdir -m=w <file>"
 <br/>Sadece execute işlemi için "mkdir -m=x <file>"
 
-<br/><br/>RMDIR.
+<br/><h3><br/><ins>RMDIR.</h3></ins>
 <br/>Mkdir’in tam tersine varolan dizini kaldırmak için kullanılır. SYNTAX;
 <br/>rmdir [DIRNAME]
 
-<br/><br/>MV.
+<br/><h3><br/><ins>MV.</h3></ins>
 <br/>mv(move) komutu dosya ve dizinleri taşımak için kullanılır, ayrıca dosya ve dizinleri yeniden adlandırmak için de kullanılabilir. SYNTAX; 
 <br/>mv [eski] [yeni]
 <br/>mv newDir ~/Documents/Dirs  
 <br/>Dosya adını değiştirmek için; newdir olan dosya adını ChangedDir dosya adına çevirir.
 <br/>mv newDir ChangedDir
 
-<br/><br/>CP.
+<br/><h3><br/><ins>CP.</h3></ins>
 <br/>Dosya ve dizinleri kopyalamaya yarayan bir araç komutudur. 
 <br/>cp newDir ~/Documents/Dirs
 <br/>Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
@@ -166,7 +167,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>-v işlemle ilgili süreci döker.
 <br/>-R ya da -r ; klasör yapısını olduğu gibi kopyalar. Dizin ağacındaki tüm dosyaları, yani bir dizin ve onun alt dizinindeki tüm dosyaları kopyalar.
 
-<br/><br/>RM.
+<br/><h3><br/><ins>RM.</h3></ins>
 <br/>Artık ihtiyacımız olmayan dosyaları kaldırmak için rm komutunu kullanırız.
 <br/>rm myfile
 <br/>Birden fazla dosyayı tek seferde kaldırmak istersek;
@@ -179,7 +180,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>rm -i -> interaktif modda çalışır ve sileceği her dosya için onay ister.
 <br/>rm -rf /*  -> root dizinini ve altındaki bütün dosyaları siler.
 
-<br/><br/>TOUCH. 
+<br/><h3><br/><ins>TOUCH.</h3></ins> 
 <br/>Touch komutu dosya yaratmak içindir.
 <br/>touch <filename>
 <br/>Eğer bulunduğumuz dizinde oluşturmak istediğimiz dosya isimli dosya yok ise,
@@ -191,16 +192,16 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>touch test_{a..j} Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
 <br/>-----------LINK
 
-<br/><br/>PWD.
+<br/><h3><br/><ins>>PWD.</h3></ins>
 <br/>pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
 <br/>$pwd 
 <br/>/home/user/Desktop
 
-<br/><br/>WHOAMI.
+<br/><h3><br/><ins>WHOAMI.</h3></ins>
 <br/>Bu komut çağrıldığında mevcut kullanıcının kullanıcı adını görüntüler.
 <br/>--------------------------------LINKKKKKKKKK
 
-<br/><br/>WHEREIS.
+<br/><h3><br/><ins>WHEREIS.</h3></ins>
 <br/>whereis, belirli bir komut için binary (ikili), source (kaynak) ve manuel sayfa dosyalarının konumunu bulmanızı sağlayan bir komut satırı yardımcı programıdır. <br/>SYNTAX;
 <br/>whereis [SEÇENEKLER] DOSYA-ADI...
 <br/>Herhangi bir seçenek olmadan kullanıldığında, argüman olarak belirtilen komut için, binary (ikili), source (kaynak) ve manuel dosyalarını arar.
@@ -221,13 +222,13 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Örneğin, /bin dizinindeki kılavuz sayfaları olmayan veya birden fazla belgeye sahip tüm binary (ikili) dosyaları aramak için aşağıdaki komutu yazabiliriz.
 <br/>whereis -m -u *
 
-<br/><br/>WHATIS.
+<br/><h3><br/><ins>WHATIS.</h3></ins>
 <br/>whatis komutu aranan içeriği kütüphane içerisinde arayarak sonucu ekrana yansıtır.
 <br/>#whatis ping
 <br/>-------------------LINK
 
 
-<br/><br/>TAR.
+<br/><h3><br/><ins>TAR.</h3></ins>
 <br/>Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır. Tar <br/>dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır
 <br/>Syntax:
 <br/>tar [options] [archive-file] [file or directory to be archived]
@@ -278,11 +279,11 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Var olan ornekArsiv.tar‘a example.jpg dosyasını eklediğimiz örnek:
 <br/>tar -rvf ornekArsiv.tar example.jpg
 
-<br/><br/>UNZIP.
+<br/><h3><br/><ins>UNZIP.</h3></ins>
 <br/>Sıkıştırılmış zip dosyalarını çıkartır (extract). SYNTAX;
 <br/>unzip file.zip
 
-<br/><br/>GZIP.
+<br/><h3><br/><ins>GZIP.</h3></ins>
 <br/>Gzip, bir dosyanın boyutunu azaltmanıza ve orijinal dosya modunu, sahipliği ve zaman damgasını korumanıza izin veren en popüler sıkıştırma algoritmalarından biridir. SYNTAX;
 <br/>gzip filename -> bu komut ile filename dosyasının sıkıştırılmış dosyası oluşturulur ve eski(sıkıştırılmamış) dosya silinir.
 <br/>Eğer önceki dosyanın da korunmasını istiyorsak ; gzip -k filename
@@ -294,7 +295,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>gzip -d filename.gz
 <br/>Diğer bir seçenek ise “gunzip”.  gunzip filename.gz
 
-<br/><br/>NETSTAT.
+<br/><h3><br/><ins>NETSTAT.<h3></ins>
 <br/>Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
 <br/># netstat -a | more   dinlenen ve dinlenmeyen tüm soketleri gösterir.
 <br/>#netstat -at  tüm TCP portlarını listeler.
@@ -308,7 +309,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>#netstat -e: Ethernet İstatistiklerini Gösterir.
 
 
-<br/><br/>NSLOOKUP.
+<br/><h3><br/><ins>NSLOOKUP.</h3></ins>
 <br/>(name server lookup ) Alan adı ve IP adresi eşleşmesi bulmak veya DNS kayıtlarını sorgulamak/incelemek için kullanılabilen bir komut satırı aracıdır.
 <br/>1) Aşağıdaki komut microsoft.com’un IP ‘sini sorgular;
 <br/>nslookup microsoft.com
@@ -321,7 +322,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>4) Aşağıdaki komut SOA kaydını sorgular;
 <br/>nslookup -type=soa microsoft.com
 
-<br/><br/>NETCAT.
+<br/><h3><br/><ins>NETCAT.</h3></ins>
 <br/>Netcat’in komut halini “nc” olarak kullanıyoruz. Bu komutun temel amacı networkler arasındaki veri okuma / yazma işlemlerine dair işlemlerdir.
 <br/>Netcat’in Temel SYNTAX’ı:
 <br/>$ nc [options] host port
@@ -347,7 +348,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Burada listener modunda istenilen yerel portta bir Netcat Listener’ı oluşturmuş oluruz.
 <br/>Hem client hem de listener modda veri STDIN’den alınır ve network’den STDOUT’a verilir.
 
-<br/><br/>CHMOD.
+<br/><h3><br/><ins>CHMOD.</h3></ins>
 <br/>Linux sistemlerde kullanıcıların dosyalara erişim haklarını belirlemek için “chmod” komutu kullanılınır. Chmod un tam karşılığı change moddur.
 <br/>Chmod erişim izinleri herzaman rwx şeklinde sıralanmaktadır.
 <br/>r – Okuma izni ( Read permission )
@@ -379,7 +380,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>chmod +r deneme : deneme dosyasına okuma(r) izni vermiş olduk.
 <br/>chmod go+r deneme* : ( * ) joker parametresi ile deneme ile başlayan tüm dosyaların grup ve diğer(other) userler tarafından okunması iznini verir.
 
-<br/><br/>CHOWN.
+<br/><h3><br/><ins>CHOWN.</h3></ins>
 <br/>Dosya Sahibini veya grubunu değiştirmek için” chown” komutu kullanılır.
 <br/>Bir dosyanın sahipliğini değiştirmek için temel komut:
 <br/>chown kullanici dosyaadi
@@ -402,7 +403,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Linkler için chown:
 <br/>chown deneme symlink
 
-<br/><br/>USERADD.
+<br/><h3><br/><ins>USERADD.</h3></ins>
 <br/>Linux makinenizi birden fazla kişi kullanıyorsa veya birden çok kullanıcıya erişim sağlayan bir sunucuyu yönetiyorsanız, kullanıcı oluşturmak için useradd komutu gereklidir. SYNTAX;
 <br/>#sudo useradd [options] USERNAME
 <br/>Örneğin; sudo useradd test 
@@ -414,11 +415,11 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Ana dizini değiştirmek için, aşağıdaki komutu girebilirsiniz.
 <br/>sudo useradd -m -d /alternatif test
 
-<br/><br/>PASSWD.
+<br/><h3><br/><ins>PASSWD.<h3></ins>
 <br/>passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:#sudo passwd test. 
 <br/>Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
-<br/><br/><br/>IFCONFIG.
+<br/><h3><br/><ins>IFCONFIG.</h3></ins>
 <br/>Argümansız “ifconfig” komutu, tüm aktif arayüz ayrıntılarını görüntüler. ifconfig komutu ayrıca bir sunucunun atanan IP adresini kontrol etmek için de kullanılır.
 <br/>-----------------LNKKK
 <br/>-a argümanıyla birlikte aşağıdaki ifconfig komutu, sunucudaki tüm etkin veya etkin olmayan ağ arabirimlerinin bilgilerini görüntüler. eth0, lo, sit0 ve tun0 için sonuçları görüntüler.
@@ -445,7 +446,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 
 
 
-<br/><br/>IPTABLES
+<br/><h3><br/><ins>IPTABLES</h3></ins>
 <br/>Siber olaylardan korunmaya öncelikle kendi alacağımız tedbirler ile başlamalıyız. Dosya izinlerimizi kontrol etmeli, kullandığımız yazılımların güncel olup olmadığına kendimizin karar vermesi lazım. Network trafiğimizin de kontrolünü ilk aşamada kendi belirlediğimiz kuralların yazılması ile başlamalıyız. Iptables komutu işte tam bu konuda bize yardımcı olan bir yapıdır. İşletim sistemlerinde dışarıdan gelebilecek zararlara karşı koruma sağlayan bazı yapılar bulunur. Bu yapılara örnek olarak güvenlik duvarları diyebiliriz. Windows için sistemde hazır olarak bulunan güvenlik duvarı Windows Defender’dır. Linux işletim sistemlerinde ise hazırda bulunan güvenlik duvarı ise iptables’tır.
 <br/>Bu güvenlik duvarı sistemde görev yapan servislerin çalıştığı portlar üzerinde çalışır. İnternete bağlandığımız zaman ağ trafiği üzerindeki bütün veriler paketler halinde gönderilir. Linux kernel yapısında bu gelen ve giden trafik üzerinde hareket eden paketlerin paket filtreleme tablosu kullanarak daha önceden yazılan kurallara göre filtreleme yapabilmemizi sağlayan bir arayüz bulunur.
 <br/>Iptables, bu paket filtreleme tablolarını kurmamızı, yönetmemizi ve incelememizi sağlar.
@@ -495,7 +496,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Iptables ile network kartımıza gelen trafiği yönetebileceğimiz söylemiştik. DoS saldırılarından korunmak üzere kendimiz de bir şeyler yapabiliriz. 80 portunu HTTP bağlantısı kullanır. Dışarıdan gelen ve 80 portunu kullanan paketlerden sayısı dakika başına belirledğimiz sayısı aşmadığı sürece kabul edilmesini söylediğimiz kuralı yazdık.
 
 
-<br/><br/>TRACEROUTE.
+<br/><h3><br/><ins>TRACEROUTE.</h3></ins>
 <br/>Tracert bir sorgulama komutudur. Neyi sorguladığına gelecek olursak hedefe giden yoldaki durakları gösterir. Paket transferi sırasında hatanın kaynağını bulmada yardımcı olur. Tracert bu işlemi yaparken İnternet Denetim İletisi Protokolü (ICMP) ve Ip yaşam süresi (TTL) değerlerini kullanılır. Bu komut Windowsta “tracert <IP address>” ile çalışır.
 <br/>En sık kullanılan parametreler
 <br/>-d: IP adreslerinin bilgisayar çözümlenmesini yapmadan sonuç verir. Yani 212.156.38.21.static.turktelekom.com.tr [212.156.38.21] yerine sadece 212.156.38.21 verir.
@@ -503,7 +504,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>-h: en fazla atlama sayısı (Hedef aranırken kullanılacak en fazla atlama sayısını belirtir)
 <br/>-w: zaman aşımı (Her yanıt için milisaniye olarak belirtilen zaman aşımı değeri kadar bekler)
 
-<br/><br/>IP komutları.
+<br/><h3><br/><ins>IP komutları.</h3></ins>
 <br/>IP komutu, sistem ve ağ yöneticileri için bir Linux ağ aracıdır. IP, İnternet Protokolü anlamına gelir ve adından da anlaşılacağı gibi, araç ağ arayüzlerini <br/>yapılandırmak için kullanılır.
 <br/>Daha eski Linux dağıtımları, benzer şekilde çalışan ”ifconfig“ komutunu kullanırdı. Ancak ifconfig, ip komutuna kıyasla sınırlı bir yetenek yelpazesine sahiptir.
 <br/>SYNTAX;
