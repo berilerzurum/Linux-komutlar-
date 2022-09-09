@@ -157,69 +157,70 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>•rmdir [DIRNAME]
 
 <br/><h3><br/><ins>MV.</h3></ins>
-<br/>mv(move) komutu dosya ve dizinleri taşımak için kullanılır, ayrıca dosya ve dizinleri yeniden adlandırmak için de kullanılabilir. SYNTAX; 
-<br/>mv [eski] [yeni]
-<br/>mv newDir ~/Documents/Dirs  
-<br/>Dosya adını değiştirmek için; newdir olan dosya adını ChangedDir dosya adına çevirir.
+<br/>mv(move) komutu dosya ve dizinleri taşımak için kullanılır, ayrıca dosya ve dizinleri yeniden adlandırmak için de kullanılabilir. 
+ <br/> SYNTAX; 
+<br/>•mv [eski] [yeni]
+<br/>•mv newDir ~/Documents/Dirs  
+<br/><br/>Dosya adını değiştirmek için; newdir olan dosya adını ChangedDir dosya adına çevirir.
 <br/>mv newDir ChangedDir
 
 <br/><h3><br/><ins>CP.</h3></ins>
 <br/>Dosya ve dizinleri kopyalamaya yarayan bir araç komutudur. 
-<br/>cp newDir ~/Documents/Dirs
+<br/><br/>cp newDir ~/Documents/Dirs
 <br/>Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
-<br/>CP komutunun;
-<br/>Bir dosyayı başka bir dosyaya kopyalamaya,
+<br/><br/>CP komutunun;
+<br/>•Bir dosyayı başka bir dosyaya kopyalamaya,
  <br/> <p align="center">
   <img src="image/6.png" />
 </p>
-<br/>Birden çok dosyayı bir dizinin içine kopyalamaya veya
-<br/>Bir dizinin içeriğini tamamen başka bir dizinin içine kopyalama gibi farklı işlevler görmesi için yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
+<br/>•Birden çok dosyayı bir dizinin içine kopyalamaya veya
+<br/>•Bir dizinin içeriğini tamamen başka bir dizinin içine kopyalama gibi farklı işlevler görmesi için yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
 
-<br/>Bir dosyayı başka bir dosyaya kopyalamak:
+<br/><br/>Bir dosyayı başka bir dosyaya kopyalamak:
 <br/>cp kaynakdosya hedefdosya
-<br/>Dosya veya dosyaları bir dizinin içine kopyalamak:
+<br/><br/>Dosya veya dosyaları bir dizinin içine kopyalamak:
 <br/>cp kaynakdosya... hedefdizin
-<br/>Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
+<br/><br/>Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
 <br/>cp -r|-R kaynakdizin hedefdizin
 
-<br/>Peki, bulunduğumuz dizindeki tüm *.sql uzantılı dosyaların oluşturulmuş /db_yedek isimli bir başka klasöre kopyalanmasını istersek;
+<br/><br/>Peki, bulunduğumuz dizindeki tüm *.sql uzantılı dosyaların oluşturulmuş /db_yedek isimli bir başka klasöre kopyalanmasını istersek;
 <br/>cp *.sql db_yedek/
-<br/>-a dosyaya ait file mode, ownership, timestamps ve eğer mümkünse attributes: context, links, xattr verilerini aktarır.
-<br/>-v işlemle ilgili süreci döker.
-<br/>-R ya da -r ; klasör yapısını olduğu gibi kopyalar. Dizin ağacındaki tüm dosyaları, yani bir dizin ve onun alt dizinindeki tüm dosyaları kopyalar.
+<br/>•-a dosyaya ait file mode, ownership, timestamps ve eğer mümkünse attributes: context, links, xattr verilerini aktarır.
+<br/>•-v işlemle ilgili süreci döker.
+<br/>•-R ya da -r ; klasör yapısını olduğu gibi kopyalar. Dizin ağacındaki tüm dosyaları, yani bir dizin ve onun alt dizinindeki tüm dosyaları kopyalar.
 
 <br/><h3><br/><ins>RM.</h3></ins>
 <br/>Artık ihtiyacımız olmayan dosyaları kaldırmak için rm komutunu kullanırız.
 <br/>rm myfile
-<br/>Birden fazla dosyayı tek seferde kaldırmak istersek;
+<br/><br/>Birden fazla dosyayı tek seferde kaldırmak istersek;
 <br/>  rm dosya1 dosya2 dosya3  ; şeklinde komut girebiliriz.
-<br/>-f (Silmeyi Zorla): Bir dosya yazmaya karşı korumalıysa, rm onayın kaldırılmasını ister. -f seçeneği bu küçük korumayı geçersiz kılar ve dosyayı zorla kaldırır.
+<br/><br/>•-f (Silmeyi Zorla): Bir dosya yazmaya karşı korumalıysa, rm onayın kaldırılmasını ister. -f seçeneği bu küçük korumayı geçersiz kılar ve dosyayı zorla kaldırır.
 <br/><p align="center">
   <img src="image/7.png" />
 </p>
-<br/>-r komutu ile dosyanın içindeki ve onun tüm alt dizinindeki dosyaları siler.
+<br/>•-r komutu ile dosyanın içindeki ve onun tüm alt dizinindeki dosyaları siler.
 <br/><p align="center">
   <img src="image/8.png" />
 </p>
-<br/>rmdir -> boş klasörleri silmek için kullanılır.
-<br/>rm -i -> interaktif modda çalışır ve sileceği her dosya için onay ister.
-<br/>rm -rf /*  -> root dizinini ve altındaki bütün dosyaları siler.
+<br/>•rmdir -> boş klasörleri silmek için kullanılır.
+<br/>•rm -i -> interaktif modda çalışır ve sileceği her dosya için onay ister.
+<br/>•rm -rf /*  -> root dizinini ve altındaki bütün dosyaları siler.
 
 <br/><h3><br/><ins>TOUCH.</h3></ins> 
 <br/>Touch komutu dosya yaratmak içindir.
 <br/>touch <filename>
-<br/>Eğer bulunduğumuz dizinde oluşturmak istediğimiz dosya isimli dosya yok ise,
+<br/><br/>•Eğer bulunduğumuz dizinde oluşturmak istediğimiz dosya isimli dosya yok ise,
 <br/>Yeni bir dosya yaratır. Dizinde aynı isimde dosya zaten bulunuyorsa, sadece dosyanın oluşturulma zamanı(timestamp) güncellenir.
 <br/><p align="center">
   <img src="image/ts1.png" />
 </p>
-<br/>Birden çok dosya yaratmak istersek dosya adlarını ard arda yazmamız yeterlidir.
+<br/>•Birden çok dosya yaratmak istersek dosya adlarını ard arda yazmamız yeterlidir.
 <br/>touch dosya1 dosya2 dosya3
-<br/>touch test{1..10} Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
-<br/>touch test_{a..j} Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
-<br/> <p align="center">
+<br/><br/>•touch test{1..10} Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
+  <br/> <p align="center">
   <img src="image/ts3.png" />
 </p>
+<br/>•touch test_{a..j} Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
  <br/><p align="center">
   <img src="image/ts2.png" />
 </p>
@@ -227,7 +228,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
  <h2><br/><ins><i>Genel Linux komutları (pwd, whoami, whereis, whatis) </i></ins></h2>  
 <br/><h3><br/><ins>PWD.</h3></ins>
 <br/>pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
-<br/>$pwd 
+<br/>•$pwd 
 <br/>/home/user/Desktop
 
 <br/><h3><br/><ins>WHOAMI.</h3></ins>
@@ -239,10 +240,10 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/><h3><br/><ins>WHEREIS.</h3></ins>
 <br/>whereis, belirli bir komut için binary (ikili), source (kaynak) ve manuel sayfa dosyalarının konumunu bulmanızı sağlayan bir komut satırı yardımcı programıdır. <br/>SYNTAX;
 <br/>whereis [SEÇENEKLER] DOSYA-ADI...
-<br/>Herhangi bir seçenek olmadan kullanıldığında, argüman olarak belirtilen komut için, binary (ikili), source (kaynak) ve manuel dosyalarını arar.
+<br/>•Herhangi bir seçenek olmadan kullanıldığında, argüman olarak belirtilen komut için, binary (ikili), source (kaynak) ve manuel dosyalarını arar.
 
-<br/>Varsayılan olarak whereis, ortam değişkenlerinde listelenen sabit kodlanmış yollarda ve dizinlerde komutun dosyalarını arar. 
-<br/>whereis komutunun aradığı dizinleri bulmak için -l seçeneğini kullanabiliriz (whereis -l).
+<br/>•Varsayılan olarak whereis, ortam değişkenlerinde listelenen sabit kodlanmış yollarda ve dizinlerde komutun dosyalarını arar. 
+<br/>•whereis komutunun aradığı dizinleri bulmak için -l seçeneğini kullanabiliriz (whereis -l).
 
 <br/>Örneğin, CAT komutu hakkında bilgi almak için aşağıdaki komutu yazabiliriz.
 <br/>whereis cat
@@ -275,19 +276,19 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır. Tar <br/>dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır
 <br/>Syntax:
 <br/>tar [options] [archive-file] [file or directory to be archived]
-
+<br/>
 <br/>Options:
-<br/>-c : Creates archive (.tar file)
-<br/>-x : Extracts the archive
-<br/>-f : creates archive with given filename
-<br/>-t : displays or lists files in archived file
-<br/>-u : archives and adds to an existing archive file
-<br/>-v : Displays verbose information
-<br/>-A : Concatenates the archive files
-<br/>-z : compresses the tar file using gzip
-<br/>-j : compresses the tar file using bzip2
-<br/>-W : Verifies an archive file
-<br/>-r : updates or adds file or directory in already existing .tar file
+<br/>•-c : Creates archive (.tar file)
+<br/>•-x : Extracts the archive
+<br/>•-f : creates archive with given filename
+<br/>•-t : displays or lists files in archived file
+<br/>•-u : archives and adds to an existing archive file
+<br/>•-v : Displays verbose information
+<br/>•-A : Concatenates the archive files
+<br/>•-z : compresses the tar file using gzip
+<br/>•-j : compresses the tar file using bzip2
+<br/>•-W : Verifies an archive file
+<br/>•-r : updates or adds file or directory in already existing .tar file
 
 <br/>Linux’da Bir .tar Arşiv Dosyası Oluşturma
 <br/>tar -cvf ornekArsiv.tar /home/ornekArsiv  -- Bu örnekte sıkıştırılması gereken dizin /home/ornekArsiv‘dir ve bunun sonucu olarak ornekArsiv.tar oluşacaktır.
