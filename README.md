@@ -165,7 +165,10 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>cp newDir ~/Documents/Dirs
 <br/>Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
 <br/>CP komutunun;
-<br/>Bir dosyayı başka bir dosyaya kopyalamaya, 
+<br/>Bir dosyayı başka bir dosyaya kopyalamaya,
+ <br/> <p align="center">
+  <img src="image/6.png" />
+</p>
 <br/>Birden çok dosyayı bir dizinin içine kopyalamaya veya
 <br/>Bir dizinin içeriğini tamamen başka bir dizinin içine kopyalama gibi farklı işlevler görmesi için yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
 
