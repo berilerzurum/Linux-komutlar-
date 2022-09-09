@@ -1,6 +1,6 @@
 # Linux komutları
 
-<h2><br/><ins><i>Dosya/dizin ile ilgili komutlar (cd,mkdir,mv,cp,rm,touch) </i></ins></h2> 
+<h2><br/><ins><i>Dosya/dizin ile ilgili komutlar (cat, more, less, head, tail, cd, mkdir, mv, cp, rm, touch) </i></ins></h2> 
 
 <h3><br/><ins>CAT:</ins></h3>
 <br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
@@ -224,7 +224,8 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
   <img src="image/ts2.png" />
 </p>
 
-<br/><h3><br/><ins>>PWD.</h3></ins>
+ <h2><br/><ins><i>Genel Linux komutları (pwd, whoami, whereis, whatis) </i></ins></h2>  
+<br/><h3><br/><ins>PWD.</h3></ins>
 <br/>pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
 <br/>$pwd 
 <br/>/home/user/Desktop
@@ -269,7 +270,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
   <img src="image/13.png" />
 </p>
 
-
+<h2><br/><ins><i>Sıkıştırılmış dosya ile ilgili komutlar (tar,gzip,unzip) </i></ins></h2> 
 <br/><h3><br/><ins>TAR.</h3></ins>
 <br/>Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır. Tar <br/>dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır
 <br/>Syntax:
@@ -336,7 +337,10 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>.gz dosyasını çıkartmak için (extract), -d seçeneği kullanılır:
 <br/>gzip -d filename.gz
 <br/>Diğer bir seçenek ise “gunzip”.  gunzip filename.gz
-
+  
+  
+<h2><br/><ins><i>Network(ağ) ile ilgili komutlar (netstat, nslookup,netcat) </i></ins></h2> 
+  
 <br/><h3><br/><ins>NETSTAT.</h3></ins>
 <br/>Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
 <br/># netstat -a | more  --> dinlenen ve dinlenmeyen tüm soketleri gösterir.
@@ -390,6 +394,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Burada listener modunda istenilen yerel portta bir Netcat Listener’ı oluşturmuş oluruz.
 <br/>Hem client hem de listener modda veri STDIN’den alınır ve network’den STDOUT’a verilir.
 
+ <h2><br/><ins><i>Kullanıcı işlemleri ile ilgili komutlar (chmod, chown, useradd, passwd) </i></ins></h2>  
 <br/><h3><br/><ins>CHMOD.</h3></ins>
 <br/>Linux sistemlerde kullanıcıların dosyalara erişim haklarını belirlemek için “chmod” komutu kullanılınır. Chmod un tam karşılığı change moddur.
 <br/>Chmod erişim izinleri herzaman rwx şeklinde sıralanmaktadır.
@@ -461,6 +466,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:#sudo passwd test. 
 <br/>Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
+  <h2><br/><ins><i>IP ile ilgili komutlar (ifconfig,iptables,ip a, ip link, ip r, ip n, traceroute) </i></ins></h2> 
 <br/><h3><br/><ins>IFCONFIG.</h3></ins>
 <br/>Argümansız “ifconfig” komutu, tüm aktif arayüz ayrıntılarını görüntüler. ifconfig komutu ayrıca bir sunucunun atanan IP adresini kontrol etmek için de kullanılır.
 <br/><p align="center">
