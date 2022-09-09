@@ -295,7 +295,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>gzip -d filename.gz
 <br/>Diğer bir seçenek ise “gunzip”.  gunzip filename.gz
 
-<br/><h3><br/><ins>NETSTAT.<h3></ins>
+<br/><h3><br/><ins>NETSTAT.</h3></ins>
 <br/>Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
 <br/># netstat -a | more   dinlenen ve dinlenmeyen tüm soketleri gösterir.
 <br/>#netstat -at  tüm TCP portlarını listeler.
@@ -415,7 +415,7 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Ana dizini değiştirmek için, aşağıdaki komutu girebilirsiniz.
 <br/>sudo useradd -m -d /alternatif test
 
-<br/><h3><br/><ins>PASSWD.<h3></ins>
+<br/><h3><br/><ins>PASSWD.</h3></ins>
 <br/>passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:#sudo passwd test. 
 <br/>Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
