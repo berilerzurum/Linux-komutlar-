@@ -154,19 +154,20 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
  <br/>•cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
 <br/> •cd .. komutu /home dizinine geçer.
 
-<br/>
-<h3><br/><ins>MKDIR.</h3></ins>
-<br/>• mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. 
- <br/> Syntax;
-<br/>mkdir dizin_adı  şeklindedir.
-<br/><br/><b><i>1)</i></b>•Yukarıda yazıldığı gibi kullanıldığında yeni dizin şu anki dizinin içinde oluşturulur. 
-<br/><br/><b><i>2)</i></b> • -p : (--parents) Eğer yoksa, gerekli üst dizinleri de oluşturur. Eğer bu dizinler zaten varsa bir hata iletisi göstermez. 
-<br/>-p 'nin kullanılmasına bir örnek:
-<br/>mkdir -p /geçici/a/b/c
-<br/><br/>Eğer /geçici/a dizini zaten varsa fakat /geçici/a/b dizini yoksa, mkdir , /geçici/a/b 'yi oluşturduktan sonra /geçici/a/b/c dizinini oluşturulur.
 
-<br/><br/><b><i>3)</i></b> • -v : (--verbose) Oluşturulan her dizini ekranda gösterir. Çoğunlukla -p ile birlikte kullanılır.
- <br/><br/><b><i>4)</i></b>• -m : Oluşturulan dizinin, erişim izinlerini belirler. Erişim izinleri ya sayısal olarak ya da r/w/x şeklinde belirtilmelidir. Genellikle bazı dizinlerin erişime engellenmesinde kullanılır.
+### Dizin Yaratmak (MKDIR)
+
+ mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. 
+ 
+#### Syntax;
+mkdir dizin_adı  şeklindedir.
+- Yukarıda yazıldığı gibi kullanıldığında yeni dizin şu anki dizinin içinde oluşturulur. 
+- -p : (--parents) Eğer yoksa, gerekli üst dizinleri de oluşturur. Eğer bu dizinler zaten varsa bir hata iletisi göstermez. 
+  -p 'nin kullanılmasına bir örnek: `mkdir -p /geçici/a/b/c`
+ Eğer `/geçici/a` dizini zaten varsa fakat `/geçici/a/b` dizini yoksa, mkdir , `/geçici/a/b`'yi oluşturduktan sonra `/geçici/a/b/c` dizinini oluşturulur.
+
+- -v : (--verbose) Oluşturulan her dizini ekranda gösterir. Çoğunlukla -p ile birlikte kullanılır.
+- -m : Oluşturulan dizinin, erişim izinlerini belirler. Erişim izinleri ya sayısal olarak ya da r/w/x şeklinde belirtilmelidir. Genellikle bazı dizinlerin erişime engellenmesinde kullanılır.
 
 <br/>•Aşağıdaki örnekte tam erişimli dosya yaratma işleminin komutu var.
 <br/>mkdir -m 777 newDir
@@ -181,9 +182,11 @@ Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
 <br/>Mkdir’in tam tersine varolan dizini kaldırmak için kullanılır. SYNTAX;
 <br/>•rmdir [DIRNAME]
 
-<br/><h3><br/><ins>MV.</h3></ins>
-<br/>mv(move) komutu dosya ve dizinleri taşımak için kullanılır, ayrıca dosya ve dizinleri yeniden adlandırmak için de kullanılabilir. 
- <br/> SYNTAX; 
+### Dosya/Dizin Taşımak/Yeniden İsimlendirmek (mv)
+
+`mv` (move) komutu dosya ve dizinleri yeniden adlandırmak ve/veya taşımak için kullanılabilir. 
+
+ #### SYNTAX; 
 <br/>•mv [eski] [yeni]
 <br/>•mv newDir ~/Documents/Dirs  
 <br/><br/>Dosya adını değiştirmek için; newdir olan dosya adını ChangedDir dosya adına çevirir.
