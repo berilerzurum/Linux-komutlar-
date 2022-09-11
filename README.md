@@ -1,24 +1,49 @@
 # Linux komutları
 
-<h2><br/><ins><i>Dosya/dizin ile ilgili komutlar (cat, more, less, head, tail, cd, mkdir, mv, cp, rm, touch) </i></ins></h2> 
+## Dosya/dizin ile ilgili komutlar 
+- cat
+- more
+- less
+- head
+- tail
+- cd
+- mkdir
+- mv
+- cp
+- rm
+- touch
 
-<h3><br/><ins>CAT:</ins></h3>
-<br/>Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
-<br/>Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
-<br/><br/>Örneğin; Linux terminalinde deneme.txt dosyası oluşturalım.
-<br/>• cat > deneme.txt komutu ortamda deneme.txt dosyası yok ise önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
-<br/>Bu işlemden sonra cat komutu ile dosyayı okuyalım 
-<br/> •	cat deneme.txt
-<br/>Lakin dosyayı yeni yarattığımız için içi boş olacak ve herhangi bir yazı ile karşılaşmayacağız. 
-<br/>Bu noktada yine “cat” komutu ile dosyamıza yazımızı ekleyebiliriz. Bunu da;
-<br/>•cat > deneme.txt komutu ile yapabiliriz.
-<br/>Yazımızı ekledikten sonda Ctrl+D ile dosyadan çıkabiliriz.
-<br/><br/>Eğer ortamda önceden oluşturulmuş deneme.txt dosyası bulunuyorsa cat > deneme.txt komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
-<br/><br/>Eğer dosyanın üzerine yazmak istiyorsak **cat >>deneme.txt** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
+### CAT
+
+Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
+Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
+
+
+Örneğin; Linux terminalinde deneme.txt dosyasını oluşturup içine bir veya daha çok metin satırı ekleyelim ve Ctrl+C veya Ctrl+D ile çıkalım:
+```shell
+$ cat > deneme.txt
+dosyanın içine
+bu satırları yazıyorum
+^C
+```
+komutu ortamda deneme.txt dosyası olsa da olmasa da önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
+ 
+ `cat deneme.txt` komutu ile dosyayı okuyalım.
+ 
+Aynı şekilde birden fazla satırı Ctrl karakteri ile işaretler göndererek yazmamak için aşağıdaki şekilde EOF (End Of File) kullanabiliriz:
+
+```shell
+$ cat << EOF >> deneme.txt
+dosyanın içine
+bu satırları yazıyorum
+EOF
+```
+
+Eğer ortamda önceden oluşturulmuş `deneme.txt` dosyası bulunuyorsa `cat > deneme.txt` komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
+Eğer dosyanın üzerine yazmak istiyorsak **`cat >>deneme.txt`** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
 Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ulaşabilirsiniz.
-</br> <p align="center">
-  <img src="Ekran Görüntüsü (728).png" />
-</p> 
+
+![image](https://user-images.githubusercontent.com/50303910/189531045-e5b5eaf8-5f45-4c28-ae47-ab6b71ef5d87.png)
 
 <br/><br/>Konsolda bir dosyanın içeriğini görüntülemek yerine sonucu > kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
 <br/>• cat kaynak.txt > hedef.txt
