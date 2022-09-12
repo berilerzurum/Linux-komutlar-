@@ -1322,10 +1322,12 @@ $ ip addr del [ip_address] dev [interface]
 
 
 <br/>
-#### c) Route için (-r) ;
 
+#### c) Route için (-r) ;
 <br/>
+
 - Tüm route girişlerini listelemek istersek;
+
 ```Shell
 $ ip route 
 # ya da
