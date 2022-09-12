@@ -1,6 +1,6 @@
 # Linux komutları
 
-## Dosya/dizin ile ilgili komutlar 
+## _Dosya/dizin ile ilgili komutlar_
 - cat
 - more
 - less
@@ -79,11 +79,13 @@ cat -n dosyaadi.txt
 
 
 
+
 ### More
 - more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 - 
 #### Syntax;
-more file_path
+
+**_more `file_path`_** 
 
 - Ek olarak more komutu;
 ```shell
@@ -95,6 +97,10 @@ more file_path
   more +/”kelime” dosya.txt
   ```
  şeklinde kullanılırsa belirtilen kelime ile başlayan satırı çekmemizi sağlar.
+ 
+ 
+ 
+ 
 
 ### Less
 - Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
@@ -119,12 +125,19 @@ more file_path
 •“j” : bir satır aşağı
 
  
+ 
+ 
+ 
 ### Head
 
 Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 ```shell
 head dosya.txt
 ```
+
+
+
+
 ### Tail
 
 Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
@@ -150,7 +163,7 @@ Tail komutuna yukarıdaki seçenekleri de ekleyerek, komutu daha spesifik işlem
 
 #### Syntax;
 
-tail [options] <<files>>
+ **_tail [options] `files`_**  
  
 1.  **-n** komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir. Aşağıdaki komut örneği ile dosyanın son 5 satırı görüntülenir. 
  ```shell
@@ -191,14 +204,17 @@ tail -f dosya.txt
 tail -f dosya.txt –pid=1
  ```
 
+ 
 
+ 
+ 
 ### Çalıma Dizinini Değiştirmek (cd) 
  
 - Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
 
 #### Syntax;
  
-cd [DIRNAME]
+ **_cd `DIRNAME`_** 
  
 - Mesela bulunduğumuz konumdan desktop konumuna geçmek istiyoruz. Bunun için aşağıdaki komutu girmemiz yeterlidir.
 ```shell 
@@ -215,6 +231,10 @@ cd /home/user/Desktop
  2. cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
  3. cd .. komutu /home dizinine geçer.
 
+ 
+ 
+ 
+ 
 
 ### Dizin Yaratmak (MKDIR)
 
@@ -222,7 +242,7 @@ cd /home/user/Desktop
  
 #### Syntax;
  
-mkdir dizin_adı  şeklindedir.
+**_mkdir `dizin_adı`_** 
  
 - Yukarıda yazıldığı gibi kullanıldığında yeni dizin şu anki dizinin içinde oluşturulur. 
  
@@ -244,21 +264,18 @@ Ya da
  ```
  komutlarını kullanabiliriz.
  
-•Sadece <ins> okuma ve yazma </ins> işlemi için "mkdir -m=rw <file>"
+- Sadece <ins> okuma ve yazma </ins> işlemi için "mkdir -m=rw `file`"
  
-•Sadece <ins>yazma </ins> işlemi için "mkdir -m=r <file>"
+- Sadece <ins>yazma </ins> işlemi için "mkdir -m=r `file`"
  
-•Sadece <ins>okuma </ins> işlemi için "mkdir -m=w <file>"
+- Sadece <ins>okuma </ins> işlemi için "mkdir -m=w `file`"
  
-•Sadece <ins>execute </ins> işlemi için "mkdir -m=x <file>"
-
-### Dizin Kaldırmak (rmdir)
+- Sadece <ins>execute </ins> işlemi için "mkdir -m=x `file`"
  
-- Mkdir’in tam tersine varolan dizini kaldırmak için kullanılır. 
  
-####Syntax;
-
- rmdir [DIRNAME]
+ 
+ 
+ 
 
 ### Dosya/Dizin Taşımak/Yeniden İsimlendirmek (mv)
 
@@ -266,7 +283,7 @@ Ya da
 
  #### SYNTAX; 
  
-mv [eski] [yeni]
+**_mv [eski] [yeni]_** 
  
 ```shell
 mv newDir ~/Documents/Dirs
@@ -277,6 +294,10 @@ Dosya adını değiştirmek için aşağıdaki komut kullanılır.
 mv newDir ChangedDir
  ```
 newdir olan dosya adını ChangedDir dosya adına çevirir.
+ 
+ 
+ 
+ 
 
 ### Dosya ve dizinleri Kopyalamak (cp)
  
@@ -290,23 +311,23 @@ cp newDir ~/Documents/Dirs
 - cp komutunun;
  
 1. Bir dosyayı başka bir dosyaya kopyalamaya,
- <br/> <p align="center">
+  <p align="center">
   <img src="image/6.png" />
 </p>
  
 2. Birden çok dosyayı bir dizinin içine kopyalamaya veya
  
-3. Bir dizinin içeriğini, tamamen başka bir dizinin içine kopyalamak gibi farklı işlevler görmesi için, yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
+3. Bir dizinin içeriğini, tamamen başka bir dizinin içine kopyalamak gibi farklı işlevler görmesi için, yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır;
 
-1. Bir dosyayı başka bir dosyaya kopyalamak:
+a) Bir dosyayı başka bir dosyaya kopyalamak:
  ```shell
 cp kaynakdosya hedefdosya
    ```
-2.  Dosya veya dosyaları bir dizinin içine kopyalamak:
+b)  Dosya veya dosyaları bir dizinin içine kopyalamak:
  ```shell
 cp kaynakdosya... hedefdizin
    ```
-3. Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
+c) Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
  ```shell
 cp -r|-R kaynakdizin hedefdizin
  ```
@@ -320,54 +341,101 @@ cp *.sql db_yedek/
 - -v işlemle ilgili süreci döker.
 - -R ya da -r ; klasör yapısını olduğu gibi kopyalar. Dizin ağacındaki tüm dosyaları, yani bir dizin ve onun alt dizinindeki tüm dosyaları kopyalar.
 
-<br/><h3><br/><ins>RM.</h3></ins>
-<br/>•Artık ihtiyacımız olmayan dosyaları kaldırmak için rm komutunu kullanırız.
-<br/>rm myfile
+ 
+ 
+ 
+ 
+ 
+### Dosya Kaldırmak (rm) 
+ 
+- Artık ihtiyacımız olmayan dosyaları kaldırmak için rm komutunu kullanırız.
+ 
+#### Syntax;
+ 
+ **_rm `filename`_**
   
-<br/><br/>•Birden fazla dosyayı tek seferde kaldırmak istersek;
-<br/>  rm dosya1 dosya2 dosya3  ; şeklinde komut girebiliriz.
+- Birden fazla dosyayı tek seferde kaldırmak istersek;
+  ```shell
+  rm dosya1 dosya2 dosya3  
+  ```
+- -f (Silmeyi Zorla): Bir dosya yazmaya karşı korumalıysa, rm onayın kaldırılmasını ister. -f seçeneği bu küçük korumayı geçersiz kılar ve dosyayı zorla kaldırır.
   
-<br/><br/>•-f (Silmeyi Zorla): Bir dosya yazmaya karşı korumalıysa, rm onayın kaldırılmasını ister. -f seçeneği bu küçük korumayı geçersiz kılar ve dosyayı zorla kaldırır.
-  
-<br/><p align="center">
+<p align="center">
   <img src="image/7.png" />
 </p>
   
-<br/>•-r komutu ile dosyanın içindeki ve onun tüm alt dizinindeki dosyaları siler.
-<br/><p align="center">
+- -r komutu ile dosyanın içindeki ve onun tüm alt dizinindeki dosyaları siler.
+ 
+<p align="center">
   <img src="image/8.png" />
 </p>
   
-<br/>•rmdir -> boş klasörleri silmek için kullanılır.
-<br/>•rm -i -> interaktif modda çalışır ve sileceği her dosya için onay ister.
-<br/>•rm -rf /*  -> root dizinini ve altındaki bütün dosyaları siler.
+- rmdir -> boş klasörleri silmek için kullanılır. -p parametresi ile birlikte kullanılınca üst dizinleri de siler.
+ 
+- rm -i -> interaktif modda çalışır ve sileceği her dosya için onay ister.
+ 
+- rm -rf /*  -> root dizinini ve altındaki bütün dosyaları siler.
 
-<br/><h3><br/><ins>TOUCH.</h3></ins> 
-<br/>Touch komutu dosya yaratmak içindir.
-<br/>touch <filename>
-<br/><br/>•Eğer bulunduğumuz dizinde oluşturmak istediğimiz dosya isimli dosya yok ise,
-<br/>Yeni bir dosya yaratır. Dizinde aynı isimde dosya zaten bulunuyorsa, sadece dosyanın oluşturulma zamanı(timestamp) güncellenir.
-<br/><p align="center">
+ 
+ 
+ 
+### Dosya Yaratmak (touch) 
+ 
+- Touch komutu dosya yaratmak içindir.
+ 
+#### Syntax;
+ 
+**_touch `filename`_**
+ 
+- Eğer bulunduğumuz dizinde oluşturmak istediğimiz dosya isimli dosya yok ise;
+ --> Yeni bir dosya yaratır. 
+- Dizinde aynı isimde dosya zaten bulunuyorsa;
+ --> Sadece dosyanın oluşturulma zamanı(timestamp) güncellenir.
+
+ <p align="center">
   <img src="image/ts1.png" />
 </p>
-<br/>•Birden çok dosya yaratmak istersek dosya adlarını ard arda yazmamız yeterlidir.
-<br/>touch dosya1 dosya2 dosya3
-<br/><br/>•touch test{1..10} Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
-  <br/> <p align="center">
+ 
+- Birden çok dosya yaratmak istersek dosya adlarını ard arda yazmamız yeterlidir.
+```Shell
+ touch dosya1 dosya2 dosya3
+ ```
+ 
+ ```Shell
+ touch test{1..10} 
+  ```
+- Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
+   <p align="center">
   <img src="image/ts3.png" />
-</p>
-<br/>•touch test_{a..j} Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
- <br/><p align="center">
+
+ 
+  ```Shell
+ touch test_{a..j}
+  ```
+ 
+- Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
+ <p align="center">
   <img src="image/ts2.png" />
 </p>
 
- <h2><br/><ins><i>Genel Linux komutları (pwd, whoami, whereis, whatis) </i></ins></h2>  
-<br/><h3><br/><ins>PWD.</h3></ins>
-<br/>pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
-<br/>•$pwd 
-<br/>/home/user/Desktop
 
-<br/><h3><br/><ins>WHOAMI.</h3></ins>
+
+
+
+## _Genel Linux komutları (pwd, whoami, whereis, whatis)_
+
+### Current(Şuanki) Dizini Öğrenme (pwd) 
+
+pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
+```Shell
+&pwd
+-> /home/user/Desktop
+```
+
+
+
+### whoami
+
 <br/>•Bu komut çağrıldığında mevcut kullanıcının kullanıcı adını görüntüler.
 <br/><p align="center">
   <img src="image/9.png" />
