@@ -1040,7 +1040,12 @@ Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
 
 
+
+
+
 <br/><br/><br/><br/>
+
+
 
 
  ## _IP ile ilgili komutlar_
@@ -1053,6 +1058,9 @@ Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 - traceroute 
 - 
 <br/><br/><br/>
+
+
+
 
 ### 1) ifconfig
 
@@ -1072,7 +1080,7 @@ c) Belirttiğiniz bir interface'in bilgilerini görüntüleyebilirsiniz (eth0 , 
 ifconfig eth0
 ```
 
-d) >Bir interface'i aktif etmek için ifconfig kullanabilirsiniz. Bunun için up parametresini kullanıyoruz. 
+d) Bir interface'i aktif etmek için ifconfig kullanabilirsiniz. Bunun için up parametresini kullanıyoruz. 
 ```Shell
 ifconfig eth0 up
 ```
@@ -1119,35 +1127,48 @@ ifconfig eth0:0 down
 
 
 
-<br/><h3><br/><ins>IPTABLES</h3></ins>
-<br/>Siber olaylardan korunmaya öncelikle kendi alacağımız tedbirler ile başlamalıyız. Dosya izinlerimizi kontrol etmeli, kullandığımız yazılımların güncel olup olmadığına kendimizin karar vermesi lazım. Network trafiğimizin de kontrolünü ilk aşamada kendi belirlediğimiz kuralların yazılması ile başlamalıyız. Iptables komutu işte tam bu konuda bize yardımcı olan bir yapıdır. İşletim sistemlerinde dışarıdan gelebilecek zararlara karşı koruma sağlayan bazı yapılar bulunur. Bu yapılara örnek olarak güvenlik duvarları diyebiliriz. Windows için sistemde hazır olarak bulunan güvenlik duvarı Windows Defender’dır. Linux işletim sistemlerinde ise hazırda bulunan güvenlik duvarı ise iptables’tır.
-<br/>Bu güvenlik duvarı sistemde görev yapan servislerin çalıştığı portlar üzerinde çalışır. İnternete bağlandığımız zaman ağ trafiği üzerindeki bütün veriler paketler halinde gönderilir. Linux kernel yapısında bu gelen ve giden trafik üzerinde hareket eden paketlerin paket filtreleme tablosu kullanarak daha önceden yazılan kurallara göre filtreleme yapabilmemizi sağlayan bir arayüz bulunur.
-<br/>Iptables, bu paket filtreleme tablolarını kurmamızı, yönetmemizi ve incelememizi sağlar.
-<br/>Iptables ile ağınıza gelen network trafiğini kontrol edebilir veya başka bir adrese yönlendirebilir.
-<br/>Birden fazla tablo belirlenebilir ve her tablo birden fazla zincir yapısına sahip olabilir.
-<br/>Zincir kuralların bütünüdür.
-<br/>Her kural, ağ trafiği üzerinden gelen her bir paketin bu kurala uyduğundan ne yapılacağına karar veren bir yol haritasıdır.
-<br/><br/>Kuralı sağlayan veya sağlamayan pakete ne olur?
-<br/>ACCEPT (KABUL ET): Paketin ağ trafiği üzerinden geçmesine izin verir
-<br/>DROP (REDDET): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilmez.
-<br/>REJECT (KABUL ETME): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilir.
-<br/>RETURN (GERİ ÇEVİR): Şimdiki zincirin pas geçilmesi ve çağrıldığı zincirde bir sonraki kurala geçilmesi gerektiği anlamına gelir.
+<br/><br/><br/>
 
-<br/><br/>Paketlerin Yönleri nelerdir ?
-<br/>INPUT: Gelen paketlerin kontrol edileceğini belirtmek için kullanırız. Gelen paketler port numarası, protokol türü ve source IP değerine göre engellenebilir veya paketin geçişine izin verilir.
-<br/>FORWARD: Sistem tarafından yönlendirilen paketlerin kontrolü için kullanılır.
-<br/>OUTPUT: Giden paketleri kontrolü için kullanılır.
 
-<br/><br/>Iptables Genel Kural Yapısı
-<br/>iptables -A <paketin yönü> -i <interface> -p <protokol tipi> -s <kaynak> — dport <port no.> -j <pakete ne olacak?>
-<br/>A = Hangi zincir tipine eklemek istediğimizi belirtiyoruz. Input, Output, Forward zincirlerinden biri olabilir.
-<br/>D = Belirtilen kuralın silinmesi için kullanılır. Yani daha önceden –A ile eklediğimiz kuralı bu sefer –D parametresi koyarak silebiliriz.
-<br/>i = Hangi interface için bu kuralı uygulayacağımız söylüyoruz.
-<br/>p = Hangi protokol için uygulayacağımız söylüyoruz. TCP, UDP vb. protokoller olabilir.
-<br/>s = Gelen paketlerin IP adreslerini kontrol edilmesi için yazılır.
-<br/>j = Bu paketin ne olacağı ile alakalı durumu belirtiriz. Paket ACCEPT, DROP veya RETURN edilebilir.
+### 2) iptables
 
-<br/><br/>Iptables Örnekleri
+- Siber olaylardan korunmaya öncelikle kendi alacağımız tedbirler ile başlamalıyız. Dosya izinlerimizi kontrol etmeli, kullandığımız yazılımların güncel olup olmadığına kendimizin karar vermesi lazım. Network trafiğimizin de kontrolüne ilk aşamada kendi belirlediğimiz kuralların yazılması ile başlamalıyız.
+-  Iptables komutu işte tam bu konuda bize yardımcı olan bir yapıdır. İşletim sistemlerinde dışarıdan gelebilecek zararlara karşı koruma sağlayan bazı yapılar bulunur. Bu yapılara örnek olarak güvenlik duvarları diyebiliriz. Windows için sistemde hazır olarak bulunan güvenlik duvarı Windows Defender’dır. Linux işletim sistemlerinde ise hazırda bulunan güvenlik duvarı ise <ins> iptables </ins> ’tır.
+- Bu güvenlik duvarı sistemde görev yapan servislerin çalıştığı portlar üzerinde çalışır. İnternete bağlandığımız zaman ağ trafiği üzerindeki bütün veriler paketler halinde gönderilir. Linux kernel yapısında bu gelen ve giden trafik üzerinde hareket eden paketlerin paket filtreleme tablosu kullanarak daha önceden yazılan kurallara göre filtreleme yapabilmemizi sağlayan bir arayüz bulunur.
+
+- Iptables, bu paket filtreleme tablolarını kurmamızı, yönetmemizi ve incelememizi sağlar.
+- Iptables ile ağınıza gelen network trafiğini kontrol edebilir veya başka bir adrese yönlendirebilir.
+- Birden fazla tablo belirlenebilir ve her tablo birden fazla zincir yapısına sahip olabilir.
+- Zincir kuralların bütünüdür.
+- Her kural, ağ trafiği üzerinden gelen her bir paketin bu kurala uyduğundan ne yapılacağına karar veren bir yol haritasıdır.
+
+<br/><ins>Kuralı sağlayan veya sağlamayan pakete ne olur?</ins>
+
+a) ACCEPT (KABUL ET): Paketin ağ trafiği üzerinden geçmesine izin verir
+b) DROP (REDDET): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilmez.
+c) REJECT (KABUL ETME): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilir.
+d) RETURN (GERİ ÇEVİR): Şimdiki zincirin pas geçilmesi ve çağrıldığı zincirde bir sonraki kurala geçilmesi gerektiği anlamına gelir.
+
+<br/><ins>Paketlerin Yönleri nelerdir ?</ins>
+
+a) INPUT: Gelen paketlerin kontrol edileceğini belirtmek için kullanırız. Gelen paketler port numarası, protokol türü ve source IP değerine göre engellenebilir veya paketin geçişine izin verilir.
+b) FORWARD: Sistem tarafından yönlendirilen paketlerin kontrolü için kullanılır.
+c) OUTPUT: Giden paketleri kontrolü için kullanılır.
+
+<br/><ins>Iptables Genel Kural Yapısı</ins>
+
+iptables -A <paketin yönü> -i <interface> -p <protokol tipi> -s <kaynak> — dport <port no.> -j <pakete ne olacak?>
+ 
+- A = Hangi zincir tipine eklemek istediğimizi belirtiyoruz. Input, Output, Forward zincirlerinden biri olabilir.
+- D = Belirtilen kuralın silinmesi için kullanılır. Yani daha önceden –A ile eklediğimiz kuralı bu sefer –D parametresi koyarak silebiliriz.
+- i = Hangi interface için bu kuralı uygulayacağımız söylüyoruz.
+- p = Hangi protokol için uygulayacağımız söylüyoruz. TCP, UDP vb. protokoller olabilir.
+- s = Gelen paketlerin IP adreslerini kontrol edilmesi için yazılır.
+- j = Bu paketin ne olacağı ile alakalı durumu belirtiriz. Paket ACCEPT, DROP veya RETURN edilebilir.
+
+ 
+<br/><br/> **Iptables Örnekleri**
+ 
 <br/>Spesifik Bir IP adresini engellemek
 <br/>→ iptables -A INPUT -s xxx.xxx.xxx.xxx -j DROP
 <br/>Açıklamak gerekirse INPUT a gelen paketlerden source IP adresi xxx.xxx.xxx.xxx olan paketleri DROP yani kabul etme diyoruz. Yani bir IP adresinin zararlı olduğunu biliyorsak bu komutu kullanabiliriz.
