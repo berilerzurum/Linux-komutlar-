@@ -1196,7 +1196,8 @@ iptables -D INPUT -s xxx.xxx.xxx.xxx -j DROP
 - Önceki örnekte –A parametresi ile bu kuralı eklemiştik. Şimdi daha sonra eğer karar değiştirirsek yani kuralı silmek istersek bu önceden yazmış olduğun kuralın aynısını yazarak bu sefer –D parametresi ile silebiliriz.
  
 4. Belli bir portu engellemek
-```Shell iptables -A OUTPUT -p tcp — dport $\lt$ port numarası $\gt$ -j DROP
+```Shell 
+iptables -A OUTPUT -p tcp — dport $\lt$ port numarası $\gt$ -j DROP
 ```
 - Kullanmadığınız portların durumunu belirtin. Kendiniz için alabileceğiniz en büyük güvenlik önlemi budur. Eğer bir portu kullanmayacaksınız onu manuel olarak kapatmanız gerekir. Böylelikle olası bir saldırı durumda dışarıya veri sızıntısını engelleyebilirsiniz.
  
@@ -1207,7 +1208,8 @@ iptables -A INPUT -p tcp — dport xxx -j DROP
 - Bu kuralda ise benim bilgisayarımdan dışarıya giden ve xxx portunu kullanan tüm paketler drop edilir. Bu kuralın mantığı ise dışarıdan gelen herhangi bir paketin xxx numaralı port ile olan iletişimini kesiyorum. Gelen paketleri DROP ediyorum.
  
 6. Ping İsteklerinin Engellenmesi
-```Shelliptables -A INPUT -p icmp -i eth0 -j DROP
+```Shell
+iptables -A INPUT -p icmp -i eth0 -j DROP
 ```
 - Günümüzde zafiyet taraması yapan araçlar bir ağda çalışan bilgisayarın varlığını tespit edebilmek için o bilgisayarlara ping paketi gönderir. Bu pakete cevap verilirse de saldırgan sizin o ağ içinde olan bir bilgisayar diye işaretleyerek hedef haline gelirsiniz. Biz de bu durumdan kurtulmak için gelen ping paketlerini engelleyebiliriz. Ping paketleri icmp protokolünü kullanır ve eth0 ise bizim kendi network kartımızın interface değeridir.
  
@@ -1224,7 +1226,7 @@ iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-bur
 
 <br/><br/><br/>
 
-### traceroute
+### 3) traceroute
 
 - Tracert bir sorgulama komutudur. Neyi sorguladığına gelecek olursak hedefe giden yoldaki durakları gösterir. Paket transferi sırasında hatanın kaynağını bulmada yardımcı olur. Tracert bu işlemi yaparken İnternet Denetim İletisi Protokolü (ICMP) ve Ip yaşam süresi (TTL) değerlerini kullanılır. Bu komut Windowsta “tracert $\lt$ IP address $\gt$” ile çalışır.
 
@@ -1241,7 +1243,7 @@ iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-bur
 
 <br/><br/><br/>
 
-### ip Komutları
+### 4) ip Komutları (ip a, ip link, ip r, ip n)
 
 - IP komutu, sistem ve ağ yöneticileri için bir Linux ağ aracıdır. IP, İnternet Protokolü anlamına gelir ve adından da anlaşılacağı gibi, araç ağ arayüzlerini yapılandırmak için kullanılır.
 
