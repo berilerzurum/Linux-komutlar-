@@ -541,7 +541,7 @@ $ whatis ping
   
 #### Syntax:
 
-tar [options] [archive-file] [file or directory to be archived]
+**_tar [options] [archive-file] [file or directory to be archived]_**
 
 <br/>
 Options:
@@ -664,18 +664,19 @@ $ unzip file.zip
 
 ### 3) .gzip
 - Gzip, bir dosyanın boyutunu azaltmanıza ve orijinal dosya modunu, sahipliği ve zaman damgasını korumanıza izin veren en popüler sıkıştırma algoritmalarından biridir. 
+- 
 #### Syntax;
 
 <br/>
 ```Shell
-$gzip filename 
+$ gzip filename 
 ```
 a)Yukarıdaki komut ile filename dosyasının sıkıştırılmış dosyası oluşturulur ve eski(sıkıştırılmamış) dosya silinir.
 
 b) Eğer önceki dosyanın da korunmasını istiyorsak ; 
 
 ```Shell
-$gzip -k filename
+$ gzip -k filename
 ```
 - Ya da,
 ```Shell
@@ -685,7 +686,7 @@ komutları ile eski dosyayı koruyabiliriz.
 
 c) Dizindeki tüm dosyaları sıkıştırmak istersek;
 ```Shell
-$gzip -r directory
+$ gzip -r directory
 ```
 
 d) Çoklu dosya sıkıştırma  
@@ -702,7 +703,7 @@ $ gzip -d filename.gz
 
 - Diğer bir seçenek ise “gunzip”. 
 ```Shell
-$gunzip filename.gz
+$ gunzip filename.gz
 ```
   
   
@@ -719,92 +720,218 @@ $gunzip filename.gz
   
 ### 1)netsat
 
-<br/>Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
-<br/># netstat -a | more  --> dinlenen ve dinlenmeyen tüm soketleri gösterir.
-<br/>#netstat -at  -->tüm TCP portlarını listeler.
-<br/># netstat -au -->tüm UDP portlarını listeler.
-<br/>#netstat -l --> Sadece dinlenen portları listeler.
-<br/># netstat -lt --> sadece dinlenen TCP portlarını listeler.
-<br/># netstat -lu --> sadece dinlenen UDP portlarını listeler.
-<br/># netstat -s --> tüm portların istatistiklerini listeler.
-<br/># netstat -r --> Kernel routing (yönlendirme) bilgilerini listelemek için kullanılır.
-<br/># netstat -i --> Ağ arayüzlerini (network interfaces) listeler.
-<br/>#netstat -e  --> Ethernet İstatistiklerini Gösterir.
+-Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
+
+<br/>
+
+a) 
+```Shell
+$ netstat -a | more
+```
+--> dinlenen ve dinlenmeyen tüm soketleri gösterir.
+
+b)
+```Shell
+$ netstat -at 
+```
+-->tüm TCP portlarını listeler.
+
+c)
+```Shell
+$ netstat -au 
+```
+-->tüm UDP portlarını listeler.
+
+d)
+```Shell
+$ netstat -l 
+```
+--> Sadece dinlenen portları listeler.
+
+e)
+```Shell
+$ netstat -lt 
+```
+--> sadece dinlenen TCP portlarını listeler.
+
+f)
+```Shell
+$ netstat -lu
+```
+--> sadece dinlenen UDP portlarını listeler.
+
+g)
+```Shell
+$ netstat -s 
+```
+--> tüm portların istatistiklerini listeler.
+
+h)
+```Shell
+$ netstat -r 
+```
+--> Kernel routing (yönlendirme) bilgilerini listelemek için kullanılır.
+
+i)
+```Shell
+$ netstat -i 
+```
+--> Ağ arayüzlerini (network interfaces) listeler.
+
+j)
+```Shell
+$ netstat -e  
+```
+--> Ethernet İstatistiklerini Gösterir.
+
+  <br/><br/><br/>
+
+### 2) nslookup
+
+- (name server lookup ) Alan adı ve IP adresi eşleşmesi bulmak veya DNS kayıtlarını sorgulamak/incelemek için kullanılabilen bir komut satırı aracıdır.
 
 
-<br/><h3><br/><ins>NSLOOKUP.</h3></ins>
-<br/>(name server lookup ) Alan adı ve IP adresi eşleşmesi bulmak veya DNS kayıtlarını sorgulamak/incelemek için kullanılabilen bir komut satırı aracıdır.
-<br/>1) Aşağıdaki komut microsoft.com’un IP ‘sini sorgular;
-<br/>nslookup microsoft.com
-<br/>Alan adı yerine IP adresini vererek yukarıdaki işlemi tersten de yapabiliriz. Örneğin, komut:
-<br/>nslookup 134.170.185.46
-<br/>2) Aşağıdaki komut microsoft.com’un mail servisini sorgular.
-<br/>nslookup -query=mx microsoft.com
-<br/>3) Aşağıdaki komut microsoft.com’un nameserverlarını sorgular;
-<br/>nslookup -type=ns microsoft.com
-<br/>4) Aşağıdaki komut SOA kaydını sorgular;
-<br/>nslookup -type=soa microsoft.com
+a) Aşağıdaki komut microsoft.com’un IP ‘sini sorgular;
+```Shell
+$ nslookup microsoft.com
+```
+- Alan adı yerine IP adresini vererek yukarıdaki işlemi tersten de yapabiliriz. Örneğin, komut:
+```Shell
+$ nslookup 134.170.185.46
+```
+b) Aşağıdaki komut microsoft.com’un mail servisini sorgular.
+```Shell
+$ nslookup -query=mx microsoft.com
+```
+c) Aşağıdaki komut microsoft.com’un nameserverlarını sorgular;
+```Shell
+$ nslookup -type=ns microsoft.com
+```
+d) Aşağıdaki komut SOA kaydını sorgular;
+```Shell
+$ nslookup -type=soa microsoft.com
+```
 
-<br/><h3><br/><ins>NETCAT.</h3></ins>
-<br/>Netcat’in komut halini “nc” olarak kullanıyoruz. Bu komutun temel amacı networkler arasındaki veri okuma / yazma işlemlerine dair işlemlerdir.
-<br/>Netcat’in Temel SYNTAX’ı:
-<br/>$ nc [options] host port
-<br/>Host: Hedefin IP adresidir.
-<br/>Port: Hedefin port numarası ya da numaralarıdır. Yani birden fazla port dinlenebilir.
-<br/>Options:
-<br/>-l: (listen mode) dinleme modu
-<br/>-L: (Listen harder) Netcat’in sadece windows için hazırlanan sürümlerinde geçerlidir. Client tarafı connection’ı sonlandırsa bile dinleme modunu tekrar başlatır. <br/>Böylece Netcat’i ısrarlı bir dinleyici haline getirmiş olur.
-<br/>-u: (UDP mode) ön tanımlı olarak TCP gelir. Bunun yerine UDP kullanmak için bu opsiyonu kullanabiliriz.
-<br/>-p:(Local port) Listen modundayken dinlenen portun, client modundayken tüm paketlerin gönderileceği kaynak portun belirtildiği opsiyondur.
-<br/>-e: Eğer connection olursa sonrasında program çalıştığında STDIN ve STDOUT ile iletişim kurmak için kullanılan opsiyondur
-<br/>-n: DNS lookup’larda diğer tarafın makinelerinin isimlerinde değişikliklik/oynama olamaması için kullanılacak opsiyon.
-<br/>-z: Zero-I/O modudur. Herhangibir datanın yollanmamasıdır. Sadece payload dışında bir paketin yollanması için kullanılan opsiyondur
-<br/>-wN: Connection’ın timeout olması yani süresinin dolması halinde STDIN kapandıktan sonra N saniye daha beklenir. Bir Netcat client ya da listener’ı bu opsiyon ile yeni bir connection açmak için N saniye bekleyecektir. Eğer bu süre içinde yeni bir connection oluşmazsa Netcat çalışmayı durduracaktır.
-<br/>-v: (Be verbose) Connection sırasında Standard Error’da olan mesajların ayrıntılı biçimde yazılmasını söyleyen opsiyondur.
-<br/>-vv: (Be very verbose) Standard Errror’da -v opsiyonundan daha fazla detaylı yazılmasının söylendiği opsiyonel durumdur.
-<br/>– Temel Netcat Client:
 
-<br/>$ nc [Hedef IP adresi] [Port]
-<br/>Burada client modda hedef IP üzerindeki istenilen portta bir connection başlatmış oluruz.
-<br/>– Temel Netcat Listener
-<br/>$ nc -l -p [Local Port]
-<br/>Burada listener modunda istenilen yerel portta bir Netcat Listener’ı oluşturmuş oluruz.
-<br/>Hem client hem de listener modda veri STDIN’den alınır ve network’den STDOUT’a verilir.
 
- <h2><br/><ins><i>Kullanıcı işlemleri ile ilgili komutlar (chmod, chown, useradd, passwd) </i></ins></h2>  
-<br/><h3><br/><ins>CHMOD.</h3></ins>
-<br/>Linux sistemlerde kullanıcıların dosyalara erişim haklarını belirlemek için “chmod” komutu kullanılınır. Chmod un tam karşılığı change moddur.
-<br/>Chmod erişim izinleri herzaman rwx şeklinde sıralanmaktadır.
-<br/>r – Okuma izni ( Read permission )
-<br/>w – Yazma izni ( Write permission )
-<br/>x – Çalıştırma izni ( Execute permission )
-<br/>Bazı chmod örnekleri :
-<br/>rwx : Okuma, yazma ve çalıştırma erişim izinlerinin hepsi var.
-<br/>rw- : Okuma ve yazma izinleri var, çalıştırma için izin yok.
-<br/>r-x : Okuma ve çalıştırma izinleri var, yazma için izin yok.
-<br/>-wx : Okuma için izin yok, yazma ve çalıştırma izinleri var.
-<br/>r– : Sadece okuma hakkı var.
-<br/>-w- : Sadece yazma hakkı var.
-<br/>–x : Sadece çalıştırma hakkı var.
-<br/>— : Hiçbir erişim hakkı yok.
+### 3) netcat
 
-<br/>Dosya tür çeşitlerini şu şekilde sıralayabiliriz :
-<br/>* Normal bir dosya
-<br/>d Dizin
-<br/>b Özel blok dosyası
-<br/>c Özel karakter dosyası
-<br/>l Sembolik bağlantı dosyası
-<br/>P Özel isimlendirilmiş pipe dosyası
+- Netcat’in komut halini “nc” olarak kullanıyoruz. Bu komutun temel amacı networkler arasındaki veri okuma / yazma işlemlerine dair işlemlerdir.
 
-<br/>Chmod izinleri için Operatörler
-<br/>– İzinleri kaldır ( remove chmod permission )
-<br/>+ İzinleri ekle ( add chmod permission )
-<br/>= İzinleri koy ( set chmod permission )
-<br/>Örneğin;
-<br/>chmod +r deneme : deneme dosyasına okuma(r) izni vermiş olduk.
-<br/>chmod go+r deneme* : ( * ) joker parametresi ile deneme ile başlayan tüm dosyaların grup ve diğer(other) userler tarafından okunması iznini verir.
+#### Netcat’in Temel SYNTAX’ı:
 
-<br/><h3><br/><ins>CHOWN.</h3></ins>
+**_$ nc [options] host port_**
+
+- Host: Hedefin IP adresidir.
+- Port: Hedefin port numarası ya da numaralarıdır. Yani birden fazla port dinlenebilir.
+- Options:
+
+-l  --> (listen mode) dinleme modu
+
+-L   --> (Listen harder) Netcat’in sadece windows için hazırlanan sürümlerinde geçerlidir. Client tarafı connection’ı sonlandırsa bile dinleme modunu tekrar başlatır. 
+Böylece Netcat’i ısrarlı bir dinleyici haline getirmiş olur.
+
+-u  -->  (UDP mode) ön tanımlı olarak TCP gelir. Bunun yerine UDP kullanmak için bu opsiyonu kullanabiliriz.
+
+-p  --> (Local port) Listen modundayken dinlenen portun, client modundayken tüm paketlerin gönderileceği kaynak portun belirtildiği opsiyondur.
+
+-e  -->  Eğer connection olursa sonrasında program çalıştığında STDIN ve STDOUT ile iletişim kurmak için kullanılan opsiyondur
+
+-n  -->  DNS lookup’larda diğer tarafın makinelerinin isimlerinde değişikliklik/oynama olamaması için kullanılacak opsiyon.
+
+-z  -->  Zero-I/O modudur. Herhangibir datanın yollanmamasıdır. Sadece payload dışında bir paketin yollanması için kullanılan opsiyondur
+
+-wN  -->  Connection’ın timeout olması yani süresinin dolması halinde STDIN kapandıktan sonra N saniye daha beklenir. Bir Netcat client ya da listener’ı bu opsiyon ile yeni bir connection açmak için N saniye bekleyecektir. Eğer bu süre içinde yeni bir connection oluşmazsa Netcat çalışmayı durduracaktır.
+
+-v  --> (Be verbose) Connection sırasında Standard Error’da olan mesajların ayrıntılı biçimde yazılmasını söyleyen opsiyondur.
+
+-vv  -->  (Be very verbose) Standard Errror’da -v opsiyonundan daha fazla detaylı yazılmasının söylendiği opsiyonel durumdur.
+
+– <ins> Temel Netcat Client: </ins>
+
+```Shell
+$ nc [Hedef IP adresi] [Port]
+```
+Burada client modda hedef IP üzerindeki istenilen portta bir connection başlatmış oluruz.
+
+– <ins> Temel Netcat Listener </ins>
+```Shell
+$ nc -l -p [Local Port]
+```
+- Burada listener modunda istenilen yerel portta, bir Netcat Listener’ı oluşturmuş oluruz.
+- Hem client hem de listener modda veri STDIN’den alınır ve network’den STDOUT’a verilir.
+
+
+
+
+
+
+<br/><br/><br/><br/>
+## _Kullanıcı işlemleri ile ilgili komutlar_ 
+
+- chmod,
+- chown, 
+- useradd,
+- passwd
+- 
+<br/><br/><br/>
+
+
+### 1) chmod
+
+- Linux sistemlerde kullanıcıların dosyalara erişim haklarını belirlemek için “chmod” komutu kullanılınır. Chmod un tam karşılığı change moddur.
+- Chmod erişim izinleri herzaman rwx şeklinde sıralanmaktadır.
+
+a) r – Okuma izni ( Read permission )
+b) w – Yazma izni ( Write permission )
+c) x – Çalıştırma izni ( Execute permission )
+
+
+#### <ins> Bazı chmod örnekleri : </ins>
+
+- rwx  ---> Okuma, yazma ve çalıştırma erişim izinlerinin hepsi var.
+- rw-  ---> Okuma ve yazma izinleri var, çalıştırma için izin yok.
+- r-x  ---> Okuma ve çalıştırma izinleri var, yazma için izin yok.
+- -wx  ---> Okuma için izin yok, yazma ve çalıştırma izinleri var.
+- r–   ---> Sadece okuma hakkı var.
+- -w-  ---> Sadece yazma hakkı var.
+- –x   ---> Sadece çalıştırma hakkı var.
+- —    ---> Hiçbir erişim hakkı yok.
+
+####  <ins> Dosya tür çeşitlerini şu şekilde sıralayabiliriz :  </ins>
+
+- * Normal bir dosya
+- d Dizin
+- b Özel blok dosyası
+- c Özel karakter dosyası
+- l Sembolik bağlantı dosyası
+- P Özel isimlendirilmiş pipe dosyası
+
+####  <ins> Chmod izinleri için Operatörler </ins>
+
+- – İzinleri kaldır ( remove chmod permission )
+- + İzinleri ekle ( add chmod permission )
+- = İzinleri koy ( set chmod permission )
+
+Örneğin;
+```Shell
+$ chmod +r deneme 
+``` 
+- deneme dosyasına okuma(r) izni vermiş olduk.
+
+```Shell
+$ chmod go+r deneme* 
+```
+- ( * ) joker parametresi ile deneme ile başlayan tüm dosyaların grup ve diğer(other) userler tarafından okunması iznini verir.
+
+
+
+
+
+<br/><br/><br/>
+
+### 2)chown
+
 <br/>Dosya Sahibini veya grubunu değiştirmek için” chown” komutu kullanılır.
 <br/>Bir dosyanın sahipliğini değiştirmek için temel komut:
 <br/>chown kullanici dosyaadi
@@ -827,6 +954,9 @@ $gunzip filename.gz
 <br/>Linkler için chown:
 <br/>chown deneme symlink
 
+
+
+
 <br/><h3><br/><ins>USERADD.</h3></ins>
 <br/>Linux makinenizi birden fazla kişi kullanıyorsa veya birden çok kullanıcıya erişim sağlayan bir sunucuyu yönetiyorsanız, kullanıcı oluşturmak için useradd komutu gereklidir. SYNTAX;
 <br/>#sudo useradd [options] USERNAME
@@ -839,9 +969,16 @@ $gunzip filename.gz
 <br/>Ana dizini değiştirmek için, aşağıdaki komutu girebilirsiniz.
 <br/>sudo useradd -m -d /alternatif test
 
+
+
+
 <br/><h3><br/><ins>PASSWD.</h3></ins>
 <br/>passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:#sudo passwd test. 
 <br/>Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
+
+
+
+
 
   <h2><br/><ins><i>IP ile ilgili komutlar (ifconfig,iptables,ip a, ip link, ip r, ip n, traceroute) </i></ins></h2> 
 <br/><h3><br/><ins>IFCONFIG.</h3></ins>
