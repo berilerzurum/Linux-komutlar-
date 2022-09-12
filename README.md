@@ -81,7 +81,8 @@ cat -n dosyaadi.txt
 
 ### More
 - more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
-- Syntax;
+- 
+#### Syntax;
 more file_path
 
 - Ek olarak more komutu;
@@ -147,64 +148,84 @@ tail -n 25 dosya.txt
 
 Tail komutuna yukarıdaki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
 
-SYNTAX;
-tail [options] <files>
+#### Syntax;
+
+tail [options] <<files>>
  
-1.  -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir. Aşağıdaki komut örneği ile dosyanın son 5 satırı görüntülenir. 
+1.  **-n** komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir. Aşağıdaki komut örneği ile dosyanın son 5 satırı görüntülenir. 
  ```shell
  tail -n 5 dosya.txt 
  ```
  
-2.  -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir. Aşağıdaki komut örneği ile dosyadan son 5 byte görüntülenir.
+2.  **-c** komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir. Aşağıdaki komut örneği ile dosyadan son 5 byte görüntülenir.
  ```shell
 tail -c 5 dosya.txt 
  ```
  
-3.  -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
+3.  **-q** komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
  ```shell
 tail -q dosya.txt
  ```
-4.  -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
+4.  **-v** komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
  ```shell
 tail -v dosya.txt
  ```
-<br/><p align="center">
+<p align="center">
   <img src="image/1.png" />
 </p>
 
-<br/><br/><b><i>5)</i></b> –retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
-<br/><br/><b><i>6)</i></b> -f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
-<br/>•Birim zaman başına çok sayıda erişim varsa bu yaklaşım pratik değildir. Bu durumda, günlük o kadar hızlı değişir ki terminal verilerle dolup taşar.
- Canlı kuyruğun geçerli yürütmesini iptal etmek içinse "Ctrl + C" tuşuna basılması gerekir.
-<br/>->tail -f dosya.txt
-<br/><br/><b><i>7)</i></b> --pid=PID komutu
-<br/>-f seçeneğiyle birlikte kullanıldığında, belirtilen işlem kimliğine sahip işlem(PID), sona erdiğinde tail komutu sonlandırılır. Dosya yazma programı sonlandırıldığında, canlı kuyruğu iptal etmek için kullanışlıdır.
-<br/>->tail -f dosya.txt –pid=1
+5. **retry** komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
+ 
+6. **f** komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken, sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
+ 
+- Birim zaman başına çok sayıda erişim varsa bu yaklaşım pratik değildir. Bu durumda, günlük o kadar hızlı değişir ki terminal verilerle dolup taşar.
+ 
+- Canlı kuyruğun geçerli yürütmesini iptal etmek içinse "Ctrl + C" tuşuna basılması gerekir.
+```shell
+tail -f dosya.txt
+ ```
+7. **--pid=PID** komutu
+-f seçeneğiyle birlikte kullanıldığında, belirtilen işlem kimliğine sahip işlem(PID), sona erdiğinde tail komutu sonlandırılır. Dosya yazma programı sonlandırıldığında, canlı kuyruğu iptal etmek için kullanışlıdır.
+ 
+```shell 
+tail -f dosya.txt –pid=1
+ ```
 
 
+### Çalıma Dizinini Değiştirmek (cd) 
+ 
+- Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
 
-<br/>
-
-<h3><br/><ins>CD.</h3></ins>
-<br/>Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
-<br/><br/>SYNTAX;
-<br/>•cd [DIRNAME]
-<br/> Mesela bulunduğumuz konumdan desktop konumuna geçmek istiyoruz. Bunun için aşağıdaki komutu, dizin adını girmemiz yeterlidir.
-<br/>cd /home/user/Desktop
-
-<br/>Bu komutun eşdeğeri  “cd ~/Desktop” komutudur.” ~ “ işareti kök dizini gösterir yani /home/user/ dizinidir.
- <br/>•cd ~ komutu /home/user dizinine gitmemizi sağlar.
- <br/>•cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
-<br/> •cd .. komutu /home dizinine geçer.
+#### Syntax;
+ 
+cd [DIRNAME]
+ 
+- Mesela bulunduğumuz konumdan desktop konumuna geçmek istiyoruz. Bunun için aşağıdaki komutu girmemiz yeterlidir.
+```shell 
+cd /home/user/Desktop
+ ```
+- Yukarıdaki komutun eşdeğeri 
+ 
+ ```shell 
+ cd ~/Desktop
+  ```
+ komutudur. ” ~ “ işareti kök dizini gösterir yani /home/user/ dizinidir.
+ 
+ 1. cd ~ komutu /home/user dizinine gitmemizi sağlar.
+ 2. cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
+ 3. cd .. komutu /home dizinine geçer.
 
 
 ### Dizin Yaratmak (MKDIR)
 
- mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. 
+- mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. 
  
 #### Syntax;
+ 
 mkdir dizin_adı  şeklindedir.
+ 
 - Yukarıda yazıldığı gibi kullanıldığında yeni dizin şu anki dizinin içinde oluşturulur. 
+ 
 - -p : (--parents) Eğer yoksa, gerekli üst dizinleri de oluşturur. Eğer bu dizinler zaten varsa bir hata iletisi göstermez. 
   -p 'nin kullanılmasına bir örnek: `mkdir -p /geçici/a/b/c`
  Eğer `/geçici/a` dizini zaten varsa fakat `/geçici/a/b` dizini yoksa, mkdir , `/geçici/a/b`'yi oluşturduktan sonra `/geçici/a/b/c` dizinini oluşturulur.
@@ -212,57 +233,92 @@ mkdir dizin_adı  şeklindedir.
 - -v : (--verbose) Oluşturulan her dizini ekranda gösterir. Çoğunlukla -p ile birlikte kullanılır.
 - -m : Oluşturulan dizinin, erişim izinlerini belirler. Erişim izinleri ya sayısal olarak ya da r/w/x şeklinde belirtilmelidir. Genellikle bazı dizinlerin erişime engellenmesinde kullanılır.
 
-<br/>•Aşağıdaki örnekte tam erişimli dosya yaratma işleminin komutu var.
-<br/>mkdir -m 777 newDir
-<br/>•Bu komut mkdir -m=rwx <file> komutuna eş değerdir.
+- Aşağıdaki örnekte tam erişimli dosya yaratma işleminin komutlarını görebiliriz.
+```shell  
+mkdir -m 777 newDir
+```
+Ya da
  
-<br/>•Sadece okuma ve yazma işlemi için "mkdir -m=rw <file>"
-<br/>•Sadece yazma işlemi için "mkdir -m=r <file>"
-<br/>•Sadece okuma işlemi için "mkdir -m=w <file>"
-<br/>•Sadece execute işlemi için "mkdir -m=x <file>"
+ ```shell 
+ mkdir -m=rwx <file> 
+ ```
+ komutlarını kullanabiliriz.
+ 
+•Sadece <ins> okuma ve yazma </ins> işlemi için "mkdir -m=rw <file>"
+ 
+•Sadece <ins>yazma </ins> işlemi için "mkdir -m=r <file>"
+ 
+•Sadece <ins>okuma </ins> işlemi için "mkdir -m=w <file>"
+ 
+•Sadece <ins>execute </ins> işlemi için "mkdir -m=x <file>"
 
-<br/><h3><br/><ins>RMDIR.</h3></ins>
-<br/>Mkdir’in tam tersine varolan dizini kaldırmak için kullanılır. SYNTAX;
-<br/>•rmdir [DIRNAME]
+### Dizin Kaldırmak (rmdir)
+ 
+- Mkdir’in tam tersine varolan dizini kaldırmak için kullanılır. 
+ 
+####Syntax;
+
+ rmdir [DIRNAME]
 
 ### Dosya/Dizin Taşımak/Yeniden İsimlendirmek (mv)
 
 `mv` (move) komutu dosya ve dizinleri yeniden adlandırmak ve/veya taşımak için kullanılabilir. 
 
  #### SYNTAX; 
-<br/>•mv [eski] [yeni]
-<br/>•mv newDir ~/Documents/Dirs  
-<br/><br/>Dosya adını değiştirmek için; newdir olan dosya adını ChangedDir dosya adına çevirir.
-<br/>mv newDir ChangedDir
+ 
+mv [eski] [yeni]
+ 
+```shell
+mv newDir ~/Documents/Dirs
+```
+ 
+Dosya adını değiştirmek için aşağıdaki komut kullanılır. 
+ ```shell
+mv newDir ChangedDir
+ ```
+newdir olan dosya adını ChangedDir dosya adına çevirir.
 
-<br/><h3><br/><ins>CP.</h3></ins>
-<br/>Dosya ve dizinleri kopyalamaya yarayan bir araç komutudur. 
-<br/><br/>cp newDir ~/Documents/Dirs
-<br/>Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
+### Dosya ve dizinleri Kopyalamak (cp)
+ 
+- Dosya ve dizinleri kopyalamaya yarayan bir araç komutudur. 
+ 
+ ```shell
+cp newDir ~/Documents/Dirs
+ ```
+- Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
   
-<br/><br/>CP komutunun;
-<br/><br/><b><i>1)</i></b>Bir dosyayı başka bir dosyaya kopyalamaya,
+- cp komutunun;
+ 
+1. Bir dosyayı başka bir dosyaya kopyalamaya,
  <br/> <p align="center">
   <img src="image/6.png" />
 </p>
-<br/><br/><b><i>2)</i></b>Birden çok dosyayı bir dizinin içine kopyalamaya veya
-<br/><br/><b><i>3)</i></b>Bir dizinin içeriğini tamamen başka bir dizinin içine kopyalama gibi farklı işlevler görmesi için yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
+ 
+2. Birden çok dosyayı bir dizinin içine kopyalamaya veya
+ 
+3. Bir dizinin içeriğini, tamamen başka bir dizinin içine kopyalamak gibi farklı işlevler görmesi için, yanına eklenen argümanlarla sağlanabilecek üç ana modu vardır.
 
-<br/><br/>•Bir dosyayı başka bir dosyaya kopyalamak:
-<br/>cp kaynakdosya hedefdosya
-  
-<br/><br/>•Dosya veya dosyaları bir dizinin içine kopyalamak:
-<br/>cp kaynakdosya... hedefdizin
-  
-<br/><br/>•Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
-<br/>cp -r|-R kaynakdizin hedefdizin
-
-<br/><br/>•Peki, bulunduğumuz dizindeki tüm *.sql uzantılı dosyaların oluşturulmuş /db_yedek isimli bir başka klasöre kopyalanmasını istersek;
-<br/>cp *.sql db_yedek/
-  
-<br/>•-a dosyaya ait file mode, ownership, timestamps ve eğer mümkünse attributes: context, links, xattr verilerini aktarır.
-<br/>•-v işlemle ilgili süreci döker.
-<br/>•-R ya da -r ; klasör yapısını olduğu gibi kopyalar. Dizin ağacındaki tüm dosyaları, yani bir dizin ve onun alt dizinindeki tüm dosyaları kopyalar.
+1. Bir dosyayı başka bir dosyaya kopyalamak:
+ ```shell
+cp kaynakdosya hedefdosya
+   ```
+2.  Dosya veya dosyaları bir dizinin içine kopyalamak:
+ ```shell
+cp kaynakdosya... hedefdizin
+   ```
+3. Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
+ ```shell
+cp -r|-R kaynakdizin hedefdizin
+ ```
+- Peki, bulunduğumuz dizindeki tüm *.sql uzantılı dosyaların oluşturulmuş /db_yedek isimli bir başka klasöre kopyalanmasını istersek;
+ ```shell
+cp *.sql db_yedek/
+   ```
+ cp'nin diğer kullanımlarına birkaç örnek ise -a -v ve -R parametreleridir.
+ 
+- -a dosyaya ait file mode, ownership, timestamps ve eğer mümkünse attributes: context, links, xattr verilerini aktarır.
+- -v işlemle ilgili süreci döker.
+- -R ya da -r ; klasör yapısını olduğu gibi kopyalar. Dizin ağacındaki tüm dosyaları, yani bir dizin ve onun alt dizinindeki tüm dosyaları kopyalar.
 
 <br/><h3><br/><ins>RM.</h3></ins>
 <br/>•Artık ihtiyacımız olmayan dosyaları kaldırmak için rm komutunu kullanırız.
