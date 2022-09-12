@@ -547,7 +547,7 @@ $ whatis ping
 **_tar [options] [archive-file] [file or directory to be archived]_**
 
 <br/>
-Options:
+<ins> Options: </ins>
 <br/>•-c : Creates archive (.tar file)
 <br/>•-x : Extracts the archive
 <br/>•-f : creates archive with given filename
@@ -1185,37 +1185,37 @@ $ iptables -A INPUT -s xxx.xxx.xxx.xxx -j DROP
  
 2. 
 ```Shell
-iptables -A INPUT -p tcp -s xxx.xxx.xxx.xxx -j DROP
+$ iptables -A INPUT -p tcp -s xxx.xxx.xxx.xxx -j DROP
 ```
 - Bu örnekte ise bir IP adresinin bize TCP paketleri atmasını engellemek için yazdığımız bir kuraldır. İlk kuralda herhangi bir paket tipi atarsa paket direk DROP edilecekti. Ama buradaki kuralda sadece TCP paketi atarsa engellemeyi tercih etmişiz.
  
 3. Engellenen IP adresinin Engeleni Kaldırmak (Kural Silmek)
 ```Shell
-iptables -D INPUT -s xxx.xxx.xxx.xxx -j DROP
+$ iptables -D INPUT -s xxx.xxx.xxx.xxx -j DROP
 ```
 - Önceki örnekte –A parametresi ile bu kuralı eklemiştik. Şimdi daha sonra eğer karar değiştirirsek yani kuralı silmek istersek bu önceden yazmış olduğun kuralın aynısını yazarak bu sefer –D parametresi ile silebiliriz.
  
 4. Belli bir portu engellemek
 ```Shell 
-iptables -A OUTPUT -p tcp — dport $\lt$ port numarası $\gt$ -j DROP
+$ iptables -A OUTPUT -p tcp — dport $\lt$ port numarası $\gt$ -j DROP
 ```
 - Kullanmadığınız portların durumunu belirtin. Kendiniz için alabileceğiniz en büyük güvenlik önlemi budur. Eğer bir portu kullanmayacaksınız onu manuel olarak kapatmanız gerekir. Böylelikle olası bir saldırı durumda dışarıya veri sızıntısını engelleyebilirsiniz.
  
 5. 
 ```Shell
-iptables -A INPUT -p tcp — dport xxx -j DROP
+$ iptables -A INPUT -p tcp — dport xxx -j DROP
 ```
 - Bu kuralda ise benim bilgisayarımdan dışarıya giden ve xxx portunu kullanan tüm paketler drop edilir. Bu kuralın mantığı ise dışarıdan gelen herhangi bir paketin xxx numaralı port ile olan iletişimini kesiyorum. Gelen paketleri DROP ediyorum.
  
 6. Ping İsteklerinin Engellenmesi
 ```Shell
-iptables -A INPUT -p icmp -i eth0 -j DROP
+$ iptables -A INPUT -p icmp -i eth0 -j DROP
 ```
 - Günümüzde zafiyet taraması yapan araçlar bir ağda çalışan bilgisayarın varlığını tespit edebilmek için o bilgisayarlara ping paketi gönderir. Bu pakete cevap verilirse de saldırgan sizin o ağ içinde olan bir bilgisayar diye işaretleyerek hedef haline gelirsiniz. Biz de bu durumdan kurtulmak için gelen ping paketlerini engelleyebiliriz. Ping paketleri icmp protokolünü kullanır ve eth0 ise bizim kendi network kartımızın interface değeridir.
  
 7. DoS ataklardan korunmak
 ```Shell
-iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-burst 100 -j ACCEPT
+$ iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-burst 100 -j ACCEPT
 ```
 - Iptables ile network kartımıza gelen trafiği yönetebileceğimiz söylemiştik. DoS saldırılarından korunmak üzere kendimiz de bir şeyler yapabiliriz. 80 portunu HTTP bağlantısı kullanır. Dışarıdan gelen ve 80 portunu kullanan paketlerden sayısı dakika başına belirledğimiz sayısı aşmadığı sürece kabul edilmesini söylediğimiz kuralı yazdık.
 
@@ -1230,7 +1230,7 @@ iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-bur
 
 - Tracert bir sorgulama komutudur. Neyi sorguladığına gelecek olursak hedefe giden yoldaki durakları gösterir. Paket transferi sırasında hatanın kaynağını bulmada yardımcı olur. Tracert bu işlemi yaparken İnternet Denetim İletisi Protokolü (ICMP) ve Ip yaşam süresi (TTL) değerlerini kullanılır. Bu komut Windowsta “tracert $\lt$ IP address $\gt$” ile çalışır.
 
-## <ins> En sık kullanılan parametreler </ins>
+#### <ins> En sık kullanılan parametreler </ins>
 
 - -d: IP adreslerinin bilgisayar çözümlenmesini yapmadan sonuç verir. Yani 212.156.38.21.static.turktelekom.com.tr [212.156.38.21] yerine sadece 212.156.38.21 verir.
 - -j: ana bilgisayar listesi (Ana bilgisayar listesinde zorunlu olmayan kaynak yolunu belirtir)
@@ -1247,75 +1247,144 @@ iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-bur
 
 - IP komutu, sistem ve ağ yöneticileri için bir Linux ağ aracıdır. IP, İnternet Protokolü anlamına gelir ve adından da anlaşılacağı gibi, araç ağ arayüzlerini yapılandırmak için kullanılır.
 
-<br/>Daha eski Linux dağıtımları, benzer şekilde çalışan ”ifconfig“ komutunu kullanırdı. Ancak ifconfig, ip komutuna kıyasla sınırlı bir yetenek yelpazesine sahiptir.
-<br/>SYNTAX;
-<br/>ip [OPTION] OBJECT {COMMAND | help}
-<br/>Sık kullanılan objeler;
-<br/>1. link (l) –network interfaceleri görüntülemek ve değiştirmek için kullanılır.
-<br/>2. address (addr/a) –protocol addreslerini (IP, IPv6) görüntülemek ve değiştirmek için kullanılır.
-<br/>3. route (r) –routing tablosunu görüntülemek ve değiştirmek için kullanılır.
-<br/>4. neigh (n) – komşu nesneleri (ARP tablosu) görüntülemek ve işlemek için kullanılır.
+- Daha eski Linux dağıtımları, benzer şekilde çalışan ”ifconfig“ komutunu kullanırdı. Ancak ifconfig, ip komutuna kıyasla sınırlı bir yetenek yelpazesine sahiptir.
 
-<br/><br/>Örneğin;
-<br/>Link için;<br/>
-<br/>Mevcut tüm aygıtların link-layer bilgilerini görmek için şu komutu kullanın:
-<br/>ip link show
-<br/>Belirli bir aygıt için bilgileri görüntülemesini istiyorsanız, aşağıdakini yazın:
-<br/>ip link show dev [cihaz]
-<br/>Tüm ağ arabirimlerinin istatistiklerini (aktarılan veya bırakılan paketler, hatalar gibi ayrıntılar) görmek için şunu kullanın:
-<br/>ip -s link
-<br/>Yalnızca çalışan arayüzlerin listesini görmek için şunu kullanın:
-<br/>ip link ls up
-<br/>Bir ağ arayüzünü (çevrimiçi) açmak istiyorsanız, şu komutu kullanın:
-<br/>ip link set[interface] up
-<br/>Aşağıdakileri girerek bir arayüzü (çevrimdışı) devre dışı bırakın:
-<br/>ip link set[interface] down
+#### Syntax;
+**_$ip [OPTION] OBJECT {COMMAND | help}_**
 
-<br/>Address için;
-<br/><br/>IPv4 addreslerini listelemek için:
-<br/>ip -4 addr
-<br/>IPv6 addreslerini listelemek için:
-<br/>ip -6 addr
-<br/>Bir arayüze IP atamak istersek:
-<br/>ip addr add [ip_address] dev [interface]
-<br/>Bir interfce’e broadcast address eklemek istersek;
-<br/>ip addr add brd [ip_address] dev [interface]
-<br/>Bir interface den IP adresini kaldırmak istersek;
-<br/>ip addr del [ip_address] dev [interface]
+<ins> Sık kullanılan objeler; </ins>
+1. link (l) : Network interfaceleri görüntülemek ve değiştirmek için kullanılır.
+2. address (addr/a) : Protocol addreslerini (IP, IPv6) görüntülemek ve değiştirmek için kullanılır.
+3. route (r) : Routing tablosunu görüntülemek ve değiştirmek için kullanılır.
+4. neigh (n) : Komşu nesneleri (ARP tablosu) görüntülemek ve işlemek için kullanılır.
 
- <br/>Route için;
-<br/><br/>Tüm route girişlerini listelemek istersek;
-<br/>ip route -ya da- ip route list
-<br/>Yukarıdaki komutlarla çıktı, kerneldeki tüm route girişlerini görüntüler. Aramayı daraltmanız gerekirse, SELECTOR nesnesini ekleyin:
-<br/>ip route list SELECTOR
-<br/>Distinct network için;
-<br/>ip route list [ip_address]
-<br/>Belirli bir cihazda erişilebilen routing tablosuna yeni bir giriş eklemek için;
-<br/>ip route add [ip_address] dev [interface]  
-<br/>Ya da gateway aracılığı ile;
-<br/>ip route add [ip_address] via [gatewayIP]
-<br/>Varolan routing table’ı silmek için aşağıdaki komutları deneyin.
-<br/>ip route del [ip_address]
-<br/>ip route del default
-<br/>ip route del [ip_address] dev [interface]
+<br/>Örneğin;
 
- <br/>Neigh için;
-<br/><br/>neighbor table’ları görüntülermek için;
-<br/>ip neigh show
-<br/>yeni giriş eklemek için;
-<br/>ip neigh add [ip_address] dev [interface]
-<br/>ARP girişini silmek için;
-<br/>ip neigh del [ip_address] dev [interface]
+#### a) Link için (-l) ;
+
+- Mevcut tüm aygıtların link-layer bilgilerini görmek için şu komutu kullanın:
+```Shell
+$ ip link show
+```
+
+- Belirli bir aygıt için bilgileri görüntülemesini istiyorsanız, aşağıdakini yazın:
+```Shell
+$ ip link show dev [cihaz]
+```
+
+- Tüm ağ arabirimlerinin istatistiklerini (aktarılan veya bırakılan paketler, hatalar gibi ayrıntılar) görmek için şunu kullanın:
+```Shell
+$ ip -s link
+```
+
+- Yalnızca çalışan arayüzlerin listesini görmek için şunu kullanın:
+```Shell
+$ ip link ls up
+```
+
+- Bir ağ arayüzünü (çevrimiçi) açmak istiyorsanız, şu komutu kullanın:
+```Shell
+$ ip link set[interface] up
+```
+
+- Aşağıdakileri girerek bir arayüzü (çevrimdışı) devre dışı bırakın:
+```Shell
+$ ip link set[interface] down
+```
+
+#### b) Address için (addr, -a) ;
+
+<br/>
+- IPv4 addreslerini listelemek için:
+```Shell
+$ ip -4 addr
+```
+
+- IPv6 addreslerini listelemek için:
+```Shell
+$ ip -6 addr
+```
+
+- Bir arayüze IP atamak istersek:
+```Shell
+$ ip addr add [ip_address] dev [interface]
+```
+
+- Bir interfce’e broadcast address eklemek istersek;
+```Shell
+$ ip addr add brd [ip_address] dev [interface]
+```
+
+- Bir interface den IP adresini kaldırmak istersek;
+```Shell
+$ ip addr del [ip_address] dev [interface]
+```
+
+
+<br/>
+#### c) Route için (-r) ;
+
+<br/>
+- Tüm route girişlerini listelemek istersek;
+```Shell
+$ ip route 
+# ya da
+$ ip route list
+```
+
+- Yukarıdaki komutlarla çıktı, kerneldeki tüm route girişlerini görüntüler. Aramayı daraltmanız gerekirse, SELECTOR nesnesini ekleyin:
+```Shell
+$ ip route list SELECTOR
+```
+
+- Distinct network için;
+```Shell
+$ ip route list [ip_address]
+```
+
+- Belirli bir cihazda erişilebilen routing tablosuna yeni bir giriş eklemek için;
+```Shell
+$ ip route add [ip_address] dev [interface]  
+```
+
+- Ya da gateway aracılığı ile;
+```Shell
+$ ip route add [ip_address] via [gatewayIP]
+```
+
+- Varolan routing table’ı silmek için aşağıdaki komutları deneyin.
+```Shell
+$ ip route del [ip_address]
+$ ip route del default
+$ ip route del [ip_address] dev [interface]
+```
+
+<br/>
+
+#### d) Neigh için (-n) ;
+
+<br/>
+- neighbor table’ları görüntülermek için;
+```Shell
+$ ip neigh show
+```
+
+- yeni giriş eklemek için;
+```Shell
+$ ip neigh add [ip_address] dev [interface]
+```
+
+- ARP girişini silmek için;
+```Shell
+$ ip neigh del [ip_address] dev [interface]
+```
 
 
 
 
 
 
-
-
-
-
+<br/><br/><br/><br/><br/>
 
 <h1> STDIN, STDOUT, STDERR </h1>
 
