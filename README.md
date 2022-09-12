@@ -994,58 +994,127 @@ chown user symlink
 
 
 
-### useradd
+### 3) useradd
 
-<br/>Linux makinenizi birden fazla kişi kullanıyorsa veya birden çok kullanıcıya erişim sağlayan bir sunucuyu yönetiyorsanız, kullanıcı oluşturmak için useradd komutu gereklidir. SYNTAX;
-<br/>#sudo useradd [options] USERNAME
-<br/>Örneğin; sudo useradd test 
-<br/>Herhangi bir seçenek olmadan çalıştırıldığında useradd, /etc/default/useradd dosyasında belirtilen varsayılan ayarları kullanarak yeni bir kullanıcı hesabı oluşturur. 
-<br/>Bu, test adında bir kullanıcı yaratacaktır, ancak bu sınırlı bir işlemdir ve ana dizini veya şifresi gibi başka yararlı şeyler yaratmaz!
-<br/>Varsayılan ana dizine sahip bir kullanıcı oluşturmak için aşağıdaki seçeneği kullanın:
-<br/>sudo useradd -m test
-<br/>Bu kullanıcının artık bir /home/test dizini var.
-<br/>Ana dizini değiştirmek için, aşağıdaki komutu girebilirsiniz.
-<br/>sudo useradd -m -d /alternatif test
+- Linux makinenizi birden fazla kişi kullanıyorsa veya birden çok kullanıcıya erişim sağlayan bir sunucuyu yönetiyorsanız, kullanıcı oluşturmak için useradd komutu gereklidir. 
+
+#### Syntax;
+
+**_$sudo useradd [options] USERNAME _**
+!Önemli: sudo her dağıtımda yüklü değil. Yüklü değilse, kullanıcı oluşturmak için uygun izinlere sahip bir hesaba giriş yapmanız gerekir.
+
+Örneğin basit bir kullanıcı oluşturarak başlayalım; 
+```Shell
+sudo useradd test 
+```
+---> test isminde bir user ekledik.
+
+- Useradd, herhangi bir seçenek olmadan çalıştırıldığında;
+- /etc/default/useradd dosyasında belirtilen, varsayılan ayarları kullanarak yeni bir kullanıcı hesabı oluşturur. 
+- Bu, test adında bir kullanıcı yaratacaktır, ancak bu sınırlı bir işlemdir ve ana dizini veya şifresi gibi başka yararlı şeyler yaratmaz!
+
+- Bu nedenle, eğer varsayılan ana dizine sahip bir kullanıcı oluşturmak istiyorsak, aşağıdaki seçeneği kullanmak daha anlamlı olacaktır:
+```Shell
+sudo useradd -m test
+```
+-->Bu kullanıcının artık bir /home/test dizini var.
+
+- Ana dizini de değiştirmek istersek, aşağıdaki komutu girebiliriz.
+```Shell
+sudo useradd -m -d /alternatif test
+```
+
+
+
+<br/><br/><br/>
+
+### 4) passwd
+
+
+- passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:
+```Shell
+#sudo passwd test 
+```
+Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
 
 
 
-<br/><h3><br/><ins>PASSWD.</h3></ins>
-<br/>passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:#sudo passwd test. 
-<br/>Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
+<br/><br/><br/><br/>
 
 
+ ## _IP ile ilgili komutlar_
+- ifconfig,
+- iptables,
+- ip a, 
+- ip link,
+- ip r, 
+- ip n, 
+- traceroute 
+- 
+<br/><br/><br/>
 
+### 1) ifconfig
 
-
-  <h2><br/><ins><i>IP ile ilgili komutlar (ifconfig,iptables,ip a, ip link, ip r, ip n, traceroute) </i></ins></h2> 
-<br/><h3><br/><ins>IFCONFIG.</h3></ins>
-<br/>Argümansız “ifconfig” komutu, tüm aktif arayüz ayrıntılarını görüntüler. ifconfig komutu ayrıca bir sunucunun atanan IP adresini kontrol etmek için de kullanılır.
+a) Argümansız “ifconfig” komutu, tüm aktif arayüz ayrıntılarını görüntüler. ifconfig komutu ayrıca bir sunucunun atanan IP adresini kontrol etmek için de kullanılır.
 <br/><p align="center">
   <img src="image/ifcon (1).png" />
 </p>
-<br/>-a argümanıyla birlikte aşağıdaki ifconfig komutu, sunucudaki tüm etkin veya etkin olmayan ağ arabirimlerinin bilgilerini görüntüler. eth0, lo, sit0 ve tun0 için sonuçları görüntüler.
+
+b) -a argümanıyla birlikte aşağıdaki ifconfig komutu, sunucudaki tüm etkin veya etkin olmayan ağ arabirimlerinin bilgilerini görüntüler. eth0, lo, sit0 ve tun0 için sonuçları görüntüler.
 <br/> <p align="center">
   <img src="image/ifcon (2).png" />
 </p>
-<br/>Belirttiğiniz bir interface'in bilgilerini görüntüleyebilirsiniz. (eth0 , eth1 vs.)
-<br/>Örneğin; ifconfig eth0
-<br/>Bir interface 'i aktif etmek için ifconfig kullanabilirsiniz. bunun için up parametresini kullanıyoruz.  ifconfig eth0 up
-<br/>Tam tersi interface’i kapatmak içinse down parametresini kullanıyoruz.
-<br/> - ifconfig eth0 down
-<br/>Belirttiğimiz interface 'e ip atamak için kullanabiliriz. 
-<br/>	İfconfig eth0 172.16.25.125
-<br/>Belirttiğiniz interface 'e subnet mask 'ı  atamak için kullanabiliriz.
-<br/>ifconfig eth0 netmask 255.255.255.224
-<br/>Belirttiğiniz interface 'e broadcast ip'i atamak için kullanabiliriz.
-<br/>ifconfig eth0 broadcast 172.16.25.63
-<br/>Belirttiğiniz interface 'e ip , mask ve broadcast 'i tek satırda verebiliriz
-<br/>ifconfig eth0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63
-<br/>ifconfig yardımcı programı, alias özelliğini kullanarak ek ağ arabirimlerini yapılandırmanıza olanak tanır.Örneğin; eth0'ın alias ağ arabirimini eklemek için aşağıdaki komut kullanılır.
-<br/> Alias ağ adresinin aynı subnet maskesinde olduğunu lütfen unutmayın. Örneğin, eth0 ağ ip adresiniz 172.16.25.125 ise, alias ip adresi 172.16.25.127 olmalıdır.
-<br/>ifconfig eth0:0 172.16.25.127
-<br/>Alias network interface’i kaldırmak içinse aşağıdaki komutu girmeniz yeterlidir.
-<br/>ifconfig eth0:0 down
+
+c) Belirttiğiniz bir interface'in bilgilerini görüntüleyebilirsiniz (eth0 , eth1 vs.).
+- Örneğin; 
+```Shell
+ifconfig eth0
+```
+
+d) >Bir interface'i aktif etmek için ifconfig kullanabilirsiniz. Bunun için up parametresini kullanıyoruz. 
+```Shell
+ifconfig eth0 up
+```
+
+e) Tam tersi interface’i kapatmak içinse down parametresini kullanıyoruz.
+```Shell
+ifconfig eth0 down
+```
+
+f) Belirttiğimiz interface'e ip atamak için kullanabiliriz. 
+```Shell
+İfconfig eth0 172.16.25.125
+```
+
+g) Belirttiğiniz interface 'e subnet mask 'ı  atamak için kullanabiliriz.
+```Shell
+ifconfig eth0 netmask 255.255.255.224
+```
+
+
+h) Belirttiğiniz interface'e broadcast ip'i atamak için kullanabiliriz.
+```Shell
+ifconfig eth0 broadcast 172.16.25.63
+```
+
+i) Belirttiğiniz interface 'e ip , mask ve broadcast 'i tek satırda da verebiliriz.
+```Shell
+ifconfig eth0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63
+```
+
+
+j) ifconfig yardımcı programı, alias özelliğini kullanarak ek ağ arabirimlerini yapılandırmanıza olanak tanır.Örneğin; eth0'ın alias ağ arabirimini eklemek için aşağıdaki komut kullanılır.
+
+- ! Alias ağ adresinin aynı subnet maskesinde olduğunu lütfen unutmayın. Örneğin, eth0 ağ ip adresiniz 172.16.25.125 ise, alias ip adresi 172.16.25.127 olmalıdır.
+```Shell
+ifconfig eth0:0 172.16.25.127
+```
+
+- Alias network interface’i kaldırmak içinse aşağıdaki komutu girmeniz yeterlidir.
+```Shell 
+ifconfig eth0:0 down
+```
 
 
 
