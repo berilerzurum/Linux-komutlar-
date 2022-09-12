@@ -1294,7 +1294,7 @@ $ ip link set[interface] down
 
 #### b) Address için (addr, -a) ;
 
-<br/>
+
 - IPv4 addreslerini listelemek için:
 ```Shell
 $ ip -4 addr
@@ -1365,8 +1365,8 @@ $ ip route del [ip_address] dev [interface]
 
 #### d) Neigh için (-n) ;
 
-<br/>
-- neighbor table’ları görüntülermek için;
+
+- neighbor table’ları görüntülemek için;
 ```Shell
 $ ip neigh show
 ```
