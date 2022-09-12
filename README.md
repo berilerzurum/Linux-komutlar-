@@ -973,20 +973,20 @@ $ chown user /TestUnix
 
 - Yinelemeli bir kullanım içinse -R seçeneğini kullanmanız gerekir. İşte bu komutun bir örneği:
 ```Shell
-chown -R [KULLANICI][:GRUP] Dizin
+$ chown -R [KULLANICI][:GRUP] Dizin
 ```
 - Eğer TestUnix olarak çok alt dizinli bir dizine sahipseniz aşağıdaki komut bütün dizinlerin ve alt dizinlerin sahipliğini user kullanıcısına verecektir.
 ```Shell
-chown -R user /TestUnix
+$ chown -R user /TestUnix
 ```
 
 5) Ayrıca sembolik veya soft linkler üzerinde de chown komutu kullanılabilir. Sembolik bir bağlantı, mevcut bir fiziksel dosyaya referanstır. ln komutu soft linkler oluşturmak için kullanılır. chownOrnegi.txt adlı dosya içinse aşağıdaki gibi bir sembolik link oluşturulabilir:
 ```Shell
-ln -s chownOrnegi.txt symlink  
+$ ln -s chownOrnegi.txt symlink  
 ```
 - Chown komutunu ise linkler üzerinde aşağıdaki gibi kullanabiliriz:
 ```Shell
-chown user symlink
+$ chown user symlink
 ```
 
 
@@ -1005,7 +1005,7 @@ chown user symlink
 
 Örneğin basit bir kullanıcı oluşturarak başlayalım; 
 ```Shell
-sudo useradd test 
+$ sudo useradd test 
 ```
 ---> test isminde bir user ekledik.
 
@@ -1015,13 +1015,13 @@ sudo useradd test
 
 - Bu nedenle, eğer varsayılan ana dizine sahip bir kullanıcı oluşturmak istiyorsak, aşağıdaki seçeneği kullanmak daha anlamlı olacaktır:
 ```Shell
-sudo useradd -m test
+$ sudo useradd -m test
 ```
 -->Bu kullanıcının artık bir /home/test dizini var.
 
 - Ana dizini de değiştirmek istersek, aşağıdaki komutu girebiliriz.
 ```Shell
-sudo useradd -m -d /alternatif test
+$ sudo useradd -m -d /alternatif test
 ```
 
 
@@ -1033,7 +1033,7 @@ sudo useradd -m -d /alternatif test
 
 - passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:
 ```Shell
-#sudo passwd test 
+$ sudo passwd test 
 ```
 Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
@@ -1051,12 +1051,12 @@ Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
  ## _IP ile ilgili komutlar_
 - ifconfig,
 - iptables,
+- traceroute 
 - ip a, 
 - ip link,
 - ip r, 
-- ip n, 
-- traceroute 
-- 
+- ip n
+
 <br/><br/><br/>
 
 
@@ -1077,38 +1077,38 @@ b) -a argümanıyla birlikte aşağıdaki ifconfig komutu, sunucudaki tüm etkin
 c) Belirttiğiniz bir interface'in bilgilerini görüntüleyebilirsiniz (eth0 , eth1 vs.).
 - Örneğin; 
 ```Shell
-ifconfig eth0
+$ ifconfig eth0
 ```
 
 d) Bir interface'i aktif etmek için ifconfig kullanabilirsiniz. Bunun için up parametresini kullanıyoruz. 
 ```Shell
-ifconfig eth0 up
+$ ifconfig eth0 up
 ```
 
 e) Tam tersi interface’i kapatmak içinse down parametresini kullanıyoruz.
 ```Shell
-ifconfig eth0 down
+$ ifconfig eth0 down
 ```
 
 f) Belirttiğimiz interface'e ip atamak için kullanabiliriz. 
 ```Shell
-İfconfig eth0 172.16.25.125
+$ İfconfig eth0 172.16.25.125
 ```
 
 g) Belirttiğiniz interface 'e subnet mask 'ı  atamak için kullanabiliriz.
 ```Shell
-ifconfig eth0 netmask 255.255.255.224
+$ ifconfig eth0 netmask 255.255.255.224
 ```
 
 
 h) Belirttiğiniz interface'e broadcast ip'i atamak için kullanabiliriz.
 ```Shell
-ifconfig eth0 broadcast 172.16.25.63
+$ ifconfig eth0 broadcast 172.16.25.63
 ```
 
 i) Belirttiğiniz interface 'e ip , mask ve broadcast 'i tek satırda da verebiliriz.
 ```Shell
-ifconfig eth0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63
+$ ifconfig eth0 172.16.25.125 netmask 255.255.255.224 broadcast 172.16.25.63
 ```
 
 
@@ -1116,12 +1116,12 @@ j) ifconfig yardımcı programı, alias özelliğini kullanarak ek ağ arabiriml
 
 - ! Alias ağ adresinin aynı subnet maskesinde olduğunu lütfen unutmayın. Örneğin, eth0 ağ ip adresiniz 172.16.25.125 ise, alias ip adresi 172.16.25.127 olmalıdır.
 ```Shell
-ifconfig eth0:0 172.16.25.127
+$ ifconfig eth0:0 172.16.25.127
 ```
 
 - Alias network interface’i kaldırmak içinse aşağıdaki komutu girmeniz yeterlidir.
 ```Shell 
-ifconfig eth0:0 down
+$ ifconfig eth0:0 down
 ```
 
 
@@ -1144,20 +1144,25 @@ ifconfig eth0:0 down
 
 <br/><ins>Kuralı sağlayan veya sağlamayan pakete ne olur?</ins>
 
-a) ACCEPT (KABUL ET): Paketin ağ trafiği üzerinden geçmesine izin verir
+a) ACCEPT (KABUL ET): Paketin ağ trafiği üzerinden geçmesine izin verir.
+
 b) DROP (REDDET): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilmez.
+
 c) REJECT (KABUL ETME): Paketin ağ trafiği üzerinden geçmesine izin vermez. Paketi gönderen kişiye paketin engellendiği haber edilir.
+
 d) RETURN (GERİ ÇEVİR): Şimdiki zincirin pas geçilmesi ve çağrıldığı zincirde bir sonraki kurala geçilmesi gerektiği anlamına gelir.
 
-<br/><ins>Paketlerin Yönleri nelerdir ?</ins>
+<br/><ins>Paketlerin Yönleri nelerdir ?</ins>  
 
 a) INPUT: Gelen paketlerin kontrol edileceğini belirtmek için kullanırız. Gelen paketler port numarası, protokol türü ve source IP değerine göre engellenebilir veya paketin geçişine izin verilir.
+
 b) FORWARD: Sistem tarafından yönlendirilen paketlerin kontrolü için kullanılır.
+
 c) OUTPUT: Giden paketleri kontrolü için kullanılır.
 
 <br/><ins>Iptables Genel Kural Yapısı</ins>
 
-iptables -A <paketin yönü> -i <interface> -p <protokol tipi> -s <kaynak> — dport <port no.> -j <pakete ne olacak?>
+iptables -A $\lt$ paketin yönü $\gt$ -i $\lt$ interface $\gt$ -p $\lt$ protokol tipi $\gt$ -s $\lt$ kaynak $\gt$ — dport $\lt$ port no. $\gt$ -j $\lt$ pakete ne olacak? $\gt$
  
 - A = Hangi zincir tipine eklemek istediğimizi belirtiyoruz. Input, Output, Forward zincirlerinden biri olabilir.
 - D = Belirtilen kuralın silinmesi için kullanılır. Yani daha önceden –A ile eklediğimiz kuralı bu sefer –D parametresi koyarak silebiliriz.
@@ -1167,39 +1172,79 @@ iptables -A <paketin yönü> -i <interface> -p <protokol tipi> -s <kaynak> — d
 - j = Bu paketin ne olacağı ile alakalı durumu belirtiriz. Paket ACCEPT, DROP veya RETURN edilebilir.
 
  
-<br/><br/> **Iptables Örnekleri**
+<br/><br/>
  
-<br/>Spesifik Bir IP adresini engellemek
-<br/>→ iptables -A INPUT -s xxx.xxx.xxx.xxx -j DROP
-<br/>Açıklamak gerekirse INPUT a gelen paketlerden source IP adresi xxx.xxx.xxx.xxx olan paketleri DROP yani kabul etme diyoruz. Yani bir IP adresinin zararlı olduğunu biliyorsak bu komutu kullanabiliriz.
-<br/>→iptables -A INPUT -p tcp -s xxx.xxx.xxx.xxx -j DROP
-<br/>Bu örnekte ise bir IP adresinin bize TCP paketleri atmasını engellemek için yazdığımız bir kuraldır. İlk kuralda herhangi bir paket tipi atarsa paket direk DROP edilecekti. Ama buradaki kuralda sadece TCP paketi atarsa engellemeyi tercih etmişiz.
-<br/>Engellenen IP adresinin Engeleni Kaldırmak (Kural Silmek)
-<br/>→ iptables -D INPUT -s xxx.xxx.xxx.xxx -j DROP
-<br/>Önceki örnekte –A parametresi ile bu kuralı eklemiştik. Şimdi daha sonra eğer karar değiştirirsek yani kuralı silmek istersek bu önceden yazmış olduğun kuralın aynısını yazarak bu sefer –D parametresi ile silebiliriz
-<br/>Belli bir portu engellemek
-<br/>→iptables -A OUTPUT -p tcp — dport <port numarası> -j DROP
-<br/>Kullanmadığınız portların durumunu belirtin. Kendiniz için alabileceğiniz en büyük güvenlik önlemi budur. Eğer bir portu kullanmayacaksınız onu manuel olarak kapatmanız gerekir. Böylelikle olası bir saldırı durumda dışarıya veri sızıntısını engelleyebilirsiniz.
-<br/>→iptables -A INPUT -p tcp — dport xxx -j DROP
-<br/>Bu kuralda ise benim bilgisayarımdan dışarıya giden ve xxx portunu kullanan tüm paketler drop edilir. Bu kuralın mantığı ise dışarıdan gelen herhangi bir paketin xxx numaralı port ile olan iletişimini kesiyorum. Gelen paketleri DROP ediyorum.
-<br/>Ping İsteklerinin Engellenmesi
-<br/>→iptables -A INPUT -p icmp -i eth0 -j DROP
-<br/>Günümüzde zafiyet taraması yapan araçlar bir ağda çalışan bilgisayarın varlığını tespit edebilmek için o bilgisayarlara ping paketi gönderir. Bu pakete cevap verilirse de saldırgan sizin o ağ içinde olan bir bilgisayar diye işaretleyerek hedef haline gelirsiniz. Biz de bu durumdan kurtulmak için gelen ping paketlerini engelleyebiliriz. Ping paketleri icmp protokolünü kullanır ve eth0 ise bizim kendi network kartımızın interface değeridir.
-<br/>DoS ataklardan korunmak
-<br/>→iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-burst 100 -j ACCEPT
-<br/>Iptables ile network kartımıza gelen trafiği yönetebileceğimiz söylemiştik. DoS saldırılarından korunmak üzere kendimiz de bir şeyler yapabiliriz. 80 portunu HTTP bağlantısı kullanır. Dışarıdan gelen ve 80 portunu kullanan paketlerden sayısı dakika başına belirledğimiz sayısı aşmadığı sürece kabul edilmesini söylediğimiz kuralı yazdık.
+**Iptables Örnekleri**
+ 
+1. Spesifik Bir IP adresini engellemek
+```Shell 
+$ iptables -A INPUT -s xxx.xxx.xxx.xxx -j DROP
+```
+
+- Açıklamak gerekirse INPUT a gelen paketlerden source IP adresi xxx.xxx.xxx.xxx olan paketleri DROP yani kabul etme diyoruz. Yani bir IP adresinin zararlı olduğunu biliyorsak bu komutu kullanabiliriz.
+ 
+2. 
+```Shell
+iptables -A INPUT -p tcp -s xxx.xxx.xxx.xxx -j DROP
+```
+- Bu örnekte ise bir IP adresinin bize TCP paketleri atmasını engellemek için yazdığımız bir kuraldır. İlk kuralda herhangi bir paket tipi atarsa paket direk DROP edilecekti. Ama buradaki kuralda sadece TCP paketi atarsa engellemeyi tercih etmişiz.
+ 
+3. Engellenen IP adresinin Engeleni Kaldırmak (Kural Silmek)
+```Shell
+iptables -D INPUT -s xxx.xxx.xxx.xxx -j DROP
+```
+- Önceki örnekte –A parametresi ile bu kuralı eklemiştik. Şimdi daha sonra eğer karar değiştirirsek yani kuralı silmek istersek bu önceden yazmış olduğun kuralın aynısını yazarak bu sefer –D parametresi ile silebiliriz.
+ 
+4. Belli bir portu engellemek
+```Shell iptables -A OUTPUT -p tcp — dport $\lt$ port numarası $\gt$ -j DROP
+```
+- Kullanmadığınız portların durumunu belirtin. Kendiniz için alabileceğiniz en büyük güvenlik önlemi budur. Eğer bir portu kullanmayacaksınız onu manuel olarak kapatmanız gerekir. Böylelikle olası bir saldırı durumda dışarıya veri sızıntısını engelleyebilirsiniz.
+ 
+5. 
+```Shell
+iptables -A INPUT -p tcp — dport xxx -j DROP
+```
+- Bu kuralda ise benim bilgisayarımdan dışarıya giden ve xxx portunu kullanan tüm paketler drop edilir. Bu kuralın mantığı ise dışarıdan gelen herhangi bir paketin xxx numaralı port ile olan iletişimini kesiyorum. Gelen paketleri DROP ediyorum.
+ 
+6. Ping İsteklerinin Engellenmesi
+```Shelliptables -A INPUT -p icmp -i eth0 -j DROP
+```
+- Günümüzde zafiyet taraması yapan araçlar bir ağda çalışan bilgisayarın varlığını tespit edebilmek için o bilgisayarlara ping paketi gönderir. Bu pakete cevap verilirse de saldırgan sizin o ağ içinde olan bir bilgisayar diye işaretleyerek hedef haline gelirsiniz. Biz de bu durumdan kurtulmak için gelen ping paketlerini engelleyebiliriz. Ping paketleri icmp protokolünü kullanır ve eth0 ise bizim kendi network kartımızın interface değeridir.
+ 
+7. DoS ataklardan korunmak
+```Shell
+iptables -A INPUT -p tcp — dport 80 -m limit — limit 25/minute — limit-burst 100 -j ACCEPT
+```
+- Iptables ile network kartımıza gelen trafiği yönetebileceğimiz söylemiştik. DoS saldırılarından korunmak üzere kendimiz de bir şeyler yapabiliriz. 80 portunu HTTP bağlantısı kullanır. Dışarıdan gelen ve 80 portunu kullanan paketlerden sayısı dakika başına belirledğimiz sayısı aşmadığı sürece kabul edilmesini söylediğimiz kuralı yazdık.
 
 
-<br/><h3><br/><ins>TRACEROUTE.</h3></ins>
-<br/>Tracert bir sorgulama komutudur. Neyi sorguladığına gelecek olursak hedefe giden yoldaki durakları gösterir. Paket transferi sırasında hatanın kaynağını bulmada yardımcı olur. Tracert bu işlemi yaparken İnternet Denetim İletisi Protokolü (ICMP) ve Ip yaşam süresi (TTL) değerlerini kullanılır. Bu komut Windowsta “tracert <IP address>” ile çalışır.
-<br/>En sık kullanılan parametreler
-<br/>-d: IP adreslerinin bilgisayar çözümlenmesini yapmadan sonuç verir. Yani 212.156.38.21.static.turktelekom.com.tr [212.156.38.21] yerine sadece 212.156.38.21 verir.
-<br/>-j: ana bilgisayar listesi (Ana bilgisayar listesinde zorunlu olmayan kaynak yolunu belirtir)
-<br/>-h: en fazla atlama sayısı (Hedef aranırken kullanılacak en fazla atlama sayısını belirtir)
-<br/>-w: zaman aşımı (Her yanıt için milisaniye olarak belirtilen zaman aşımı değeri kadar bekler)
 
-<br/><h3><br/><ins>IP komutları.</h3></ins>
-<br/>IP komutu, sistem ve ağ yöneticileri için bir Linux ağ aracıdır. IP, İnternet Protokolü anlamına gelir ve adından da anlaşılacağı gibi, araç ağ arayüzlerini <br/>yapılandırmak için kullanılır.
+
+
+
+<br/><br/><br/>
+
+### traceroute
+
+- Tracert bir sorgulama komutudur. Neyi sorguladığına gelecek olursak hedefe giden yoldaki durakları gösterir. Paket transferi sırasında hatanın kaynağını bulmada yardımcı olur. Tracert bu işlemi yaparken İnternet Denetim İletisi Protokolü (ICMP) ve Ip yaşam süresi (TTL) değerlerini kullanılır. Bu komut Windowsta “tracert $\lt$ IP address $\gt$” ile çalışır.
+
+## <ins> En sık kullanılan parametreler </ins>
+
+- -d: IP adreslerinin bilgisayar çözümlenmesini yapmadan sonuç verir. Yani 212.156.38.21.static.turktelekom.com.tr [212.156.38.21] yerine sadece 212.156.38.21 verir.
+- -j: ana bilgisayar listesi (Ana bilgisayar listesinde zorunlu olmayan kaynak yolunu belirtir)
+- -h: en fazla atlama sayısı (Hedef aranırken kullanılacak en fazla atlama sayısını belirtir)
+- -w: zaman aşımı (Her yanıt için milisaniye olarak belirtilen zaman aşımı değeri kadar bekler)
+
+
+
+
+
+<br/><br/><br/>
+
+### ip Komutları
+
+- IP komutu, sistem ve ağ yöneticileri için bir Linux ağ aracıdır. IP, İnternet Protokolü anlamına gelir ve adından da anlaşılacağı gibi, araç ağ arayüzlerini yapılandırmak için kullanılır.
+
 <br/>Daha eski Linux dağıtımları, benzer şekilde çalışan ”ifconfig“ komutunu kullanırdı. Ancak ifconfig, ip komutuna kıyasla sınırlı bir yetenek yelpazesine sahiptir.
 <br/>SYNTAX;
 <br/>ip [OPTION] OBJECT {COMMAND | help}
