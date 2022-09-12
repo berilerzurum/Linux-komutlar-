@@ -13,6 +13,8 @@
 - rm
 - touch
 
+<br/><br/><br/>
+
 ### 1) CAT
 
 Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
@@ -51,23 +53,23 @@ Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ul
 
 - Konsolda bir dosyanın içeriğini görüntülemek yerine, sonucu ">" kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
 ```shell
-cat kaynak.txt > hedef.txt
+$ cat kaynak.txt > hedef.txt
 ```
 -Eğer, hedef dosya bulunmuyorsa o zaman komut bu dosyayı yaratacak veya var olan dosyanın üzerine yazacaktır.
 
 - Cat ile ilgili bir başka komut ise, mevcut konumdaki bütün metin dosyalarının içeriğini görüntülemek için kullandığımız komut. Bunun için aşağıdaki komutu terminal’de kullanın:
 ```shell
- cat *.txt
+ $ cat *.txt
  ```
 
 - Cat komutu satır sonlarını, "$" karakterini her satırın sonunda görüntüleyerek işaretleyebilir. Bu özelliği kullanmak için cat komutuyla birlikte -E seçeneğini kullanabiliriz.
 ```shell
-cat -E dosyaadi.txt
+$ cat -E dosyaadi.txt
  ```
 
 - Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
  ```shell
-cat -n dosyaadi.txt
+$ cat -n dosyaadi.txt
 ```
  <p align="center">
   <img src="image/2.1.png" />
@@ -80,6 +82,7 @@ cat -n dosyaadi.txt
 
 
 
+<br/><br/><br/>
 ### 2) More
 - more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 - 
@@ -89,16 +92,17 @@ cat -n dosyaadi.txt
 
 - Ek olarak more komutu;
 ```shell
- more +5 dosya.txt
+ $ more +5 dosya.txt
  ```
 şeklinde kullanılırsa 5’inci satırdan itibaren dosya içeriğini çekmemizi sağlar.
 
 ```shell
-  more +/”kelime” dosya.txt
+ $ more +/”kelime” dosya.txt
   ```
  şeklinde kullanılırsa belirtilen kelime ile başlayan satırı çekmemizi sağlar.
  
  
+<br/><br/><br/>
  
  
 
@@ -125,6 +129,7 @@ cat -n dosyaadi.txt
 •“j” : bir satır aşağı
 
  
+<br/><br/><br/>
  
  
  
@@ -132,24 +137,25 @@ cat -n dosyaadi.txt
 
 Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 ```shell
-head dosya.txt
+$ head dosya.txt
 ```
 
 
+<br/><br/><br/>
 
 
 ### 5) Tail
 
 Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
 ```shell
-tail dosya.txt
+$ tail dosya.txt
 ```
 - head ve tail komutları için varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örnekler:
 ```shell
-head -n 5 dosya.txt
+$ head -n 5 dosya.txt
 ```
 ```shell
-tail -n 25 dosya.txt
+$ tail -n 25 dosya.txt
 ```
 - Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. 
 - İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
@@ -167,21 +173,21 @@ Tail komutuna yukarıdaki seçenekleri de ekleyerek, komutu daha spesifik işlem
  
 1.  **-n** komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir. Aşağıdaki komut örneği ile dosyanın son 5 satırı görüntülenir. 
  ```shell
- tail -n 5 dosya.txt 
+$ tail -n 5 dosya.txt 
  ```
  
 2.  **-c** komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir. Aşağıdaki komut örneği ile dosyadan son 5 byte görüntülenir.
  ```shell
-tail -c 5 dosya.txt 
+$ tail -c 5 dosya.txt 
  ```
  
 3.  **-q** komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
  ```shell
-tail -q dosya.txt
+$ tail -q dosya.txt
  ```
 4.  **-v** komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
  ```shell
-tail -v dosya.txt
+$ tail -v dosya.txt
  ```
 <p align="center">
   <img src="image/1.png" />
@@ -195,16 +201,17 @@ tail -v dosya.txt
  
 - Canlı kuyruğun geçerli yürütmesini iptal etmek içinse "Ctrl + C" tuşuna basılması gerekir.
 ```shell
-tail -f dosya.txt
+$ tail -f dosya.txt
  ```
 7. **--pid=PID** komutu
 -f seçeneğiyle birlikte kullanıldığında, belirtilen işlem kimliğine sahip işlem(PID), sona erdiğinde tail komutu sonlandırılır. Dosya yazma programı sonlandırıldığında, canlı kuyruğu iptal etmek için kullanışlıdır.
  
 ```shell 
-tail -f dosya.txt –pid=1
+$ tail -f dosya.txt –pid=1
  ```
 
  
+<br/><br/><br/>
 
  
  
@@ -218,12 +225,12 @@ tail -f dosya.txt –pid=1
  
 - Mesela bulunduğumuz konumdan desktop konumuna geçmek istiyoruz. Bunun için aşağıdaki komutu girmemiz yeterlidir.
 ```shell 
-cd /home/user/Desktop
+$ cd /home/user/Desktop
  ```
 - Yukarıdaki komutun eşdeğeri 
  
  ```shell 
- cd ~/Desktop
+ $ cd ~/Desktop
   ```
  komutudur. ” ~ “ işareti kök dizini gösterir yani /home/user/ dizinidir.
  
@@ -236,6 +243,7 @@ cd /home/user/Desktop
  
  
 
+<br/><br/><br/>
 ### 7) Dizin Yaratmak (MKDIR)
 
 - mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. 
@@ -255,12 +263,12 @@ cd /home/user/Desktop
 
 - Aşağıdaki örnekte tam erişimli dosya yaratma işleminin komutlarını görebiliriz.
 ```shell  
-mkdir -m 777 newDir
+$ mkdir -m 777 newDir
 ```
 Ya da
  
  ```shell 
- mkdir -m=rwx <file> 
+ $ mkdir -m=rwx <file> 
  ```
  komutlarını kullanabiliriz.
  
@@ -277,6 +285,7 @@ Ya da
  
  
 
+<br/><br/><br/>
 ### 8) Dosya/Dizin Taşımak/Yeniden İsimlendirmek (mv)
 
 `mv` (move) komutu dosya ve dizinleri yeniden adlandırmak ve/veya taşımak için kullanılabilir. 
@@ -286,17 +295,18 @@ Ya da
 **_mv [eski] [yeni]_** 
  
 ```shell
-mv newDir ~/Documents/Dirs
+$ mv newDir ~/Documents/Dirs
 ```
  
 Dosya adını değiştirmek için aşağıdaki komut kullanılır. 
  ```shell
-mv newDir ChangedDir
+$ mv newDir ChangedDir
  ```
 newdir olan dosya adını ChangedDir dosya adına çevirir.
  
  
  
+<br/><br/><br/>
  
 
 ### 9) Dosya ve dizinleri Kopyalamak (cp)
@@ -304,7 +314,7 @@ newdir olan dosya adını ChangedDir dosya adına çevirir.
 - Dosya ve dizinleri kopyalamaya yarayan bir araç komutudur. 
  
  ```shell
-cp newDir ~/Documents/Dirs
+$ cp newDir ~/Documents/Dirs
  ```
 - Komut, newDir dizininin içeriğini ~/Documents/Dirs içine kopyalayacaktır. newDir'in bulunduğu yerden kaldırılmayacağını unutmayın. Sadece kopyalanır.
   
@@ -321,19 +331,19 @@ cp newDir ~/Documents/Dirs
 
 a) Bir dosyayı başka bir dosyaya kopyalamak:
  ```shell
-cp kaynakdosya hedefdosya
+$ cp kaynakdosya hedefdosya
    ```
 b)  Dosya veya dosyaları bir dizinin içine kopyalamak:
  ```shell
-cp kaynakdosya... hedefdizin
+$ cp kaynakdosya... hedefdizin
    ```
 c) Bir dizinin içeriğini başka bir dizinin içine kopyalamak (-r veya -R argümanları kullanılmak zorundadır):
  ```shell
-cp -r|-R kaynakdizin hedefdizin
+$ cp -r|-R kaynakdizin hedefdizin
  ```
 - Peki, bulunduğumuz dizindeki tüm *.sql uzantılı dosyaların oluşturulmuş /db_yedek isimli bir başka klasöre kopyalanmasını istersek;
  ```shell
-cp *.sql db_yedek/
+$ cp *.sql db_yedek/
    ```
  cp'nin diğer kullanımlarına birkaç örnek ise -a -v ve -R parametreleridir.
  
@@ -345,6 +355,7 @@ cp *.sql db_yedek/
  
  
  
+<br/><br/><br/>
  
 ### 10) Dosya Kaldırmak (rm) 
  
@@ -356,7 +367,7 @@ cp *.sql db_yedek/
   
 - Birden fazla dosyayı tek seferde kaldırmak istersek;
   ```shell
-  rm dosya1 dosya2 dosya3  
+  $ rm dosya1 dosya2 dosya3  
   ```
 - -f (Silmeyi Zorla): Bir dosya yazmaya karşı korumalıysa, rm onayın kaldırılmasını ister. -f seçeneği bu küçük korumayı geçersiz kılar ve dosyayı zorla kaldırır.
   
@@ -378,6 +389,7 @@ cp *.sql db_yedek/
 
  
  
+<br/><br/><br/>
  
 ### 11) Dosya Yaratmak (touch) 
  
@@ -398,11 +410,11 @@ cp *.sql db_yedek/
  
 - Birden çok dosya yaratmak istersek dosya adlarını ard arda yazmamız yeterlidir.
 ```Shell
- touch dosya1 dosya2 dosya3
+ $ touch dosya1 dosya2 dosya3
  ```
  
  ```Shell
- touch test{1..10} 
+ $ touch test{1..10} 
   ```
 - Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
    <p align="center">
@@ -410,7 +422,7 @@ cp *.sql db_yedek/
 </p>
  
  ```Shell
- touch test_{a..j}
+ $ touch test_{a..j}
  ```
  
 - Aşağıdaki komut ise, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
@@ -419,6 +431,7 @@ cp *.sql db_yedek/
 </p>
 
 
+<br/><br/><br/>
 
 
 
@@ -428,70 +441,110 @@ cp *.sql db_yedek/
 - whereis,
 - whatis.
 
-### Current(Şuanki) Dizini Öğrenme (pwd) 
+
+<br/><br/><br/>
+
+### 1) Current(Şuanki) Dizini Öğrenme (pwd) 
 
 pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) çalışma dizini yolunu yazdırır.
 ```Shell
-&pwd
+$ pwd
 -> /home/user/Desktop
 ```
 
 
+<br/><br/><br/>
+### 2) whoami
 
-### whoami
-
-<br/>•Bu komut çağrıldığında mevcut kullanıcının kullanıcı adını görüntüler.
-<br/><p align="center">
+- Bu komut çağrıldığında mevcut kullanıcının kullanıcı adını görüntüler.
+<p align="center">
   <img src="image/9.png" />
 </p>
 
-<br/><h3><br/><ins>WHEREIS.</h3></ins>
-<br/>•whereis, belirli bir komut için binary (ikili), source (kaynak) ve manuel sayfa dosyalarının konumunu bulmanızı sağlayan bir komut satırı yardımcı programıdır.
-  
-<br/>SYNTAX;
-<br/>whereis [SEÇENEKLER] DOSYA-ADI...
-  
-<br/>•Herhangi bir seçenek olmadan kullanıldığında, argüman olarak belirtilen komut için, binary (ikili), source (kaynak) ve manuel dosyalarını arar.
 
-<br/>•Varsayılan olarak whereis, ortam değişkenlerinde listelenen sabit kodlanmış yollarda ve dizinlerde komutun dosyalarını arar.
-  
-<br/>•whereis komutunun aradığı dizinleri bulmak için -l seçeneğini kullanabiliriz (whereis -l).
 
-<br/>Örneğin, CAT komutu hakkında bilgi almak için aşağıdaki komutu yazabiliriz.
-<br/>whereis cat
-<br/><p align="center">
+
+<br/><br/><br/>
+### 3) whereis
+- whereis, belirli bir komut için binary (ikili), source (kaynak) ve manuel sayfa dosyalarının konumunu bulmanızı sağlayan bir komut satırı yardımcı programıdır.
+  
+#### Syntax;
+
+  **_whereis [SEÇENEKER]  `filename`_**
+  
+- Herhangi bir seçenek olmadan kullanıldığında, argüman olarak belirtilen komut için, binary (ikili), source (kaynak) ve manuel dosyalarını arar.
+
+- Varsayılan olarak whereis, ortam değişkenlerinde listelenen sabit kodlanmış yollarda ve dizinlerde komutun dosyalarını arar.
+  
+- whereis komutunun aradığı dizinleri bulmak için -l seçeneğini kullanabiliriz (whereis -l).
+
+Örneğin, CAT komutu hakkında bilgi almak için aşağıdaki komutu yazabiliriz.
+```Shell
+$ whereis cat
+```
+<p align="center">
   <img src="image/10.png" />
 </p>
-<br/>•/usr/bin/cat  binary (ikili) dosyanın yolu, /usr/share/man/man1/cat.1.gz ise man dosyasının yeridir.
-<br/>Ayrıca, whereis komutuna birden fazla argüman sağlayabilirsiniz.
-<br/><p align="center">
+
+- /usr/bin/cat  binary (ikili) dosyanın yolu,
+- /usr/share/man/man1/cat.1.gz ise man dosyasının yeridir.
+
+
+- Ayrıca, whereis komutuna birden fazla argüman sağlayabilirsiniz.
+<p align="center">
   <img src="image/11.png" />
 </p>
-<br/>Yalnızca komutun  binary (ikili) dosyalarını aramak için -b seçeneğini kullanabiliriz.
-<br/><p align="center">
+
+- Yalnızca komutun  binary (ikili) dosyalarını aramak için -b seçeneğini kullanabiliriz.
+<p align="center">
   <img src="image/12.png" />
 </p>
-<br/>Yalnızca source dosyaları için -s, yalnızca man dosyalarının yeri için -m seçeneğini kullanabiliriz.
-<br/>-u seçeneği, olağandışı girdilerin nerede aranacağını söyler. İstenen her türden, (binary (ikili), manuel ve kaynak) tam olarak bir girişi olmayan dosyalar, olağandışı dosyalar (komutlar) olarak kabul edilir.
-<br/>Örneğin, /bin dizinindeki kılavuz sayfaları olmayan veya birden fazla belgeye sahip tüm binary (ikili) dosyaları aramak için aşağıdaki komutu yazabiliriz.
-<br/>whereis -m -u *
 
-<br/><h3><br/><ins>WHATIS.</h3></ins>
-<br/>whatis komutu aranan içeriği kütüphane içerisinde arayarak sonucu ekrana yansıtır.
-<br/>#whatis ping
-<br/><p align="center">
+- Yalnızca source dosyaları için -s, yalnızca man dosyalarının yeri için -m seçeneğini kullanabiliriz.
+
+- -u seçeneği, olağandışı girdilerin nerede aranacağını söyler. İstenen her türden, (binary (ikili), manuel ve kaynak) tam olarak bir girişi olmayan dosyalar, olağandışı dosyalar (komutlar) olarak kabul edilir.
+
+- Örneğin, /bin dizinindeki kılavuz sayfaları olmayan veya birden fazla belgeye sahip tüm binary (ikili) dosyaları aramak için aşağıdaki komutu yazabiliriz.
+```Shell
+$ whereis -m -u *
+```
+
+
+
+
+### 4) whatis
+
+- whatis komutu aranan içeriği kütüphane içerisinde arayarak sonucu ekrana yansıtır.
+```Shell
+$ whatis ping
+```
+<p align="center">
   <img src="image/13.png" />
 </p>
 
-<h2><br/><ins><i>Sıkıştırılmış dosya ile ilgili komutlar (tar,gzip,unzip) </i></ins></h2> 
-<br/><h3><br/><ins>TAR.</h3></ins>
+
+
+
+<br/><br/><br/>
+
+## _Sıkıştırılmış dosya ile ilgili komutlar_ 
+- tar,
+- gzip,
+- unzip 
+
+<br/><br/><br/>
+
+### 1) .tar
   
-<br/>Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır. Tar <br/>dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır.
+- Tar komutu, bir grup dosyayı bir arşive sıkıştırmak için kullanılır. Komut ayrıca tar arşivlerini çıkarmak, korumak veya değiştirmek için de kullanılır.
+- Tar dosyaların veya klasörlerin özelliklerini değiştirmez. Sıkıştırma işlemi yapılırken izinler ve diğer özellikler sabit kalır.
   
-<br/>Syntax:
-<br/>tar [options] [archive-file] [file or directory to be archived]
+#### Syntax:
+
+tar [options] [archive-file] [file or directory to be archived]
+
 <br/>
-<br/>Options:
+Options:
 <br/>•-c : Creates archive (.tar file)
 <br/>•-x : Extracts the archive
 <br/>•-f : creates archive with given filename
@@ -504,60 +557,167 @@ pwd Linux komutu, kökten (/) başlayarak geçerli (o anki bulunan, current) ça
 <br/>•-W : Verifies an archive file
 <br/>•-r : updates or adds file or directory in already existing .tar file
 
-<br/><br/><b><i>1)</i></b>Linux’da Bir .tar Arşiv Dosyası Oluşturma
-<br/>•tar -cvf ornekArsiv.tar /home/ornekArsiv  -- Bu örnekte sıkıştırılması gereken dizin /home/ornekArsiv‘dir ve bunun sonucu olarak ornekArsiv.tar oluşacaktır.
-<br/>•tar cfv archive.tar file1 file2 file3  --> dosyalardan arşiv yaratır.
-<br/>•tar cfv archive.tar *.txt -> Geçerli dizindeki tüm .txt dosyalarının sıkıştırılmamış bir arşivini oluşturur.
 
-<br/><br/><b><i>2)</i></b>.tar.gz Dosyası Oluşturma:
-<br/>•tar -cvzf ornekArsivArchive.tar.gz /home/ornekArsiv
+#### a) Linux’da Bir .tar Arşiv Dosyası Oluşturma
 
-<br/><br/><b><i>3)</i></b>Ek z seçeneği gzip sıkıştırılmasını temsil eder. Alternatif olarak .tar.gz dosyasına oldukça benzer olan .tgz dosyası oluşturabilirsiniz. Bunun bir örneğiyse:
-<br/>•tar -cvzf ornekArsiv.tgz /home/ornekArsiv
+```Shell
+$ tar -cvf ornekArsiv.tar /home/ornekArsiv  
+```
+ -->Bu örnekte sıkıştırılması gereken dizin /home/ornekArsiv‘dir ve bunun sonucu olarak ornekArsiv.tar oluşacaktır.
+ 
+```Shell
+$ tar cfv archive.tar file1 file2 file3
+```
+--> dosyalardan (file1, file2, file3) arşiv yaratır.
 
-<br/><br/><b><i>4)</i></b>tar.bz2 Dosyası Oluşturma:
-<br/>•.bz2 dosyası gzip’e kıyasla daha fazla sıkıştırılma sağlar. Ancak, sıkıştırma ve sıkıştırma işlemini geri almak daha uzun sürecektir. Bunu oluşturmak için -j seçeneğini kullanmanız gerekir. Bu işlemin bir örneğiyse:
-<br/>•tar -cvjf ornekArsiv.tar.bz2 /home/ornekArsiv
+```Shell
+$ tar cfv archive.tar *.txt 
+```
+-> Geçerli dizindeki tüm .txt dosyalarının sıkıştırılmamış bir arşivini oluşturur.
 
-<br/><br/><b><i>5)</i></b>.tar Dosyalarını Açma
-<br/>Linux tar komutu ayrıca bir dosyanın içindekileri çıkarmak için kullanılabilir. Aşağıdaki komut dosyaları mevcut dizine çıkaracaktır:
-<br/>•tar -xvf Arsiv.tar  -> (Options: x = extract, f = file, v = verbose)
-<br/>•Eğer dosyaları farklı bir dizine çıkarmak istiyorsanız -C seçeneğini kullanabilirsiniz. Bunun bir örneğiyse aşağıdaki gibidir:
-<br/>•tar -xvf ornekArsiv.tar -C /home/ExtractedFiles/
 
-<br/><br/><b><i>6)</i></b>Arşiv oluşturulduktan sonra içerikleri aşağıdakine benzer bir komut kullanarak listeleyebilirsiniz:
-<br/>•tar -tvf ornekArsiv.tar --> arşivdeki tüm dosyaları gösterir.
 
-<br/><br/><b><i>7)</i></b>Arşiv oluşturulduktan sonra tek bir dosya çıkartabilirsiniz. Bunun bir örneği aşağıdaki gibidir:
-<br/>•tar -xvf ornekArsiv.tar example.sh
+<br/>
+#### b) .tar.gz Dosyası Oluşturma:
+
+```Shell
+$ tar -cvzf ornekArsivArchive.tar.gz /home/ornekArsiv
+```
+
+#### c) Alternatif olarak .tar.gz dosyasına oldukça benzer olan .tgz dosyası oluşturabilirsiniz. Bunun bir örneğiyse:
+
+```Shell
+$ tar -cvzf ornekArsiv.tgz /home/ornekArsiv
+```
+
+#### d) tar.bz2 Dosyası Oluşturma:
+- .bz2 dosyası gzip’e kıyasla daha fazla sıkıştırılma sağlar. 
+- Ancak, sıkıştırma ve sıkıştırma işlemini geri almak daha uzun sürecektir. Bunu oluşturmak için -j seçeneğini kullanmanız gerekir. Bu işlemin bir örneğiyse:
+
+```Shell
+$ tar -cvjf ornekArsiv.tar.bz2 /home/ornekArsiv
+```
+
+#### e) .tar Dosyalarını Açma
+- Linux tar komutu ayrıca bir dosyanın içindekileri çıkarmak için kullanılabilir. Aşağıdaki komut dosyaları mevcut dizine çıkaracaktır:
+
+```Shell
+$ tar -xvf Arsiv.tar 
+```
+-> (Options: x = extract, f = file, v = verbose)
+
+- Eğer dosyaları farklı bir dizine çıkarmak istiyorsanız -C seçeneğini kullanabilirsiniz. Bunun bir örneğiyse aşağıdaki gibidir:
+
+```Shell
+$ tar -xvf ornekArsiv.tar -C /home/ExtractedFiles/
+
+```
+
+- Arşiv oluşturulduktan sonra tek bir dosya çıkartabilirsiniz. Bunun bir örneği aşağıdaki gibidir:
+
+```Shell
+$ tar -xvf ornekArsiv.tar example.sh
+```
   
-<br/><br/><b><i>8)</i></b>Eğer birden fazla dosya çıkarmak istiyorsanız aşağıdaki formatta bir komut kullanın:
-<br/>•tar -xvf ornekArsiv.tar "file1" "file2"
+-  Eğer birden fazla dosya çıkarmak istiyorsanız aşağıdaki formatta bir komut kullanın:
 
-<br/><br/><b><i>9)</i></b>Belirli türden dosyaları çıkarabildiğiniz gibi var olan bir arşive dosya da ekleyebilirsiniz. Bunu yapmak için karşılığı append olan -r seçeneğini kullanmalısınız. Tar hem dosya hem de dizin ekleyebilir.
-<br/>•Var olan ornekArsiv.tar‘a example.jpg dosyasını eklediğimiz örnek:
-<br/>tar -rvf ornekArsiv.tar example.jpg
+```Shell
+$ tar -xvf ornekArsiv.tar "file1" "file2"
+```
 
-<br/><h3><br/><ins>UNZIP.</h3></ins>
-<br/>Sıkıştırılmış zip dosyalarını çıkartır (extract). SYNTAX;
-<br/>unzip file.zip
 
-<br/><h3><br/><ins>GZIP.</h3></ins>
-<br/>Gzip, bir dosyanın boyutunu azaltmanıza ve orijinal dosya modunu, sahipliği ve zaman damgasını korumanıza izin veren en popüler sıkıştırma algoritmalarından biridir. SYNTAX;
-<br/>gzip filename -> bu komut ile filename dosyasının sıkıştırılmış dosyası oluşturulur ve eski(sıkıştırılmamış) dosya silinir.
-<br/>Eğer önceki dosyanın da korunmasını istiyorsak ; gzip -k filename
-<br/>Ya da gzip -c filename > filename.gz   komutları ile eski dosyayı koruyabiliriz.
-<br/>gzip -r directory  dizindeki tüm dosyaları sıkıştırır.
-<br/>Çoklu dosya sıkıştırma   gzip file1 file2 file3
- <br/>Gzip ile decompressing 
-<br/>.gz dosyasını çıkartmak için (extract), -d seçeneği kullanılır:
-<br/>gzip -d filename.gz
-<br/>Diğer bir seçenek ise “gunzip”.  gunzip filename.gz
+
+#### f) Arşiv oluşturulduktan sonra içerikleri aşağıdakine benzer bir komut kullanarak listeleyebilirsiniz:
+
+```Shell
+$ tar -tvf ornekArsiv.tar 
+```
+--> arşivdeki tüm dosyaları gösterir.
+
+
+#### g) Belirli türden dosyaları çıkarabildiğiniz gibi var olan bir arşive dosya da ekleyebilirsiniz. Bunu yapmak için karşılığı append olan -r seçeneğini kullanmalısınız. Tar hem dosya hem de dizin ekleyebilir.
+
+- Var olan ornekArsiv.tar‘a example.jpg dosyasını eklediğimiz örnek:
+```Shell
+$ tar -rvf ornekArsiv.tar example.jpg
+```
+
+
+
+
+
+<br/><br/><br/>
+
+### 2) unzip
+
+Sıkıştırılmış zip dosyalarını çıkartır (extract). 
+#### Syntax;
+
+```Shell
+$ unzip file.zip
+```
+
+
+
+<br/><br/><br/>
+
+### 3) .gzip
+- Gzip, bir dosyanın boyutunu azaltmanıza ve orijinal dosya modunu, sahipliği ve zaman damgasını korumanıza izin veren en popüler sıkıştırma algoritmalarından biridir. 
+#### Syntax;
+
+<br/>
+```Shell
+$gzip filename 
+```
+a)Yukarıdaki komut ile filename dosyasının sıkıştırılmış dosyası oluşturulur ve eski(sıkıştırılmamış) dosya silinir.
+
+b) Eğer önceki dosyanın da korunmasını istiyorsak ; 
+
+```Shell
+$gzip -k filename
+```
+- Ya da,
+```Shell
+$ gzip -c filename > filename.gz  
+```
+komutları ile eski dosyayı koruyabiliriz.
+
+c) Dizindeki tüm dosyaları sıkıştırmak istersek;
+```Shell
+$gzip -r directory
+```
+
+d) Çoklu dosya sıkıştırma  
+```Shell
+$ gzip file1 file2 file3
+ ```
+e)  Decompressing 
+
+- "gzip" ile, .gz dosyasını çıkartmak için (extract), -d seçeneği kullanılır:
+
+```Shell
+$ gzip -d filename.gz
+```
+
+- Diğer bir seçenek ise “gunzip”. 
+```Shell
+$gunzip filename.gz
+```
   
   
-<h2><br/><ins><i>Network(ağ) ile ilgili komutlar (netstat, nslookup,netcat) </i></ins></h2> 
   
-<br/><h3><br/><ins>NETSTAT.</h3></ins>
+  <br/><br/><br/><br/>
+  
+## _Network(ağ) ile ilgili komutlar_
+- netstat, 
+- nslookup,
+- netcat 
+  
+  
+  <br/><br/><br/>
+  
+### 1)netsat
+
 <br/>Netstat, sistem yöneticileri tarafından ağ yapılandırmasını ve etkinliğini değerlendirmek için kullanılan bir komut satırı aracıdır.
 <br/># netstat -a | more  --> dinlenen ve dinlenmeyen tüm soketleri gösterir.
 <br/>#netstat -at  -->tüm TCP portlarını listeler.
