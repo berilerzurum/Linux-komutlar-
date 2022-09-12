@@ -215,7 +215,7 @@ $ tail -f dosya.txt –pid=1
 
  
  
-### 6) Çalıma Dizinini Değiştirmek (cd) 
+### 6) Çalışma Dizinini Değiştirmek (cd) 
  
 - Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
 
@@ -234,9 +234,9 @@ $ cd /home/user/Desktop
   ```
  komutudur. ” ~ “ işareti kök dizini gösterir yani /home/user/ dizinidir.
  
- 1. cd ~ komutu /home/user dizinine gitmemizi sağlar.
- 2. cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
- 3. cd .. komutu /home dizinine geçer.
+ 1) cd ~ komutu /home/user dizinine gitmemizi sağlar.
+ 2) cd – komutu bir önceki bulunduğumuz dizine geçmemizi sağlar. 
+ 3) cd .. komutu /home dizinine geçer.
 
  
  
@@ -877,7 +877,7 @@ $ nc -l -p [Local Port]
 <br/><br/><br/>
 
 
-### 1) chmod
+### 1) chmod (Change mode)
 
 - Linux sistemlerde kullanıcıların dosyalara erişim haklarını belirlemek için “chmod” komutu kullanılınır. Chmod un tam karşılığı change moddur.
 - Chmod erişim izinleri herzaman rwx şeklinde sıralanmaktadır.
@@ -928,36 +928,72 @@ $ chmod go+r deneme*
 
 
 
+
+
 <br/><br/><br/>
 
-### 2)chown
+### 2) chown (Change owner)
 
-<br/>Dosya Sahibini veya grubunu değiştirmek için” chown” komutu kullanılır.
-<br/>Bir dosyanın sahipliğini değiştirmek için temel komut:
-<br/>chown kullanici dosyaadi
-<br/>Aynı dosya chownOrnegi.txt içinse sahipliği kökten, deneme adlı başka bir kullanıcıya değiştirmenize izin verir. Bu komutun bir örneği aşağıdaki gibidir:
-<br/>chown deneme chownOrnegi.txt
-<br/>Komut grubu değiştirmek için düzenlenebilir. Sahipliği ve grubu değiştirmek için temel formatsa:
-<br/>chown kullanici[:grup] dosyaadi
-<br/>Eğer aynı dosyayı chownOrnegi.txt deneme adlı sahibe ve grup1 adlı grupla değiştirmek istersek o zaman komut da böyle olacaktır:
-<br/>chown deneme: grup1 chownOrnegi.txt
-<br/>Eğer yalnızca grup değiştirilecekse sahipliği atlayabilirsiniz. Örnek olarak komut satırına bu komutu girin:
-<br/>chown :grup1 chownOrnegi.txt
-<br/>Tıpkı dosyalar gibi dizinler için de sahipliği ve grubu değiştirebilirsiniz. Bu komutun bir örneği böyledir:
-<br/>chown deneme /TestUnix
-<br/>Chown komutunun yinelemeli kullanımı tüm dizin ve alt dizinlerin sahipliğini veya grubunu kesin olarak değiştirir.
+- Dosya Sahibini veya grubunu değiştirmek için "chown" komutu kullanılır.
 
-<br/>Yinelemeli bir kullanım içinse -R seçeneğini kullanmanız gerekir. İşte bu komutun bir örneği:
-<br/>chown -R [KULLANICI][:GRUP] Dizin
-<br/>Eğer TestUnix olarak çok alt dizinli bir dizine sahipseniz aşağıdaki komut bütün dizinlerin ve alt dizinlerin sahipliğini deneme kullanıcısına verecektir.
-<br/>chown -R deneme /TestUnix
-<br/>Linkler için chown:
-<br/>chown deneme symlink
+- Chown komutu ile yaptığımız değişiklikleri, terminale **_"ls -l"_** yazarak kontrol edebiliriz.
+
+1) Bir dosyanın sahipliğini değiştirmek için temel komut:
+
+**_$chown kullanici dosyaadi_**
+
+- chownOrnegi.txt (kök sahipliğine sahip) için, sahipliği kökten, user adlı başka bir kullanıcıya değiştirmenize izin verir. Bu komutun bir örneği aşağıdaki gibidir:
+
+```Shell
+$ chown user chownOrnegi.txt 
+```
+
+2) Komut, grubu değiştirmek için de düzenlenebilir. Sahipliği ve grubu değiştirmek için temel formatsa:
+```Shell
+$ chown kullanici[:grup] dosyaadi
+```
+
+a) Eğer aynı dosyayı (chownOrnegi.txt) user adlı sahibe ve grup1 adlı grupla değiştirmek istersek o zaman komut da böyle olacaktır:
+```Shell
+$ chown user: grup1 chownOrnegi.txt
+```
+
+b) Eğer yalnızca grup değiştirilecekse sahipliği atlayabilirsiniz. Örnek olarak komut satırına bu komutu girebiliriz:
+```Shell
+$ chown :grup1 chownOrnegi.txt
+```
+
+3)  Tıpkı dosyalar gibi dizinler için de sahipliği ve grubu değiştirebilirsiniz. Bu komutun bir örneği aşağıdaki gibidir:
+```Shell
+$ chown user /TestUnix
+```
+4) Chown komutunun yinelemeli kullanımı, tüm dizin ve alt dizinlerin sahipliğini veya grubunu değiştirebilir.
+
+- Yinelemeli bir kullanım içinse -R seçeneğini kullanmanız gerekir. İşte bu komutun bir örneği:
+```Shell
+chown -R [KULLANICI][:GRUP] Dizin
+```
+- Eğer TestUnix olarak çok alt dizinli bir dizine sahipseniz aşağıdaki komut bütün dizinlerin ve alt dizinlerin sahipliğini user kullanıcısına verecektir.
+```Shell
+chown -R user /TestUnix
+```
+
+5) Ayrıca sembolik veya soft linkler üzerinde de chown komutu kullanılabilir. Sembolik bir bağlantı, mevcut bir fiziksel dosyaya referanstır. ln komutu soft linkler oluşturmak için kullanılır. chownOrnegi.txt adlı dosya içinse aşağıdaki gibi bir sembolik link oluşturulabilir:
+```Shell
+ln -s chownOrnegi.txt symlink  
+```
+- Chown komutunu ise linkler üzerinde aşağıdaki gibi kullanabiliriz:
+```Shell
+chown user symlink
+```
+
+
+<br/><br/><br/>
 
 
 
+### useradd
 
-<br/><h3><br/><ins>USERADD.</h3></ins>
 <br/>Linux makinenizi birden fazla kişi kullanıyorsa veya birden çok kullanıcıya erişim sağlayan bir sunucuyu yönetiyorsanız, kullanıcı oluşturmak için useradd komutu gereklidir. SYNTAX;
 <br/>#sudo useradd [options] USERNAME
 <br/>Örneğin; sudo useradd test 
