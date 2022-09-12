@@ -26,11 +26,11 @@ dosyanın içine
 bu satırları yazıyorum
 ^C
 ```
-komutu ortamda deneme.txt dosyası olsa da olmasa da önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
+- komutu ortamda deneme.txt dosyası olsa da olmasa da önce dosyayı oluşturur ardından içine yazı yazabilmemizi sağlar.
  
  `cat deneme.txt` komutu ile dosyayı okuyalım.
  
-Aynı şekilde birden fazla satırı Ctrl karakteri ile işaretler göndererek yazmamak için aşağıdaki şekilde EOF (End Of File) kullanabiliriz:
+- Aynı şekilde birden fazla satırı Ctrl karakteri ile işaretler göndererek yazmamak için aşağıdaki şekilde EOF (End Of File) kullanabiliriz:
 
 ```shell
 $ cat << EOF >> deneme.txt
@@ -38,97 +38,140 @@ dosyanın içine
 bu satırları yazıyorum
 EOF
 ```
-
-Eğer ortamda önceden oluşturulmuş `deneme.txt` dosyası bulunuyorsa `cat > deneme.txt` komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
-Eğer dosyanın üzerine yazmak istiyorsak **`cat >>deneme.txt`** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
-Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ulaşabilirsiniz.
-
-![image](https://user-images.githubusercontent.com/50303910/189531045-e5b5eaf8-5f45-4c28-ae47-ab6b71ef5d87.png)
-
-<br/><br/>Konsolda bir dosyanın içeriğini görüntülemek yerine sonucu > kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
-<br/>• cat kaynak.txt > hedef.txt
-<br/>Eğer hedef dosya bulunmuyorsa o zaman komut bu dosyayı yaratacak veya var olan dosyanın üzerine yazacaktır.
-<br/><br/>Mevcut konumdaki bütün metin dosyalarının içeriğini görüntülemek için aşağıdaki komutu terminal’de kullanın:
-<br/>• cat *.txt
-
-<br/><br/>Cat komutu satır sonlarını, $ karakterini her satırın sonunda görüntüleyerek işaretleyebilir. Bu özelliği kullanmak için cat komutuyla birlikte -E seçeneğini kullanın:
-<br/>•cat -E dosyaadi.txt
-
-<br/><br/>Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
-<br/>•cat -n dosyaadi.txt
-<br/> <p align="center">
-  <img src="image/2.1.png" />
-</p>
-
-
-<br/><br/>Cat komutuyla ilgili daha fazla bilgi için cat’in kılavuz sayfasına man cat komutu ile ulaşabilirsiniz.
-<br/>
-
-Cat’in bir diğer kullanımı da << EOF >> ile olan kullanımıdır. Bu komutta çok satırlı olarak dosyaya metin ekleyebilmemizi sağlar. EOF komutunu yazarak dosyayı işimiz bittikten sonra kapatabiliriz.
-Bunun örneğini de aşağıdaki linkten bulabilirsiniz.
-<br/> <p align="center">
+ <p align="center">
   <img src="image/4.png" />
 </p>
 
 
+- Eğer ortamda önceden oluşturulmuş `deneme.txt` dosyası bulunuyorsa `cat > deneme.txt` komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
+- Eğer dosyanın üzerine yazmak istiyorsak **`cat >>deneme.txt`** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
+Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ulaşabilirsiniz.
+
+![image](https://user-images.githubusercontent.com/50303910/189531045-e5b5eaf8-5f45-4c28-ae47-ab6b71ef5d87.png)
+
+- Konsolda bir dosyanın içeriğini görüntülemek yerine, sonucu ">" kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
+```shell
+cat kaynak.txt > hedef.txt
+```
+-Eğer, hedef dosya bulunmuyorsa o zaman komut bu dosyayı yaratacak veya var olan dosyanın üzerine yazacaktır.
+
+- Cat ile ilgili bir başka komut ise, mevcut konumdaki bütün metin dosyalarının içeriğini görüntülemek için kullandığımız komut. Bunun için aşağıdaki komutu terminal’de kullanın:
+```shell
+ cat *.txt
+ ```
+
+- Cat komutu satır sonlarını, "$" karakterini her satırın sonunda görüntüleyerek işaretleyebilir. Bu özelliği kullanmak için cat komutuyla birlikte -E seçeneğini kullanabiliriz.
+```shell
+cat -E dosyaadi.txt
+ ```
+
+- Cat komutuyla bir dosyanın içeriklerini her satırın başında rakamlarla (satır numaralarıyla) görüntüleyebilirsiniz. Bu özelliği kullanmak için cat komutuyla birlikte -n seçeneğini kullanın:
+ ```shell
+cat -n dosyaadi.txt
+```
+ <p align="center">
+  <img src="image/2.1.png" />
+</p>
 
 
-<br/><h3><ins>More</ins></h3>
-<br/>more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
-<br/>• more file_path
- <br/>Ek olarak more komutu;
-<br/>• more +5 dosya.txt
-<br/>5’inci satırdan itibaren dosya içeriğini çekmemizi sağlar.
-<br/>•  more +/”kelime” dosya.txt
-<br/>belirtilen kelime ile başlayan satırı çekmemizi sağlar.
+-Cat komutuyla ilgili daha fazla bilgi için cat’in kılavuz sayfasına man cat komutu ile ulaşabilirsiniz.
 
-<br/><h3><ins>Less</ins></h3>
-<br/>Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
-<br/><b><i>1)</i></b>	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
-<br/><b><i>2)</i></b>	Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
-<br/><b><i>3)</i></b>	Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir
-<p><br/>•"G" : basarsak sayfa sonuna gider.
-<br/> •"g" : basarsak sayfa başına gider.
-<br/>•“16g” : ile 16.satıra gider.
-<br/>•“u” : sayfa yarı yukarı
-<br/>•“d” : sayfa yarı aşağı
-<br/>•“k” : bir satır yukarı
-<br/>•“j” : bir satır aşağı
+
+
+
+### More
+- more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
+- Syntax;
+more file_path
+
+- Ek olarak more komutu;
+```shell
+ more +5 dosya.txt
+ ```
+şeklinde kullanılırsa 5’inci satırdan itibaren dosya içeriğini çekmemizi sağlar.
+
+```shell
+  more +/”kelime” dosya.txt
+  ```
+ şeklinde kullanılırsa belirtilen kelime ile başlayan satırı çekmemizi sağlar.
+
+### Less
+- Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
+
+1. 	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
+2.  Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
+3.	 Less more'a göre daha gelişmiştir (metin içinde arama, zip dosyasını okuma vb..) ve more yerine artık less tercih edilmektedir.
+
+
+•"G" : basarsak sayfa sonuna gider.
+
+•"g" : basarsak sayfa başına gider.
+
+•“16g” : ile 16.satıra gider.
+
+•“u” : sayfa yarı yukarı
+
+•“d” : sayfa yarı aşağı
+
+•“k” : bir satır yukarı
+
+•“j” : bir satır aşağı
 
  
-<br/><h3><ins>Head</ins></h3>
-<br/>Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
-<br/>head dosya.txt
+### Head
 
-<br/><h3><ins>Tail</h3></ins>
-<br/>•Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
-<br/>tail dosya.txt
+Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
+```shell
+head dosya.txt
+```
+### Tail
 
-<br/>•head ve tail komutları için varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örnekler:
-<br/>-->head -n 5 dosya.txt
-<br/>-->tail -n 25 dosya.txt
-
-<br/>•Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
+Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
+```shell
+tail dosya.txt
+```
+- head ve tail komutları için varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örnekler:
+```shell
+head -n 5 dosya.txt
+```
+```shell
+tail -n 25 dosya.txt
+```
+- Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. 
+- İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
 
 <br/> <p align="center">
   <img src="image/tail.png" />
 </p>
 
 
-<br/>Tail komutuna yukarıdaki linkteki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
-<br/>tail [options] <files>
-<br/><br/><b><i>1)</i></b>• -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir.
-<br/>-> tail -n 5 dosya.txt komutu ile dosyanın son 5 satırı görüntülenir. <br/>
-<br/><br/><b><i>2)</i></b>• -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir.
-<br/>->tail -c 5 dosya.txt komutu ile dosyadan son 5 byte görüntülenir.<br/>
-<br/><br/><b><i>3)</i></b>• -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
-<br/>->tail -q dosya.txt<br/>
-<br/><br/><b><i>4)</i></b>• -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
-<br/>->tail -v dosya.txt
+Tail komutuna yukarıdaki seçenekleri de ekleyerek, komutu daha spesifik işlemler için kullanabiliriz.
+
+SYNTAX;
+tail [options] <files>
+ 
+1.  -n komutunu yukarıda örneklendirmiştik. Satır olarak sınırlayıp çıktıyı verir. Aşağıdaki komut örneği ile dosyanın son 5 satırı görüntülenir. 
+ ```shell
+ tail -n 5 dosya.txt 
+ ```
+ 
+2.  -c komutu da dosya görüntülemeyi byte olarak sınırlayarak çıktıyı verir. Aşağıdaki komut örneği ile dosyadan son 5 byte görüntülenir.
+ ```shell
+tail -c 5 dosya.txt 
+ ```
+ 
+3.  -q komutu ile birden çok dosya kullanırken, dosya adlarının çıktısını gizleyebiliriz.
+ ```shell
+tail -q dosya.txt
+ ```
+4.  -v komutu -q komutunun tam tersine, dosya adlarının çıktısını verir.
+ ```shell
+tail -v dosya.txt
+ ```
 <br/><p align="center">
   <img src="image/1.png" />
 </p>
- <br/>
+
 <br/><br/><b><i>5)</i></b> –retry komutu : Eğer dosyaya erişim yoksa tekrar dener, dosya yeni oluşturulduğu durumlar söz konusu olabilir. Kontrol edilmesini sağlar.
 <br/><br/><b><i>6)</i></b> -f komutu dosyaya eklenen verilerin çıktısını verir. Yani dosya içeriğini canlı olarak gösterir. Biz dosyayı okurken sürekli yeni eklemeler yapılıyorsa bunları canlı olarak görebilmemizi sağlar.
 <br/>•Birim zaman başına çok sayıda erişim varsa bu yaklaşım pratik değildir. Bu durumda, günlük o kadar hızlı değişir ki terminal verilerle dolup taşar.
