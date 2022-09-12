@@ -578,6 +578,7 @@ $ tar cfv archive.tar *.txt
 
 
 <br/>
+
 #### b) .tar.gz Dosyası Oluşturma:
 
 ```Shell
