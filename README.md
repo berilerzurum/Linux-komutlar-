@@ -13,7 +13,7 @@
 - rm
 - touch
 
-### CAT
+### 1) CAT
 
 Cat komutu dosya içeriğini, terminal ekranından okumamızı sağlayan komuttur.
 Cat komutunun, bu işlemin yanı sıra başka yararları da mevcuttur. Bunlara da değineceğim.
@@ -80,7 +80,7 @@ cat -n dosyaadi.txt
 
 
 
-### More
+### 2) More
 - more komutu cat ile aynı ile vazifelidir. Ancak more komutunun bir avantajı, tek sayfada gösterilemeyecek olan dosyalar okunurken, boşluk tuşu ile kaydırma olanağı sağlamasıdır.
 - 
 #### Syntax;
@@ -102,7 +102,7 @@ cat -n dosyaadi.txt
  
  
 
-### Less
+### 3) Less
 - Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
 
 1. 	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
@@ -128,7 +128,7 @@ cat -n dosyaadi.txt
  
  
  
-### Head
+### 4) Head
 
 Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 ```shell
@@ -138,7 +138,7 @@ head dosya.txt
 
 
 
-### Tail
+### 5) Tail
 
 Bir metin dosyasının son birkaç satırını görüntülemek için kullanılır. Örnek:
 ```shell
@@ -208,7 +208,7 @@ tail -f dosya.txt –pid=1
 
  
  
-### Çalıma Dizinini Değiştirmek (cd) 
+### 6) Çalıma Dizinini Değiştirmek (cd) 
  
 - Mevcut çalışma dizinini değiştirmek için cd(change directory) komutu kullanılır. Bu komut, kullanıcıların sistem dizinleri arasında gezinmesini sağlar. 
 
@@ -236,7 +236,7 @@ cd /home/user/Desktop
  
  
 
-### Dizin Yaratmak (MKDIR)
+### 7) Dizin Yaratmak (MKDIR)
 
 - mkdir (make directory) yeni bir dizin oluşturmak için kullanılan komuttur. 
  
@@ -277,7 +277,7 @@ Ya da
  
  
 
-### Dosya/Dizin Taşımak/Yeniden İsimlendirmek (mv)
+### 8) Dosya/Dizin Taşımak/Yeniden İsimlendirmek (mv)
 
 `mv` (move) komutu dosya ve dizinleri yeniden adlandırmak ve/veya taşımak için kullanılabilir. 
 
@@ -299,7 +299,7 @@ newdir olan dosya adını ChangedDir dosya adına çevirir.
  
  
 
-### Dosya ve dizinleri Kopyalamak (cp)
+### 9) Dosya ve dizinleri Kopyalamak (cp)
  
 - Dosya ve dizinleri kopyalamaya yarayan bir araç komutudur. 
  
@@ -346,7 +346,7 @@ cp *.sql db_yedek/
  
  
  
-### Dosya Kaldırmak (rm) 
+### 10) Dosya Kaldırmak (rm) 
  
 - Artık ihtiyacımız olmayan dosyaları kaldırmak için rm komutunu kullanırız.
  
@@ -379,7 +379,7 @@ cp *.sql db_yedek/
  
  
  
-### Dosya Yaratmak (touch) 
+### 11) Dosya Yaratmak (touch) 
  
 - Touch komutu dosya yaratmak içindir.
  
@@ -407,13 +407,13 @@ cp *.sql db_yedek/
 - Bu komut, 1’den 10’a kadar test dosyası yaratmamızı sağlar (test1 test2 test3 … test10)
    <p align="center">
   <img src="image/ts3.png" />
-
+</p>
  
-  ```Shell
+ ```Shell
  touch test_{a..j}
-  ```
+ ```
  
-- Bu komut, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
+- Aşağıdaki komut ise, a’dan j’ye kadar test dosyası yaratmamızı sağlar (test_a test_b test_c … test_j)
  <p align="center">
   <img src="image/ts2.png" />
 </p>
@@ -422,7 +422,11 @@ cp *.sql db_yedek/
 
 
 
-## _Genel Linux komutları (pwd, whoami, whereis, whatis)_
+## _Genel Linux komutları_
+- pwd,  
+- whoami,
+- whereis,
+- whatis.
 
 ### Current(Şuanki) Dizini Öğrenme (pwd) 
 
