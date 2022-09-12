@@ -911,9 +911,9 @@ c) x – Çalıştırma izni ( Execute permission )
 
 ####  <ins> Chmod izinleri için Operatörler </ins>
 
-- – İzinleri kaldır ( remove chmod permission )
-- + İzinleri ekle ( add chmod permission )
-- = İzinleri koy ( set chmod permission )
+- "–" : İzinleri kaldır ( remove chmod permission )
+- "+" : İzinleri ekle ( add chmod permission )
+- "=" : İzinleri koy ( set chmod permission )
 
 Örneğin;
 ```Shell
