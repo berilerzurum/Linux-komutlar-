@@ -816,7 +816,7 @@ $ nslookup -type=soa microsoft.com
 ```
 
 
-
+ <br/><br/><br/>
 ### 3) netcat
 
 - Netcat’in komut halini “nc” olarak kullanıyoruz. Bu komutun temel amacı networkler arasındaki veri okuma / yazma işlemlerine dair işlemlerdir.
