@@ -902,12 +902,12 @@ c) x – Çalıştırma izni ( Execute permission )
 
 ####  <ins> Dosya tür çeşitlerini şu şekilde sıralayabiliriz :  </ins>
 
-- * Normal bir dosya
-- d Dizin
-- b Özel blok dosyası
-- c Özel karakter dosyası
-- l Sembolik bağlantı dosyası
-- P Özel isimlendirilmiş pipe dosyası
+- " * " : Normal bir dosya
+- " d " : Dizin
+- " b " : Özel blok dosyası
+- " c " : Özel karakter dosyası
+- " l " : Sembolik bağlantı dosyası
+- " P " : Özel isimlendirilmiş pipe dosyası
 
 ####  <ins> Chmod izinleri için Operatörler </ins>
 
