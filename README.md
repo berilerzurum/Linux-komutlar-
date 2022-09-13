@@ -50,9 +50,12 @@ EOF
 Bu yere kadar olan komutların terminaldeki örneklerini aşağıdaki görselde bulabilirsiniz.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/50303910/189531045-e5b5eaf8-5f45-4c28-ae47-ab6b71ef5d87.png" />
+  <img src="https://user-images.githubusercontent.com/50303910/189958591-c45ce9cd-23e1-4bbb-a8a7-04118e71f5fd.png" />
 </p>
 
+- Yukarıdaki görselde önce cat ile deneme.txt dosyasını okuduk ve "deneme1" metniyle karşılaştık. Sonra
+- `cat >deneme.txt` komutu ile içerisine "deneme2" yazısını ekledik. Bu dosyayı tekrar okuduğumuzda önceki metnin "deneme1" gittiğini gördük.
+- Daha sonra `cat >>deneme.txt` komutu ile "deneme3" yazdık ve bu komutun çıktısını okuduğumuzda, önceki metnin("deneme2") kaybolmadığını, üzerine yazıldığını gördük.
 
 - Konsolda bir dosyanın içeriğini görüntülemek yerine, sonucu ">" kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
 ```shell
