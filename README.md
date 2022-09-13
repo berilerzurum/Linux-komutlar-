@@ -47,7 +47,7 @@ EOF
 
 - Eğer ortamda önceden oluşturulmuş `deneme.txt` dosyası bulunuyorsa `cat > deneme.txt` komutu, önceki deneme.txt dosyasının içindeki verileri siler ve yazacağımız yeni verileri deneme.txt dosyasına yazmamızı sağlar.
 - Eğer dosyanın üzerine yazmak istiyorsak **`cat >>deneme.txt`** komutunu kullanmamız gerekir. Bu şekilde eski veriler de yeni veriler de tutulmuş olur.
-Bu yere kadar olan komutların terminaldeki örneklerine aşağıdaki linkten ulaşabilirsiniz.
+Bu yere kadar olan komutların terminaldeki örneklerini aşağıdaki görselde bulabilirsiniz.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/50303910/189531045-e5b5eaf8-5f45-4c28-ae47-ab6b71ef5d87.png" />
