@@ -105,12 +105,18 @@ $ cat -n dosyaadi.txt
  şeklinde kullanılırsa belirtilen kelime ile başlayan satırı çekmemizi sağlar.
  
  
+  <p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/189946601-e64b2a6d-2bef-4668-88be-1f2149d285fa.png" />
+</p>
+
+ 
 <br/><br/><br/>
  
  
 
 ### 3) Less
-- Less komutu da more komutu gibi dosyayı görüntülemeye yarar fakat birkaç farkla.
+- Less komutu da more komutu gibi terminal ekranına sığmayacak büyüklükteki text dosyalarını sayfa sayfa göstermeye yarar fakat birkaç farkla. 
+- Örneğin less, more'un aksine kullanıcının bir önceki sayfaya dönmesi ve birçok başka özelliğe imkan tanır. 
 
 1. 	Less içerik içinde ileri - geri yönlü hareket edebilirken, more ile sadece ileri yönlü hareket edilebilir
 2.  Less tüm dosya içeriğini belleğe almadığı için büyük dosyaları okumak için daha uygundur
@@ -138,11 +144,26 @@ $ cat -n dosyaadi.txt
  
 ### 4) Head
 
-Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
+- Bir metin dosyasının ilk birkaç satırını görüntülemek için kullanılır. Örnek:
 ```shell
 $ head dosya.txt
 ```
+- Varsayılan değeri 10'dur. Ancak istenilirse bu değer değiştirilebilir. Örneğin;
 
+```shell
+$ head -n 5 dosya.txt
+```
+- Yukarıdaki kod örneğimizde, dosyanın başından itibaren 5 satır görüntülenir. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/189947589-08ae4817-2c5c-4221-b114-d48c74eea7a8.png" />
+</p>
+
+- Görseldeki örnekte ilk önce;
+- cat ile test-data.csv dosyası açılıyor.
+- Sonra head komutu ile ilk 2 satırı çekiliyor.
+- Sonra bunun çıktısı "|" aracılığı ile tail'e gönderiliyor. Ve tail'de bu çıktının son 1 satırını çekiyor (tail komutunu aşağıda anlatacağım).
+- Sonuç olarak 1;Adam;32 outputu elde ediliyor. 
 
 <br/><br/><br/>
 
@@ -153,15 +174,13 @@ Bir metin dosyasının son birkaç satırını görüntülemek için kullanılı
 ```shell
 $ tail dosya.txt
 ```
-- head ve tail komutları için varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örnekler:
-```shell
-$ head -n 5 dosya.txt
-```
+- Head gibi tail komutu için de varsayılan değer 10'dur. Ancak istenirse bu değer değiştirilebilir. Örneğin:
+
 ```shell
 $ tail -n 25 dosya.txt
 ```
-- Birinci örnekte dosyanın başından itibaren 5 satır görüntülenir. 
-- İkincisinde ise aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
+
+- Yukarıdaki komutta aynı dosyanın sonundan itibaren 25 satır görüntülenir. Eğer dosyanın satır sayısı belirtilen sayıdan az ise (veya sayı belirtilmediğinde 10'dan az ise) dosyada olan kadar satır görüntülenir.
 
 <br/> <p align="center">
   <img src="image/tail.png" />
