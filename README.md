@@ -56,7 +56,10 @@ Bu yere kadar olan komutların terminaldeki örneklerini aşağıdaki görselde 
 - Yukarıdaki görselde önce cat ile deneme.txt dosyasını okuduk ve "deneme1" metniyle karşılaştık. Sonra
 - `cat >deneme.txt` komutu ile içerisine "deneme2" yazısını ekledik. Bu dosyayı tekrar okuduğumuzda önceki metnin "deneme1" gittiğini gördük.
 - Daha sonra `cat >>deneme.txt` komutu ile "deneme3" yazdık ve bu komutun çıktısını okuduğumuzda, önceki metnin("deneme2") kaybolmadığını, üzerine yazıldığını gördük.
+
+
 </br>
+
 - Konsolda bir dosyanın içeriğini görüntülemek yerine, sonucu ">" kullanarak başka bir dosyaya yönlendirebilirsiniz. Komut satırı böyle olacaktır:
 ```shell
 $ cat kaynak.txt > hedef.txt
