@@ -1411,18 +1411,31 @@ $ ip neigh del [ip_address] dev [interface]
 
 | Dizi     | Interpretation |
 | ---      | ---       |
-| \NNN     | `         |
-| \\       |        |
-| \a    | ---       |
-| \b     | `         |
-| \f       |        |
-| \n      | ---       |
-| \r     | `         |
-| \t       |        |
-| \v      | ---       |
-| CHAR1-CHAR2   | `         |
-| [CHAR*]      |        |
-
+| \NNN     | `Characters with the NNN octal value (1 to 3 octal digits).    |
+| \\\       |   Backslash.     |
+| \a    | An audible bell character.       |
+| \b     | `   	Backspace.      |
+| \f       |    	Form feed.    |
+| \n      | Newline character.    |
+| \r     | `     	Return character.    |
+| \t       |   Horizontal tab.     |
+| \v      | 	Vertical tab.     |
+| CHAR1-CHAR2   | `   All characters from CHAR1 to CHAR2 in an ascending order.      |
+| [CHAR*]      |   Copies CHAR* in SET2 up to the length of SET1.     |
+|[CHAR*REPEAT]      | Repeats copies of CHAR. Repeats octal if starting with 0.     |
+| [:alnum:]    | `    	All letters and digits.     |
+| [:alpha:]      |    All letters.    |
+| [:blank:]    | Horizontal whitespaces.     |
+| [:cntrl:]     | `     All control characters.    |
+| [:digit:]      |    All digits.    |
+| [:graph:]      | Printable characters, excluding space.      |
+| [:lower:]     | `    All lowercase characters.     |
+| [:print:]      |    	Printable characters, including space.    |
+| [:punct:]     | All punctuation characters.       |
+| [:space:]      |      Horizontal or vertical whitespace characters.  |
+| [:upper:]     | All uppercase letters.       |
+| [:xdigit:]  | `   Hexadecimal digits      |
+| [=CHAR=]      |    All characters equivalent to CHAR.    |
 
 
 
