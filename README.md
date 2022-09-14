@@ -1409,6 +1409,27 @@ $ ip neigh del [ip_address] dev [interface]
 
 
 
+| Dizi     | Interpretation |
+| ---      | ---       |
+| \NNN     | `         |
+| \\       |        |
+| \a    | ---       |
+| \b     | `         |
+| \f       |        |
+| \n      | ---       |
+| \r     | `         |
+| \t       |        |
+| \v      | ---       |
+| CHAR1-CHAR2   | `         |
+| [CHAR*]      |        |
+
+
+
+
+
+
+
+
 
 
 <br/><br/><br/><br/><br/>
