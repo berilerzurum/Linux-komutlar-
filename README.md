@@ -1451,7 +1451,7 @@ $ ip neigh del [ip_address] dev [interface]
 | -t       |    		Truncates SET1 to the length of SET2.    |
 | -u      | Ensures that any output is unbuffered.    |
 | --help       |   Displays the help file with all available options.     |
-| --version      | 		Displays the program version information.     |
+| --version    | 		Displays the program version information.     |
 
 
 
