@@ -628,94 +628,124 @@ Yukarıdaki örnekte, echo komutunun çıktısı, tr komutuna iletilir ve tr kom
 
 <ins> Örnekler: </ins>
   
-1)Karakter Durumunu Değiştirme
+#### 1)Karakter Durumunu Değiştirme
 -	tr ile büyük/küçük harf değiştirmenin üç yolu vardır:
 
-a). Dönüştürülmesini İstediğiniz Tam Karakterleri Belirtin:
+##### a). Dönüştürülmesini İstediğiniz Tam Karakterleri Belirtin:
 
-Girişteki hangi karakterleri dönüştürmek istediğinizi belirtin. Bu seçenek, SET 1'deki karakterleri SET 2'dekilerle değiştirerek, büyük/küçük harf karakterlerini veya tüm karakterleri değiştirir. Örneğin:
+- Girişteki hangi karakterleri dönüştürmek istediğinizi belirtin. Bu seçenek, SET 1'deki karakterleri SET 2'dekilerle değiştirerek, büyük/küçük harf karakterlerini veya tüm karakterleri değiştirir. Örneğin:
 
----------------------------------TR1
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400182-64cc5d74-1ff9-4192-97b7-a2dba3c6e0b1.png" />
+</p>
+
+##### b).  <ins> Dönüştürme için Karakter Aralığını Belirtin </ins>
+
+- Bir aralığın belirtilmesi, tr'nin belirtilen aralıktaki herhangi bir karakterin büyük/küçük harf durumunu değiştirmesine izin verir. Aşağıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400328-86ce1ebc-4927-454b-a19c-a56a95bdb364.png" />
+</p>
 
 
-b).  Dönüştürme için Karakter Aralığını Belirtin
-
-Bir aralığın belirtilmesi, tr'nin belirtilen aralıktaki herhangi bir karakterin büyük/küçük harf durumunu değiştirmesine izin verir. Aşağıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir:
-
-----------------------TR2
-
-Bu örnekte mesela A-N a-n yazsaydık; büyük yazılan A-N aralığındaki harfleri küçük harflere dönüştürecekti.
+- Bu örnekte mesela A-N a-n yazsaydık; büyük yazılan A-N aralığındaki harfleri küçük harflere dönüştürecekti.
  
-İnput moddan çıkış için; CTRL+C
+- İnput moddan çıkış için; CTRL+C
 
 
-c). Yorumlanan Dizileri Belirtin
+##### c). Yorumlanan Dizileri Belirtin
 
-Yorumlanmış dizileri belirterek karakterleri eşleştirin ve dönüştürün. Örneğin, küçük harfli karakterler için sıra [:lower:] ve büyük harfli karakterler için sıra [:upper:] şeklindedir. İki diziyi belirtmek, tr'ye karakter büyük/küçük harfle eşleşmesi ve dönüştürmesi talimatını verir:
+- Yorumlanmış dizileri belirterek karakterleri eşleştirin ve dönüştürün. Örneğin, küçük harfli karakterler için sıra [:lower:] ve büyük harfli karakterler için sıra [:upper:] şeklindedir. İki diziyi belirtmek, tr'ye karakter büyük/küçük harfle eşleşmesi ve dönüştürmesi talimatını verir:
 
--------------------------------------tr3
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400542-e716f853-2ee9-40da-80a6-ec0a29343bb3.png" />
+</p>
 
-Yukarıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir.
-
-
-
-2)	Tekrarlanan Karakterleri Kaldır
-
--s seçeneği, tekrarlanan karakterleri o karakterin tek bir örneğine sıkıştırır. Bu seçenek özellikle boşlukları sekmelere veya yeni satır karakterlerine dönüştürürken kullanışlıdır ve giriş metni birden çok sürekli boşluk karakteri içerir.
-
-Örneğin, aşağıdaki girdi birden çok boşluk karakteri içeriyor. Bunları sıkmadan sekmelere dönüştürmek aşağıdaki sonucu verir:
-
-------------------------------------tr4
-
-Çıktıda birden çok sekme ve boşluk olmasını önlemek için -s seçeneğini belirtin:
-
------------------------------------------tr5
+- Yukarıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir.
 
 
 
-3) Karakterleri Sil
--d seçeneğini kullanarak belirli karakterleri kaldırın. Aşağıdaki örnekte, tr, “e” karakterinin her bir örneğini siler:
--------------------------------------------------------------tr6
+#### 2)	Tekrarlanan Karakterleri Kaldır
 
-İsteğe bağlı olarak, yorumlanmış dizileri kullanarak bir karakter grubu belirtebiliriz. Örneğin, [:digit:] dizisini belirterek tüm rakamları kaldırın:
+- -s seçeneği, tekrarlanan karakterleri o karakterin tek bir örneğine sıkıştırır. Bu seçenek özellikle boşlukları sekmelere veya yeni satır karakterlerine dönüştürürken kullanışlıdır ve giriş metni birden çok sürekli boşluk karakteri içerir.
 
------------------------------------------------------------tr7
+- Örneğin, aşağıdaki girdi birden çok boşluk karakteri içeriyor. Bunları sıkmadan sekmelere dönüştürmek aşağıdaki sonucu verir:
 
-4) Tamamlayıcı Setler
-SET1'deki karakterleri tamamlamak için -c seçeneğini kullanın. Aşağıdaki örnekte, rakamlar hariç tüm karakterleri kaldırıyoruz:
-
------------------------------tr8
-
-Belirtilen kümede olmayan tüm karakterler (bu durumda rakamlar hariç her şey) kaldırılır.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400640-e2af0a23-5c48-4b50-ad38-44abe5ed98c1.png" />
+</p>
 
 
-5) Yeni Satır Karakterlerini Kaldır
-Yeni satır karakterlerini boşluklara dönüştürerek metnin kapladığı alanı küçültün. İçerik daha sonra tek bir satırda görünür.
+- Çıktıda birden çok sekme ve boşluk olmasını önlemek için -s seçeneğini belirtin:
 
-Aşağıdaki örnekte, bir metin dosyasını açmak için cat komutunu kullanıyoruz ve yeni satır karakterlerini kaldırmak için onu tr'ye aktarıyoruz:
- 
-----------------------------tr9
-
-6) Remove Diacritics (Aksanları kaldırmak)
-
-Belirtilen karaktere eşdeğer tüm karakterleri eşleştirmek için [=CHAR=] dizisini kullanın. Örneğin, dizi, karakterlerden aksan (örneğin şapkalı karakterler gibi) tanımlayabilir ve kaldırabilir. 
-
---------------------------------------tr10
-
-7) Her Kelimeyi Ayrı Yazdır
-  -c seçeneğini kullanarak bir dosyanın içeriğini satır satır yazdırın ve alfa sayısal olmayan (harfler ve sayılar dışındakiler) karakterleri yeni satır karakteriyle (\n) değiştirin.
-
--------------------------------------------------tr11
-
-8) Çıktıyı Dosyaya Kaydet
-tr bir dosyanın içeriğini doğrudan değiştirmediği için yaptığınız değişiklikleri de kaydetmez. Çıktıyı aşağıdaki örnekte gösterildiği gibi yeniden yönlendirerek bir dosyaya kaydedin:
-
--------------------------------------tr12
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400750-7ac8ff9f-8b75-4195-b485-531087cd6d6b.png" />
+</p>
 
 
+#### 3) Karakterleri Sil
+- -d seçeneğini kullanarak belirli karakterleri kaldırın. Aşağıdaki örnekte, tr, “e” karakterinin her bir örneğini siler:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400846-7efa4747-df74-4081-9a53-170ded12b5e7.png" />
+</p>
+
+
+- İsteğe bağlı olarak, yorumlanmış dizileri kullanarak bir karakter grubu belirtebiliriz. Örneğin, [:digit:] dizisini belirterek tüm rakamları kaldırın:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190400950-0dac526c-45ef-48e4-bbd9-d8d19d506c5b.png" />
+</p>
+
+#### 4) Tamamlayıcı Setler
+- SET1'deki karakterleri tamamlamak için -c seçeneğini kullanın. Aşağıdaki örnekte, rakamlar hariç tüm karakterleri kaldırıyoruz:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190401035-8333f9e5-9b62-43c1-9f98-8afa15187734.png" />
+</p>
+
+- Belirtilen kümede olmayan tüm karakterler (bu durumda rakamlar hariç her şey) kaldırılır.
+
+
+#### 5) Yeni Satır Karakterlerini Kaldır
+- Yeni satır karakterlerini boşluklara dönüştürerek metnin kapladığı alanı küçültün. İçerik daha sonra tek bir satırda görünür.
+
+- Aşağıdaki örnekte, bir metin dosyasını açmak için cat komutunu kullanıyoruz ve yeni satır karakterlerini kaldırmak için onu tr'ye aktarıyoruz:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190401142-8c422ca5-0705-4112-9eac-464dc7efc94e.png" />
+</p>
+
+
+#### 6) Remove Diacritics (Aksanları kaldırmak)
+
+- Belirtilen karaktere eşdeğer tüm karakterleri eşleştirmek için [=CHAR=] dizisini kullanın. Örneğin, dizi, karakterlerden aksan (örneğin şapkalı karakterler gibi) tanımlayabilir ve kaldırabilir. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190401245-f2dffac6-922e-4c8b-aa5a-c380a9b4290c.png" />
+</p>
+
+
+#### 7) Her Kelimeyi Ayrı Yazdır
+- -c seçeneğini kullanarak bir dosyanın içeriğini satır satır yazdırın ve alfa sayısal olmayan (harfler ve sayılar dışındakiler) karakterleri yeni satır karakteriyle (\n) değiştirin.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190401344-35eebd49-1d91-4d6e-a210-aa681ee1bb9e.png" />
+</p>
+
+
+#### 8) Çıktıyı Dosyaya Kaydet
+- tr bir dosyanın içeriğini doğrudan değiştirmediği için yaptığınız değişiklikleri de kaydetmez. Çıktıyı aşağıdaki örnekte gösterildiği gibi yeniden yönlendirerek bir dosyaya kaydedin:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190401450-58ebe074-184b-4a69-8e4d-e2af0b3e141a.png" />
+</p>
 
 
 
+
+
+</br></br></br>
 
 AWK
 
