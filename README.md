@@ -548,7 +548,7 @@ $ cut -d " " -f 1-5 test.txt --output-delimiter='_'
  
 
 6) -b (–bytes) seçeneği, komuta verilen bayt konumlarıyla belirtilen her satırdan, bölümleri kesmesini söyler. Burada önemli olan bazı karakterler 2 bayttır ü ve ş gibi.
-Bizim dosyamız aşağıdaki görselde gördüğünüz gibi “ş” karakteri içeriyor. Ve “ş” karakteri 2 bayttır. Bu nedenle ilk yazdığımız cut -b 4 test5.txt komutu hata verdi çünkü 4.baytı getir komutu verdik ama 4.ve 5. Baytlarımız “ş” harfinden oluşuyor, ikisini de belirtmemiz gerekli. Onun yerine 4.karakterimiz “ş” için komuta “4-5” yazmamız gerekli. 
+Bizim dosyamız aşağıdaki görselde gördüğünüz gibi “ş” karakteri içeriyor. Ve “ş” karakteri 2 bayttır. Bu nedenle ilk yazdığımız `cut -b 4 test5.txt` komutu hata verdi çünkü 4.baytı getir komutu verdik ama 4.ve 5. Baytlarımız “ş” harfinden oluşuyor, ikisini de belirtmemiz gerekli. Onun yerine 4.karakterimiz “ş” için komuta “4-5” yazmamız gerekli. 
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/50303910/190395620-ac58743a-c860-429e-81a5-da67f8f1bfac.png" />
