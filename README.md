@@ -689,8 +689,12 @@ awk options 'selection _criteria {action }' input-file > output-file
 Seçenekler (options) :
 -f program dosyası : AWK program kaynağını ilk komut satırı bağımsız değişkeni yerine dosyadan/program dosyasından okur.
 -F fs : Giriş alanı ayırıcısı (input field seprator) için fs kullanın.
+
 1. Awk'nin varsayılan (default) davranışı: Varsayılan olarak Awk, belirtilen dosyadan her veri satırını yazdırır. Yani “cat” komutu ile benzer davranış gösterir, tüm dosyayı yazdırır.
-$ awk '{print}' employee.txt     
+
+$ awk '{print}' employee.txt  
+
+
 | ajay | manager | account | 45000|
 | :---         |     :---: |       :---:   |          ---: |
 | sunil   | clerk |   account    | 25000    |
@@ -703,14 +707,20 @@ $ awk '{print}' employee.txt
 
 
 2. Verilen pattern ile eşleşen satırları yazdırmak.
+
 $ awk '/manager/ {print}' employee.txt
+
+
 |ajay |manager| account| 45000|
 | :---         |     :---: |       :---:   |          ---: |
 |varun| manager| sales| 50000|
 |amit| manager |account| 47000|
 Yukarıdaki örnekte, awk komutu 'manager' ile eşleşen tüm satırı yazdırır.
+
 3. Bir Satırı Alanlara Bölme: Her bir kayıt, yani satır için, awk komutu varsayılan olarak boşluk karakteriyle sınırlandırılmış kaydı böler ve $n değişkenlerinde saklar. Satırda 4 kelime varsa, sırasıyla $1, $2, $3 ve $4 olarak saklanacaktır. Ayrıca $0 tüm satırı temsil eder.
+
 $ awk '{print $1,$4}' employee.txt
+
 |ajay| 45000|
 | :---    |     ---: |
 |sunil |25000|
@@ -785,6 +795,7 @@ Yukarıdaki örnekte, NR'li awk komutu, satır numarasıyla birlikte tüm satır
 -NF yerleşik değişkenlerinin kullanımı (Display Last Field)
 
 $ awk '{print $1,$NF}' employee.txt
+
 |ajay| 45000|
 | :---    |     ---: |
 |sunil |25000|
