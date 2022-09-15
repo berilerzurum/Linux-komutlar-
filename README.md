@@ -12,8 +12,14 @@
 - cp
 - rm
 - touch
+- cut
+- tr
+- awk
+- sed
 
 <br/><br/><br/>
+
+
 
 ### 1) CAT
 
@@ -457,6 +463,519 @@ $ cp *.sql db_yedek/
  <p align="center">
   <img src="image/ts2.png" />
 </p>
+
+<br/><br/><br/>
+
+### 12) cut
+
+- Bir dosya içerisindeki satırların içerdiği alanları keserek belirli bir yere kopyalamak için kullanılır.Kesme işlemi bazı ayıraçlara göre olabildiği gibi, sabit uzunluktaki alanlara göre de yapılabilir.
+
+#### Syntax;
+**_cut [seçenekler] [dosya]_**  biçiminde tanımlıdır.
+
+<ins> Seçenekler </ins>
+
+- -b : (–bytes=LIST) : Bir bayt, bir bayt kümesi veya bir bayt aralığı belirterek kullanılır. Byte tipinde işlem yaparak karakterleri byte birimiyle algılar.
+- -c : (–characters=LIST) : Bir karakter, bir dizi karakter veya bir karakter aralığı belirterek kullanılır. Byte tipinde işlem yaparak karakterleri karakter olarak algılar.
+- -f  (–fields=LIST) : Bir alan, bir dizi alan veya bir alan aralığı belirterek kullanılır. Bu en yaygın kullanılan seçenektir.
+- -d (–sınırlayıcı) : Varsayılan “TAB” sınırlayıcısı yerine kullanılacak bir sınırlayıcı belirtmek için kullanılır.
+- --complement : Seçimi tamamlar. Bu seçeneği kullanırken kesim, seçili olanlar dışındaki tüm baytları, karakterleri veya alanları görüntüler.
+- -s : -f seçeneği kullanıldığı durumlarda, ayraca sahip olmayan satırların atlanmasını sağlar. Yani bu seçenek kullanıldığında, kesme, sınırlayıcı içermeyen satırları yazdırmaz.
+- -n : Tek byte’tan fazla olan karakterleri tamamiyle alır.
+- --output-delimiter – Cut’ın varsayılan davranışı, çıktı sınırlayıcı olarak giriş sınırlayıcıyı kullanmaktır. Bu seçenek, farklı bir çıktı sınırlayıcı dizesi belirlemenizi sağlar.
+
+
+<ins> Komut örnekleri: </ins>
+
+Şimdi ilk örneğimize bakalım.
+1)  -d seçeneği ile alanları ayırmak için kullanılacak parametreyi belirtiyoruz. Bizim örneğimizde alanları ayırmak için ayraç olarak, 1 boşluk karakteri kullanacağız çünkü test.txt dosyamızda bölümleri, boşluk karakteri ile ayırdık. -f seçeneği ile hangi alanı keseceğimizi belirleyeceğiz. Aşağıda, alan olarak 1 seçtiğimiz için 1. bölümdeki metni gösterecek.
+
+```Shell
+$ cut -d " " -f 1 test.txt
+  ```
+  
+ <p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190394920-64a97f23-6ead-478e-b91c-8c3c4bff40dc.png" />
+</p>
+
+
+
+2) Örnekteki gibi 1’den fazla alan da belirleyebiliriz.  Burada 1 ve 2.’yi alan olarak aldık. Ve cut komutu bize bu yüzden 1. Ve 2. sütunları çekecek.
+
+```Shell
+$ cut -d " " -f 1,2 test.txt
+ ```
+ 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190395069-d15c8b3b-67df-4536-9f00-05be8eac6693.png" />
+</p>
+
+3)  Bu komutla belirli bir aralıktaki alanları görüntüleyebiliriz. Örneğimiz de 1-5 ve arasındaki dizinleri görüntüler.
+
+```Shell
+$ cut -d " " -f 1-5 test.txt
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190395277-17430c21-1b5f-4cac-abce-568e061a01fa.png" />
+</p>
+
+
+
+4) Şimdi seçtiğimiz bölümden geri kalan kısmı görüntülüyoruz. –-complement parametresi çağırdığımızda seçimin dışındaki bütün alanları gösterir. Burada dikkat edilmesi gereken şey, örnek veriyorum seçim 2-5 arasında olduğunda ilk önce 2 den önceki bölümü gösterir sonrada 5 den sonraki bölümü gösterir.
+
+```Shell
+$ cut -d " " -f 1-5 test.txt --complement
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190395404-df2f081f-0d48-4005-becf-ad612f28755d.png" />
+</p>
+
+
+
+5)Bu örnekte ise –output-delimiter seçeneğini kullandık. –output-delimiter olarak (çıktı sınırlayıcısı, ayraç) “_” karakterini belirledik. Test.txt dosyamızda önceden bölümleri “ “(boşluk) tuşu ile ayırdığımızı görmüştük. Bu seçenek ile bölümleri (kelimeleri) “_” ile ayırmış olduk.
+
+```Shell
+$ cut -d " " -f 1-5 test.txt --output-delimiter='_'
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190395525-85ec7dfc-eda3-48c0-a1a1-4c4212feb2b6.png" />
+</p>
+
+ 
+
+6) -b (–bytes) seçeneği, komuta verilen bayt konumlarıyla belirtilen her satırdan, bölümleri kesmesini söyler. Burada önemli olan bazı karakterler 2 bayttır ü ve ş gibi.
+Bizim dosyamız aşağıdaki görselde gördüğünüz gibi “ş” karakteri içeriyor. Ve “ş” karakteri 2 bayttır. Bu nedenle ilk yazdığımız cut -b 4 test5.txt komutu hata verdi çünkü 4.baytı getir komutu verdik ama 4.ve 5. Baytlarımız “ş” harfinden oluşuyor, ikisini de belirtmemiz gerekli. Onun yerine 4.karakterimiz “ş” için komuta “4-5” yazmamız gerekli. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190395620-ac58743a-c860-429e-81a5-da67f8f1bfac.png" />
+</p>
+
+- cut -b 2 test2.txt komutunu girersek de karşımıza “u” harfi çıkacak. Çünkü 2. Baytta yer alan karakter “u” harfi.
+
+
+
+
+
+
+
+
+
+
+
+Tr komutu
+
+tr- translate komutu, karakterleri standart girdiden (stdin) çeviren veya silen ve sonucu standart çıktıya (stdout) yazan bir Linux komut satırı yardımcı programıdır. Büyük/küçük harf dönüştürme, karakterleri sıkıştırma veya silme ve temel metin değiştirme dahil olmak üzere farklı metin dönüştürmeleri gerçekleştirmek için tr komutu kullanılır.
+
+tr, bir dosyayı doğrudan okuyamadığı ve sonuçları standart çıktıda verdiği için, daha karmaşık dosya içeriği işlemeye izin vermek için genellikle “|”  ya da yönlendirmeler (>>) ile birlikte kullanılır.
+
+Tr komutunun temel Syntax’ı:
+tr [options] SET1 [SET2]
+ 
+tr'yi herhangi bir seçenek olmadan çalıştırmak, SET1'de belirtilen karakterlerin her birini SET2'den aynı konuma sahip karakterlerle değiştirir.
+
+-------------------------------------------Görsellllllllllllll eklencekkkk
+
+Yukarıdaki örnekte, echo komutunun çıktısı, tr komutuna iletilir ve tr komutu, “e” 'nin her bir örneğini “o” ile değiştirerek output verir.
+
+
+SET:
+SET'ler karakter dizileridir. Komut, karakter eşleştirme için aşağıdaki yorumlanmış dizileri kabul eder:
+
+----------------------------------------TABLOLAAR
+
+Örnekler:
+
+1)Karakter Durumunu Değiştirme
+-	tr ile büyük/küçük harf değiştirmenin üç yolu vardır:
+
+a). Dönüştürülmesini İstediğiniz Tam Karakterleri Belirtin:
+
+Girişteki hangi karakterleri dönüştürmek istediğinizi belirtin. Bu seçenek, SET 1'deki karakterleri SET 2'dekilerle değiştirerek, büyük/küçük harf karakterlerini veya tüm karakterleri değiştirir. Örneğin:
+
+---------------------------------TR1
+
+
+b).  Dönüştürme için Karakter Aralığını Belirtin
+
+Bir aralığın belirtilmesi, tr'nin belirtilen aralıktaki herhangi bir karakterin büyük/küçük harf durumunu değiştirmesine izin verir. Aşağıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir:
+
+----------------------TR2
+
+Bu örnekte mesela A-N a-n yazsaydık; büyük yazılan A-N aralığındaki harfleri küçük harflere dönüştürecekti.
+ 
+İnput moddan çıkış için; CTRL+C
+
+
+c). Yorumlanan Dizileri Belirtin
+
+Yorumlanmış dizileri belirterek karakterleri eşleştirin ve dönüştürün. Örneğin, küçük harfli karakterler için sıra [:lower:] ve büyük harfli karakterler için sıra [:upper:] şeklindedir. İki diziyi belirtmek, tr'ye karakter büyük/küçük harfle eşleşmesi ve dönüştürmesi talimatını verir:
+
+-------------------------------------tr3
+
+Yukarıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir.
+
+
+
+2)	Tekrarlanan Karakterleri Kaldır
+
+-s seçeneği, tekrarlanan karakterleri o karakterin tek bir örneğine sıkıştırır. Bu seçenek özellikle boşlukları sekmelere veya yeni satır karakterlerine dönüştürürken kullanışlıdır ve giriş metni birden çok sürekli boşluk karakteri içerir.
+
+Örneğin, aşağıdaki girdi birden çok boşluk karakteri içeriyor. Bunları sıkmadan sekmelere dönüştürmek aşağıdaki sonucu verir:
+
+------------------------------------tr4
+
+Çıktıda birden çok sekme ve boşluk olmasını önlemek için -s seçeneğini belirtin:
+
+-----------------------------------------tr5
+
+
+
+3) Karakterleri Sil
+-d seçeneğini kullanarak belirli karakterleri kaldırın. Aşağıdaki örnekte, tr, “e” karakterinin her bir örneğini siler:
+-------------------------------------------------------------tr6
+
+İsteğe bağlı olarak, yorumlanmış dizileri kullanarak bir karakter grubu belirtebiliriz. Örneğin, [:digit:] dizisini belirterek tüm rakamları kaldırın:
+
+-----------------------------------------------------------tr7
+
+4) Tamamlayıcı Setler
+SET1'deki karakterleri tamamlamak için -c seçeneğini kullanın. Aşağıdaki örnekte, rakamlar hariç tüm karakterleri kaldırıyoruz:
+
+-----------------------------tr8
+
+Belirtilen kümede olmayan tüm karakterler (bu durumda rakamlar hariç her şey) kaldırılır.
+
+
+5) Yeni Satır Karakterlerini Kaldır
+Yeni satır karakterlerini boşluklara dönüştürerek metnin kapladığı alanı küçültün. İçerik daha sonra tek bir satırda görünür.
+
+Aşağıdaki örnekte, bir metin dosyasını açmak için cat komutunu kullanıyoruz ve yeni satır karakterlerini kaldırmak için onu tr'ye aktarıyoruz:
+ 
+----------------------------tr9
+
+6) Remove Diacritics (Aksanları kaldırmak)
+
+Belirtilen karaktere eşdeğer tüm karakterleri eşleştirmek için [=CHAR=] dizisini kullanın. Örneğin, dizi, karakterlerden aksan (örneğin şapkalı karakterler gibi) tanımlayabilir ve kaldırabilir. 
+
+--------------------------------------tr10
+
+7) Her Kelimeyi Ayrı Yazdır
+  -c seçeneğini kullanarak bir dosyanın içeriğini satır satır yazdırın ve alfa sayısal olmayan (harfler ve sayılar dışındakiler) karakterleri yeni satır karakteriyle (\n) değiştirin.
+
+-------------------------------------------------tr11
+
+8) Çıktıyı Dosyaya Kaydet
+tr bir dosyanın içeriğini doğrudan değiştirmediği için yaptığınız değişiklikleri de kaydetmez. Çıktıyı aşağıdaki örnekte gösterildiği gibi yeniden yönlendirerek bir dosyaya kaydedin:
+
+-------------------------------------tr12
+
+
+
+
+
+
+AWK
+
+Linux tabanlı işletim sistemlerinde, dosya içinde arama yapmak, listelemek ve içeriği uygun biçimde yazdırmak için awk komutu kullanılıyor. Awk, geliştiricilerin adlarından kısaltılmıştır - Aho, Weinberger ve Kernighan.
+Linux’ta her şey bir dosya olduğundan dosya içindeki ayarların bulunması, listelenmesi zaman alabilir.
+Bu durumda dosya içindeki istenilen değeri almak, listelemek için geniş bir kullanımı olan awk komutunu kullanmak faydalı olacaktır.
+awk kullanımı
+Komutun temel kullanımı aşağıdaki gibidir.
+Syntax:
+awk options 'selection _criteria {action }' input-file > output-file
+Seçenekler (options) :
+-f program dosyası : AWK program kaynağını ilk komut satırı bağımsız değişkeni yerine dosyadan/program dosyasından okur.
+-F fs : Giriş alanı ayırıcısı (input field seprator) için fs kullanın.
+1. Awk'nin varsayılan (default) davranışı: Varsayılan olarak Awk, belirtilen dosyadan her veri satırını yazdırır. Yani “cat” komutu ile benzer davranış gösterir, tüm dosyayı yazdırır.
+$ awk '{print}' employee.txt     
+| ajay | manager | account | 45000|
+| :---         |     :---: |       :---:   |          ---: |
+| sunil   | clerk |   account    | 25000    |
+| varun     | manager   |   sales     | 50000      |
+|amit     | manager |   account      | 47000      |
+| tarun| peon | sales | 15000 |
+| deepak      |     clerk |       sales   |          23000|
+| sunil   | peon |   sales   | 13000    |
+| satvik     | director   |   purchase     | 80000      |
+
+
+2. Verilen pattern ile eşleşen satırları yazdırmak.
+$ awk '/manager/ {print}' employee.txt
+|ajay |manager| account| 45000|
+| :---         |     :---: |       :---:   |          ---: |
+|varun| manager| sales| 50000|
+|amit| manager |account| 47000|
+Yukarıdaki örnekte, awk komutu 'manager' ile eşleşen tüm satırı yazdırır.
+3. Bir Satırı Alanlara Bölme: Her bir kayıt, yani satır için, awk komutu varsayılan olarak boşluk karakteriyle sınırlandırılmış kaydı böler ve $n değişkenlerinde saklar. Satırda 4 kelime varsa, sırasıyla $1, $2, $3 ve $4 olarak saklanacaktır. Ayrıca $0 tüm satırı temsil eder.
+$ awk '{print $1,$4}' employee.txt
+|ajay| 45000|
+| :---    |     ---: |
+|sunil |25000|
+|varun| 50000|
+|amit| 47000|
+|tarun |15000|
+|deepak |23000|
+|sunil |13000|
+|satvik |80000|
+Yukarıdaki örnekte $1 ve $4, sırasıyla “name” ve “salary” alanlarını temsil etmektedir.
+
+Awk'da Yerleşik Değişkenler
+
+NR: NR komutu, giriş kayıtlarının mevcut sayısını tutar. Kayıtlar genellikle satırlardan oluşur.
+
+NF: NF komutu, geçerli giriş kaydındaki alanların sayısını tutar.
+
+FS: FS komutu, giriş satırındaki alanları bölmek için kullanılan alan ayırıcı karakteri içerir. Varsayılan (defalut), boşluk ve sekme karakterleri anlamına gelen "white space"dir. FS, alan ayırıcısını değiştirmek için başka bir karaktere (genellikle BEGIN'de) yeniden atanabilir.
+
+RS: RS komutu, geçerli kayıt ayırıcı karakterini saklar. Varsayılan olarak bir giriş satırı giriş kaydı olduğundan, varsayılan kayıt ayırıcı karakter bir yeni satırdır.
+
+OFS: OFS komutu, Awk bunları yazdırdığında alanları ayıran çıktı alanı ayırıcısını saklar. Varsayılan boş bir alandır. Bu ayırıcıyı değiştirmek için OFS kullanılır.
+
+ORS: ORS komutu, Awk bunları yazdırdığında çıktı satırlarını ayıran çıktı kaydı ayırıcısını saklar. Varsayılan, yeni satır karakteridir. print, yazdırmak için verilen her şeyin sonunda ORS'nin içeriğini otomatik olarak çıkarır.
+
+
+Awk komutu ile işlem yaparken komut başlangıcında bilgi vermek için BEGIN anahtar kelimesi kullanılır.
+
+awk -F: 'BEGIN {print "### Kullanıcı listesi ###"} {print $1}' /etc/passwd
+
+Awk komutu ile işlem yaparken komut sonunda bilgi vermek için END anahtar kelimesi kullanılır.
+
+awk -F: 'BEGIN {print "## Kullanıcı listesi ###"} {print $1} END {print "## Kullanıcı listesi ###"}' /etc/passwd
+
+
+Örnekler:
+
+Ayrac yerine başka bir değer yerleştirmek için OFS anahtar kelimesi kullanılır. OFS için bir örnek;
+awk 'BEGIN{FS=":"; OFS="---"} {print $1,$6}' /etc/passwd
+
+
+-NR yerleşik değişkenlerinin kullanımı (Satır Numarasının Görünmesi)
+
+$ awk '{print NR,$0}' employee.txt
+
+Output:
+
+|1| ajay| manager |account |45000|
+| :---    |  :---:  | :---: |       :---:   |          ---: |
+|2| sunil| clerk |account |25000||
+|3| varun| manager |sales| 50000|
+|4 |amit| manager| account| 47000|
+|5 |tarun| peon| sales |15000|
+|6 |deepak| clerk sales| 23000|
+|7| sunil| peon |sales| 13000|
+|8 |satvik| director |purchase| 80000|
+
+
+Yukarıdaki örnekte, NR'li awk komutu, satır numarasıyla birlikte tüm satırları yazdırır.
+
+
+
+
+
+
+
+
+
+
+
+
+-NF yerleşik değişkenlerinin kullanımı (Display Last Field)
+
+$ awk '{print $1,$NF}' employee.txt
+|ajay| 45000|
+| :---    |     ---: |
+|sunil |25000|
+|varun| 50000|
+|amit| 47000|
+|tarun |15000|
+|deepak |23000|
+|sunil |13000|
+|satvik |80000|
+
+Yukarıdaki örnekte $1 --> Adı temsil eder ve $NF--> Maaş'ı temsil eder. Maaşı, $NF kullanarak alabiliriz, burada $NF son alanı temsil eder.
+
+- NR’ın başka bir kullanımı (3'ten 6'ya Görüntü Satırı)
+
+$ awk 'NR==3, NR==6 {print NR,$0}' employee.txt
+
+|3| varun| manager |sales| 50000|
+| :---    |  :---:  | :---: |       :---:   |          ---: |
+|4 |amit| manager| account| 47000|
+|5 |tarun| peon| sales |15000|
+|6 |deepak| clerk sales| 23000|
+
+
+
+
+Şimdi başka bir text dosyası örneği ile devam edelim.
+
+$cat > geeksforgeeks.txt
+
+| A | B | C |
+| :---         |     :---:      |          ---: |
+| Tarun   | A12     | 1    |
+| Manav     | B6       | 2      |
+|Praveen     | M42       | 3      |
+
+-  “-“ işreti ile ayrılmış satır numaralarıyla birlikte, $1 ögesini yazdırmak için;
+
+$ awk '{print NR "- " $1 }' geeksforgeeks.txt
+
+1 - A
+2 - Tarun
+3 – Manav    
+4 – Praveen
+
+
+2) İkinci sütunu/öğeyi geeksforgeeks.txt dosyasından döndürmek için:
+
+$ awk '{print $2}' geeksforgeeks.txt
+
+B
+A12
+B6
+M42
+
+
+4) Dosyada bulunan en uzun satırın uzunluğunu bulmak için:	
+
+$ awk '{ if (length($0) > max) max = length($0) } END { print max }' geeksforgeeks.txt
+
+--> 13
+
+5) Dosyadaki satır sayısını yazdırmak için:  
+
+$ awk 'END { print NR }' geeksforgeeks.txt 
+
+----> 3
+
+6) 10 karakterden fazla olan satırları göstermek için:  
+
+$ awk 'length($0) > 10' geeksforgeeks.txt 
+
+Tarun    A12    1
+Praveen    M42    3
+
+7) Herhangi bir sütundaki, herhangi bir dizeyi bulmak/kontrol etmek için:
+
+$ awk '{ if($3 == "B6") print $0;}' geeksforgeeks.txt
+
+
+SED
+
+UNIX'teki SED komutu, akış düzenleyici anlamına gelir ve dosya üzerinde arama, bulma ve değiştirme, ekleme veya silme gibi birçok işlevi yerine getirebilir.
+
+Syntax:
+
+sed OPTIONS... [SCRIPT] [INPUTFILE...]
+
+Örnekler:
+
+$cat > geekfile.txt
+
+unix is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+1) Dize değiştirme:
+ Sed komutu çoğunlukla bir dosyadaki metni değiştirmek için kullanılır. Aşağıdaki basit sed komutu, dosyadaki "unix" kelimesini "linux" ile değiştirir.
+
+$sed 's/unix/linux/' geekfile.txt
+
+Output :
+
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+Burada “s” yer değiştirme (substitution) işlemini belirtir. “/” sınırlayıcılardır. "unix" arama düzenidir ve "linux" değiştirme dizesidir.
+Varsayılan olarak, sed komutu her satırda kalıbın ilk oluşumunu değiştirir ve satırdaki ikinci, üçüncü… oluşumun yerini almaz.
+
+2) Bir desenin satırlarındaki n'inci oluşumunu değiştirme:
+ Bir desenin satırlarındaki ilk, ikinci oluşumunu değiştirmek için /1, /2 vb. bayraklarını kullanın. Aşağıdaki komut, bir satırda "unix" kelimesinin ikinci oluşumunu "linux" ile değiştirir.
+
+$sed 's/unix/linux/2' geekfile.txt
+
+Output:
+
+unix is great os. linux is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.linux is a multiuser os.Learn unix .unix is a powerful.
+
+3) Bir satırdaki kalıbın tüm oluşumlarını değiştirme :
+
+ /g bayrağı (genel değiştirme), dizenin satırdaki tüm oluşumlarını değiştirmek için sed komutunu belirtir.
+
+$sed 's/unix/linux/g' geekfile.txt
+
+Output :
+
+linux is great os. linux is opensource. linux is free os.
+learn operating system.
+linux linux which one you choose.
+linux is easy to learn.linux is a multiuser os.Learn linux .linux is a powerful.
+
+4) Belirli bir dosyadan satır silme : SED komutu, belirli bir dosyadan satır silmek için de kullanılabilir. Dosyayı açmadan silme işlemi yapmak için SED komutu kullanılır.
+
+Belirli satırları silme işlemi;
+
+Syntax:
+$ sed 'nd' filename.txt
+
+Example:
+$ sed '5d' filename.txt
+
+Son satırı silme;
+
+Syntax:
+$ sed '$d' filename.txt
+
+Belirli aralıktaki satırları silme (x’ten y’ye)
+
+Syntax:
+$ sed 'x,yd' filename.txt
+
+Example:
+$ sed '3,6d' filename.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br/><br/><br/>
