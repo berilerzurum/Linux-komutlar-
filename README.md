@@ -489,7 +489,7 @@ $ cp *.sql db_yedek/
 <ins> Komut örnekleri: </ins>
 
 Şimdi ilk örneğimize bakalım.
-1)  -d seçeneği ile alanları ayırmak için kullanılacak parametreyi belirtiyoruz. Bizim örneğimizde alanları ayırmak için ayraç olarak, 1 boşluk karakteri kullanacağız çünkü test.txt dosyamızda bölümleri, boşluk karakteri ile ayırdık. -f seçeneği ile hangi alanı keseceğimizi belirleyeceğiz. Aşağıda, alan olarak 1 seçtiğimiz için 1. bölümdeki metni gösterecek.
+1) -d seçeneği ile alanları ayırmak için kullanılacak parametreyi belirtiyoruz. Bizim örneğimizde alanları ayırmak için ayraç olarak, 1 boşluk karakteri kullanacağız çünkü test.txt dosyamızda bölümleri, boşluk karakteri ile ayırdık. -f seçeneği ile hangi alanı keseceğimizi belirleyeceğiz. Aşağıda, alan olarak 1 seçtiğimiz için 1. bölümdeki metni gösterecek.
 
 ```Shell
 $ cut -d " " -f 1 test.txt
@@ -535,7 +535,7 @@ $ cut -d " " -f 1-5 test.txt --complement
 
 
 
-5)Bu örnekte ise –output-delimiter seçeneğini kullandık. –output-delimiter olarak (çıktı sınırlayıcısı, ayraç) “_” karakterini belirledik. Test.txt dosyamızda önceden bölümleri “ “(boşluk) tuşu ile ayırdığımızı görmüştük. Bu seçenek ile bölümleri (kelimeleri) “_” ile ayırmış olduk.
+5) Bu örnekte ise –output-delimiter seçeneğini kullandık. –output-delimiter olarak (çıktı sınırlayıcısı, ayraç) “_” karakterini belirledik. Test.txt dosyamızda önceden bölümleri “ “(boşluk) tuşu ile ayırdığımızı görmüştük. Bu seçenek ile bölümleri (kelimeleri) “_” ile ayırmış olduk.
 
 ```Shell
 $ cut -d " " -f 1-5 test.txt --output-delimiter='_'
