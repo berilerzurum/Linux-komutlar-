@@ -663,7 +663,9 @@ Yukarıdaki örnekte, echo komutunun çıktısı, tr komutuna iletilir ve tr kom
 
 - Yukarıdaki örnek, büyük harfli karakterlerin küçük harfe nasıl dönüştürüleceğini gösterir.
 
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190403303-ed6e3d60-fcb7-43d7-9093-f74690755d3e.png" />
+</p>
 
 #### 2)	Tekrarlanan Karakterleri Kaldır
 
