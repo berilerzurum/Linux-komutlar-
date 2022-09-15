@@ -471,6 +471,7 @@ $ cp *.sql db_yedek/
 - Bir dosya içerisindeki satırların içerdiği alanları keserek belirli bir yere kopyalamak için kullanılır.Kesme işlemi bazı ayıraçlara göre olabildiği gibi, sabit uzunluktaki alanlara göre de yapılabilir.
 
 #### Syntax;
+
 **_cut [seçenekler] [dosya]_**  biçiminde tanımlıdır.
 
 <ins> Seçenekler </ins>
@@ -555,39 +556,78 @@ Bizim dosyamız aşağıdaki görselde gördüğünüz gibi “ş” karakteri i
 
 - cut -b 2 test2.txt komutunu girersek de karşımıza “u” harfi çıkacak. Çünkü 2. Baytta yer alan karakter “u” harfi.
 
+<br/><br/><br/>
 
+### 13) tr
 
+- tr- translate komutu, karakterleri standart girdiden (stdin) çeviren veya silen ve sonucu standart çıktıya (stdout) yazan bir Linux komut satırı yardımcı programıdır. Büyük/küçük harf dönüştürme, karakterleri sıkıştırma veya silme ve temel metin değiştirme dahil olmak üzere farklı metin dönüştürmeleri gerçekleştirmek için tr komutu kullanılır.
 
+- tr, bir dosyayı doğrudan okuyamadığı ve sonuçları standart çıktıda verdiği için, daha karmaşık dosya içeriği işlemeye izin vermek için genellikle “|”  ya da yönlendirmeler (>>) ile birlikte kullanılır.
 
+#### Syntax;
 
-
-
-
-
-
-Tr komutu
-
-tr- translate komutu, karakterleri standart girdiden (stdin) çeviren veya silen ve sonucu standart çıktıya (stdout) yazan bir Linux komut satırı yardımcı programıdır. Büyük/küçük harf dönüştürme, karakterleri sıkıştırma veya silme ve temel metin değiştirme dahil olmak üzere farklı metin dönüştürmeleri gerçekleştirmek için tr komutu kullanılır.
-
-tr, bir dosyayı doğrudan okuyamadığı ve sonuçları standart çıktıda verdiği için, daha karmaşık dosya içeriği işlemeye izin vermek için genellikle “|”  ya da yönlendirmeler (>>) ile birlikte kullanılır.
-
-Tr komutunun temel Syntax’ı:
-tr [options] SET1 [SET2]
+**_tr [options] SET1 [SET2]_**
  
-tr'yi herhangi bir seçenek olmadan çalıştırmak, SET1'de belirtilen karakterlerin her birini SET2'den aynı konuma sahip karakterlerle değiştirir.
+- tr'yi herhangi bir seçenek olmadan çalıştırmak, SET1'de belirtilen karakterlerin her birini SET2'den aynı konuma sahip karakterlerle değiştirir.
 
--------------------------------------------Görsellllllllllllll eklencekkkk
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190398539-7587ed87-5836-41c9-8825-9481a69b09aa.png" />
+</p>
 
 Yukarıdaki örnekte, echo komutunun çıktısı, tr komutuna iletilir ve tr komutu, “e” 'nin her bir örneğini “o” ile değiştirerek output verir.
 
+- <ins> SET </ins> : SET'ler karakter dizileridir. Komut, karakter eşleştirme için aşağıdaki yorumlanmış dizileri kabul eder:
 
-SET:
-SET'ler karakter dizileridir. Komut, karakter eşleştirme için aşağıdaki yorumlanmış dizileri kabul eder:
 
-----------------------------------------TABLOLAAR
+| Sequence (Dizi)     | Interpretation |
+| ---      | ---       |
+| \NNN     | Characters with the NNN octal value (1 to 3 octal digits).    |
+| \\\       |   Backslash.     |
+| \a    | An audible bell character.       |
+| \b     |    	Backspace.      |
+| \f       |    	Form feed.    |
+| \n      | Newline character.    |
+| \r     |      	Return character.    |
+| \t       |   Horizontal tab.     |
+| \v      | 	Vertical tab.     |
+| CHAR1-CHAR2   |    All characters from CHAR1 to CHAR2 in an ascending order.      |
+| [CHAR*]      |   Copies CHAR* in SET2 up to the length of SET1.     |
+|[CHAR*REPEAT]      | Repeats copies of CHAR. Repeats octal if starting with 0.     |
+| [:alnum:]    |     	All letters and digits.     |
+| [:alpha:]      |    All letters.    |
+| [:blank:]    | Horizontal whitespaces.     |
+| [:cntrl:]     |      All control characters.    |
+| [:digit:]      |    All digits.    |
+| [:graph:]      | Printable characters, excluding space.      |
+| [:lower:]     |     All lowercase characters.     |
+| [:print:]      |    	Printable characters, including space.    |
+| [:punct:]     | All punctuation characters.       |
+| [:space:]      |      Horizontal or vertical whitespace characters.  |
+| [:upper:]     | All uppercase letters.       |
+| [:xdigit:]  |    Hexadecimal digits      |
+| [=CHAR=]      |    All characters equivalent to CHAR.    |
 
-Örnekler:
 
+
+
+
+
+| Option     | Description |
+| ---      | ---       |
+| -C     | Complements the characters in SET1, including every character in the output except the ones specified.    |
+| -c       |  Complements the values in SET1. Operations apply to characters that are not in the given set.     |
+| -d   | Deletes characters from the SET1 input.       |
+| -s     |    	Squeezes repeated characters specified in the last operand (either SET1 or SET2) and replaces them with a single occurrence of that character.      |
+| -t       |    		Truncates SET1 to the length of SET2.    |
+| -u      | Ensures that any output is unbuffered.    |
+| --help       |   Displays the help file with all available options.     |
+| --version    | 		Displays the program version information.     |
+
+
+
+
+<ins> Örnekler: </ins>
+  
 1)Karakter Durumunu Değiştirme
 -	tr ile büyük/küçük harf değiştirmenin üç yolu vardır:
 
@@ -715,6 +755,7 @@ $ awk '/manager/ {print}' employee.txt
 | :---         |     :---: |       :---:   |          ---: |
 |varun| manager| sales| 50000|
 |amit| manager |account| 47000|
+
 Yukarıdaki örnekte, awk komutu 'manager' ile eşleşen tüm satırı yazdırır.
 
 3. Bir Satırı Alanlara Bölme: Her bir kayıt, yani satır için, awk komutu varsayılan olarak boşluk karakteriyle sınırlandırılmış kaydı böler ve $n değişkenlerinde saklar. Satırda 4 kelime varsa, sırasıyla $1, $2, $3 ve $4 olarak saklanacaktır. Ayrıca $0 tüm satırı temsil eder.
@@ -730,6 +771,7 @@ $ awk '{print $1,$4}' employee.txt
 |deepak |23000|
 |sunil |13000|
 |satvik |80000|
+
 Yukarıdaki örnekte $1 ve $4, sırasıyla “name” ve “salary” alanlarını temsil etmektedir.
 
 Awk'da Yerleşik Değişkenler
@@ -1935,62 +1977,6 @@ $ ip neigh add [ip_address] dev [interface]
 ```Shell
 $ ip neigh del [ip_address] dev [interface]
 ```
-
-
-
-
-| Sequence (Dizi)     | Interpretation |
-| ---      | ---       |
-| \NNN     | Characters with the NNN octal value (1 to 3 octal digits).    |
-| \\\       |   Backslash.     |
-| \a    | An audible bell character.       |
-| \b     |    	Backspace.      |
-| \f       |    	Form feed.    |
-| \n      | Newline character.    |
-| \r     |      	Return character.    |
-| \t       |   Horizontal tab.     |
-| \v      | 	Vertical tab.     |
-| CHAR1-CHAR2   |    All characters from CHAR1 to CHAR2 in an ascending order.      |
-| [CHAR*]      |   Copies CHAR* in SET2 up to the length of SET1.     |
-|[CHAR*REPEAT]      | Repeats copies of CHAR. Repeats octal if starting with 0.     |
-| [:alnum:]    |     	All letters and digits.     |
-| [:alpha:]      |    All letters.    |
-| [:blank:]    | Horizontal whitespaces.     |
-| [:cntrl:]     |      All control characters.    |
-| [:digit:]      |    All digits.    |
-| [:graph:]      | Printable characters, excluding space.      |
-| [:lower:]     |     All lowercase characters.     |
-| [:print:]      |    	Printable characters, including space.    |
-| [:punct:]     | All punctuation characters.       |
-| [:space:]      |      Horizontal or vertical whitespace characters.  |
-| [:upper:]     | All uppercase letters.       |
-| [:xdigit:]  |    Hexadecimal digits      |
-| [=CHAR=]      |    All characters equivalent to CHAR.    |
-
-
-
-
-
-
-| Option     | Description |
-| ---      | ---       |
-| -C     | Complements the characters in SET1, including every character in the output except the ones specified.    |
-| -c       |  Complements the values in SET1. Operations apply to characters that are not in the given set.     |
-| -d   | Deletes characters from the SET1 input.       |
-| -s     |    	Squeezes repeated characters specified in the last operand (either SET1 or SET2) and replaces them with a single occurrence of that character.      |
-| -t       |    		Truncates SET1 to the length of SET2.    |
-| -u      | Ensures that any output is unbuffered.    |
-| --help       |   Displays the help file with all available options.     |
-| --version    | 		Displays the program version information.     |
-
-
-
-
-
-
-
-
-
 
 
 <br/><br/><br/><br/><br/>
