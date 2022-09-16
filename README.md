@@ -749,23 +749,25 @@ Yukarıdaki örnekte, echo komutunun çıktısı, tr komutuna iletilir ve tr kom
 
 </br></br></br>
 
-AWK
+### 14) AWK
 
-Linux tabanlı işletim sistemlerinde, dosya içinde arama yapmak, listelemek ve içeriği uygun biçimde yazdırmak için awk komutu kullanılıyor. Awk, geliştiricilerin adlarından kısaltılmıştır - Aho, Weinberger ve Kernighan.
-Linux’ta her şey bir dosya olduğundan dosya içindeki ayarların bulunması, listelenmesi zaman alabilir.
+- Linux tabanlı işletim sistemlerinde, dosya içinde arama yapmak, listelemek ve içeriği uygun biçimde yazdırmak için awk komutu kullanılıyor. Awk, geliştiricilerin adlarından kısaltılmıştır - Aho, Weinberger ve Kernighan.
+- Linux’ta her şey bir dosya olduğundan dosya içindeki ayarların bulunması, listelenmesi zaman alabilir.
 Bu durumda dosya içindeki istenilen değeri almak, listelemek için geniş bir kullanımı olan awk komutunu kullanmak faydalı olacaktır.
-awk kullanımı
-Komutun temel kullanımı aşağıdaki gibidir.
-Syntax:
-awk options 'selection _criteria {action }' input-file > output-file
-Seçenekler (options) :
--f program dosyası : AWK program kaynağını ilk komut satırı bağımsız değişkeni yerine dosyadan/program dosyasından okur.
--F fs : Giriş alanı ayırıcısı (input field seprator) için fs kullanın.
+
+#### Syntax;
+
+**_awk options 'selection _criteria {action }' input-file > output-file_**
+
+<ins> Seçenekler (options) : </ins>
+- -f program dosyası : AWK program kaynağını ilk komut satırı bağımsız değişkeni yerine dosyadan/program dosyasından okur.
+- -F fs : Giriş alanı ayırıcısı (input field seprator) için fs kullanın.
 
 1. Awk'nin varsayılan (default) davranışı: Varsayılan olarak Awk, belirtilen dosyadan her veri satırını yazdırır. Yani “cat” komutu ile benzer davranış gösterir, tüm dosyayı yazdırır.
 
+```Shell
 $ awk '{print}' employee.txt  
-
+```
 
 | ajay | manager | account | 45000|
 | :---         |     :---: |       :---:   |          ---: |
@@ -780,19 +782,22 @@ $ awk '{print}' employee.txt
 
 2. Verilen pattern ile eşleşen satırları yazdırmak.
 
+```Shell
 $ awk '/manager/ {print}' employee.txt
-
+```
 
 |ajay |manager| account| 45000|
 | :---         |     :---: |       :---:   |          ---: |
 |varun| manager| sales| 50000|
 |amit| manager |account| 47000|
 
-Yukarıdaki örnekte, awk komutu 'manager' ile eşleşen tüm satırı yazdırır.
+- Yukarıdaki örnekte, awk komutu 'manager' ile eşleşen tüm satırı yazdırır.
 
 3. Bir Satırı Alanlara Bölme: Her bir kayıt, yani satır için, awk komutu varsayılan olarak boşluk karakteriyle sınırlandırılmış kaydı böler ve $n değişkenlerinde saklar. Satırda 4 kelime varsa, sırasıyla $1, $2, $3 ve $4 olarak saklanacaktır. Ayrıca $0 tüm satırı temsil eder.
 
+```Shell
 $ awk '{print $1,$4}' employee.txt
+```
 
 |ajay| 45000|
 | :---    |     ---: |
@@ -804,41 +809,46 @@ $ awk '{print $1,$4}' employee.txt
 |sunil |13000|
 |satvik |80000|
 
-Yukarıdaki örnekte $1 ve $4, sırasıyla “name” ve “salary” alanlarını temsil etmektedir.
+- Yukarıdaki örnekte $1 ve $4, sırasıyla “name” ve “salary” alanlarını temsil etmektedir.
 
-Awk'da Yerleşik Değişkenler
+<ins> Awk'da Yerleşik Değişkenler </ins>
 
-NR: NR komutu, giriş kayıtlarının mevcut sayısını tutar. Kayıtlar genellikle satırlardan oluşur.
+- NR: NR komutu, giriş kayıtlarının mevcut sayısını tutar. Kayıtlar genellikle satırlardan oluşur.
 
-NF: NF komutu, geçerli giriş kaydındaki alanların sayısını tutar.
+- NF: NF komutu, geçerli giriş kaydındaki alanların sayısını tutar.
 
-FS: FS komutu, giriş satırındaki alanları bölmek için kullanılan alan ayırıcı karakteri içerir. Varsayılan (defalut), boşluk ve sekme karakterleri anlamına gelen "white space"dir. FS, alan ayırıcısını değiştirmek için başka bir karaktere (genellikle BEGIN'de) yeniden atanabilir.
+- FS: FS komutu, giriş satırındaki alanları bölmek için kullanılan alan ayırıcı karakteri içerir. Varsayılan (defalut), boşluk ve sekme karakterleri anlamına gelen "white space"dir. FS, alan ayırıcısını değiştirmek için başka bir karaktere (genellikle BEGIN'de) yeniden atanabilir.
 
-RS: RS komutu, geçerli kayıt ayırıcı karakterini saklar. Varsayılan olarak bir giriş satırı giriş kaydı olduğundan, varsayılan kayıt ayırıcı karakter bir yeni satırdır.
+- RS: RS komutu, geçerli kayıt ayırıcı karakterini saklar. Varsayılan olarak bir giriş satırı giriş kaydı olduğundan, varsayılan kayıt ayırıcı karakter bir yeni satırdır.
 
-OFS: OFS komutu, Awk bunları yazdırdığında alanları ayıran çıktı alanı ayırıcısını saklar. Varsayılan boş bir alandır. Bu ayırıcıyı değiştirmek için OFS kullanılır.
+- OFS: OFS komutu, Awk bunları yazdırdığında alanları ayıran çıktı alanı ayırıcısını saklar. Varsayılan boş bir alandır. Bu ayırıcıyı değiştirmek için OFS kullanılır.
 
-ORS: ORS komutu, Awk bunları yazdırdığında çıktı satırlarını ayıran çıktı kaydı ayırıcısını saklar. Varsayılan, yeni satır karakteridir. print, yazdırmak için verilen her şeyin sonunda ORS'nin içeriğini otomatik olarak çıkarır.
+- ORS: ORS komutu, Awk bunları yazdırdığında çıktı satırlarını ayıran çıktı kaydı ayırıcısını saklar. Varsayılan, yeni satır karakteridir. print, yazdırmak için verilen her şeyin sonunda ORS'nin içeriğini otomatik olarak çıkarır.
 
 
-Awk komutu ile işlem yaparken komut başlangıcında bilgi vermek için BEGIN anahtar kelimesi kullanılır.
+- Awk komutu ile işlem yaparken komut başlangıcında bilgi vermek için BEGIN anahtar kelimesi kullanılır.
 
+```Shell
 awk -F: 'BEGIN {print "### Kullanıcı listesi ###"} {print $1}' /etc/passwd
+```
+- Awk komutu ile işlem yaparken komut sonunda bilgi vermek için END anahtar kelimesi kullanılır.
 
-Awk komutu ile işlem yaparken komut sonunda bilgi vermek için END anahtar kelimesi kullanılır.
-
+```Shell
 awk -F: 'BEGIN {print "## Kullanıcı listesi ###"} {print $1} END {print "## Kullanıcı listesi ###"}' /etc/passwd
+```
 
+<ins> Örnekler: </ins>
 
-Örnekler:
-
-Ayrac yerine başka bir değer yerleştirmek için OFS anahtar kelimesi kullanılır. OFS için bir örnek;
+a) Ayrac yerine başka bir değer yerleştirmek için OFS anahtar kelimesi kullanılır. OFS için bir örnek;
+```Shell
 awk 'BEGIN{FS=":"; OFS="---"} {print $1,$6}' /etc/passwd
+```
 
+b) NR yerleşik değişkenlerinin kullanımı (Satır Numarasının Görünmesi)
 
--NR yerleşik değişkenlerinin kullanımı (Satır Numarasının Görünmesi)
-
+```Shell
 $ awk '{print NR,$0}' employee.txt
+```
 
 Output:
 
@@ -853,22 +863,14 @@ Output:
 |8 |satvik| director |purchase| 80000|
 
 
-Yukarıdaki örnekte, NR'li awk komutu, satır numarasıyla birlikte tüm satırları yazdırır.
+- Yukarıdaki örnekte, NR'li awk komutu, satır numarasıyla birlikte tüm satırları yazdırır.
 
 
+c) NF yerleşik değişkenlerinin kullanımı (Display Last Field)
 
-
-
-
-
-
-
-
-
-
--NF yerleşik değişkenlerinin kullanımı (Display Last Field)
-
+```Shell
 $ awk '{print $1,$NF}' employee.txt
+```
 
 |ajay| 45000|
 | :---    |     ---: |
@@ -880,11 +882,14 @@ $ awk '{print $1,$NF}' employee.txt
 |sunil |13000|
 |satvik |80000|
 
-Yukarıdaki örnekte $1 --> Adı temsil eder ve $NF--> Maaş'ı temsil eder. Maaşı, $NF kullanarak alabiliriz, burada $NF son alanı temsil eder.
+- Yukarıdaki örnekte $1 --> Adı temsil eder ve $NF--> Maaş'ı temsil eder. Maaşı, $NF kullanarak alabiliriz, burada $NF son alanı temsil eder.
 
-- NR’ın başka bir kullanımı (3'ten 6'ya Görüntü Satırı)
 
+d)  NR’ın başka bir kullanımı (3'ten 6'ya Görüntü Satırı)
+
+```Shell
 $ awk 'NR==3, NR==6 {print NR,$0}' employee.txt
+```
 
 |3| varun| manager |sales| 50000|
 | :---    |  :---:  | :---: |       :---:   |          ---: |
@@ -893,11 +898,11 @@ $ awk 'NR==3, NR==6 {print NR,$0}' employee.txt
 |6 |deepak| clerk sales| 23000|
 
 
+- Şimdi başka bir text dosyası örneği ile devam edelim.
 
-
-Şimdi başka bir text dosyası örneği ile devam edelim.
-
-$cat > geeksforgeeks.txt
+```Shell
+$ cat > geeksforgeeks.txt
+```
 
 | A | B | C |
 | :---         |     :---:      |          ---: |
@@ -905,9 +910,11 @@ $cat > geeksforgeeks.txt
 | Manav     | B6       | 2      |
 |Praveen     | M42       | 3      |
 
--  “-“ işreti ile ayrılmış satır numaralarıyla birlikte, $1 ögesini yazdırmak için;
+e)  “-“ işreti ile ayrılmış satır numaralarıyla birlikte, $1 ögesini yazdırmak için;
 
+```Shell
 $ awk '{print NR "- " $1 }' geeksforgeeks.txt
+```
 
 1 - A
 2 - Tarun
@@ -915,9 +922,11 @@ $ awk '{print NR "- " $1 }' geeksforgeeks.txt
 4 – Praveen
 
 
-2) İkinci sütunu/öğeyi geeksforgeeks.txt dosyasından döndürmek için:
+f) İkinci sütunu/öğeyi geeksforgeeks.txt dosyasından döndürmek için:
 
+```Shell
 $ awk '{print $2}' geeksforgeeks.txt
+```
 
 B
 A12
@@ -925,51 +934,64 @@ B6
 M42
 
 
-4) Dosyada bulunan en uzun satırın uzunluğunu bulmak için:	
+g) Dosyada bulunan en uzun satırın uzunluğunu bulmak için:	
 
+```Shell
 $ awk '{ if (length($0) > max) max = length($0) } END { print max }' geeksforgeeks.txt
+```
 
 --> 13
 
-5) Dosyadaki satır sayısını yazdırmak için:  
+h) Dosyadaki satır sayısını yazdırmak için:  
 
+```Shell
 $ awk 'END { print NR }' geeksforgeeks.txt 
+```
 
 ----> 3
 
-6) 10 karakterden fazla olan satırları göstermek için:  
+i) 10 karakterden fazla olan satırları göstermek için:  
 
+```Shell
 $ awk 'length($0) > 10' geeksforgeeks.txt 
+```
 
 Tarun    A12    1
 Praveen    M42    3
 
-7) Herhangi bir sütundaki, herhangi bir dizeyi bulmak/kontrol etmek için:
+j) Herhangi bir sütundaki, herhangi bir dizeyi bulmak/kontrol etmek için:
 
+```Shell
 $ awk '{ if($3 == "B6") print $0;}' geeksforgeeks.txt
+```
 
 
-SED
+</br></br></br>
 
-UNIX'teki SED komutu, akış düzenleyici anlamına gelir ve dosya üzerinde arama, bulma ve değiştirme, ekleme veya silme gibi birçok işlevi yerine getirebilir.
+### 15) SED
 
-Syntax:
+- UNIX'teki SED komutu, akış düzenleyici anlamına gelir ve dosya üzerinde arama, bulma ve değiştirme, ekleme veya silme gibi birçok işlevi yerine getirebilir.
 
-sed OPTIONS... [SCRIPT] [INPUTFILE...]
+#### Syntax:
 
-Örnekler:
+**_sed OPTIONS... [SCRIPT] [INPUTFILE...]_**
 
+<ins> Örnekler: </ins>
+
+```Shell
 $cat > geekfile.txt
+```
 
 unix is great os. unix is opensource. unix is free os.
 learn operating system.
 unix linux which one you choose.
 unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
 
-1) Dize değiştirme:
- Sed komutu çoğunlukla bir dosyadaki metni değiştirmek için kullanılır. Aşağıdaki basit sed komutu, dosyadaki "unix" kelimesini "linux" ile değiştirir.
+1) Dize değiştirme: Sed komutu çoğunlukla bir dosyadaki metni değiştirmek için kullanılır. Aşağıdaki basit sed komutu, dosyadaki "unix" kelimesini "linux" ile değiştirir.
 
+```Shell
 $sed 's/unix/linux/' geekfile.txt
+```
 
 Output :
 
@@ -980,10 +1002,11 @@ linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
 Burada “s” yer değiştirme (substitution) işlemini belirtir. “/” sınırlayıcılardır. "unix" arama düzenidir ve "linux" değiştirme dizesidir.
 Varsayılan olarak, sed komutu her satırda kalıbın ilk oluşumunu değiştirir ve satırdaki ikinci, üçüncü… oluşumun yerini almaz.
 
-2) Bir desenin satırlarındaki n'inci oluşumunu değiştirme:
- Bir desenin satırlarındaki ilk, ikinci oluşumunu değiştirmek için /1, /2 vb. bayraklarını kullanın. Aşağıdaki komut, bir satırda "unix" kelimesinin ikinci oluşumunu "linux" ile değiştirir.
+2) Bir desenin satırlarındaki n'inci oluşumunu değiştirme: Bir desenin satırlarındaki ilk, ikinci oluşumunu değiştirmek için /1, /2 vb. bayraklarını kullanın. Aşağıdaki komut, bir satırda "unix" kelimesinin ikinci oluşumunu "linux" ile değiştirir.
 
+```Shell
 $sed 's/unix/linux/2' geekfile.txt
+```
 
 Output:
 
@@ -992,11 +1015,11 @@ learn operating system.
 unix linux which one you choose.
 unix is easy to learn.linux is a multiuser os.Learn unix .unix is a powerful.
 
-3) Bir satırdaki kalıbın tüm oluşumlarını değiştirme :
+3) Bir satırdaki kalıbın tüm oluşumlarını değiştirme : /g bayrağı (genel değiştirme), dizenin satırdaki tüm oluşumlarını değiştirmek için sed komutunu belirtir.
 
- /g bayrağı (genel değiştirme), dizenin satırdaki tüm oluşumlarını değiştirmek için sed komutunu belirtir.
-
+```Shell
 $sed 's/unix/linux/g' geekfile.txt
+```
 
 Output :
 
@@ -1007,64 +1030,42 @@ linux is easy to learn.linux is a multiuser os.Learn linux .linux is a powerful.
 
 4) Belirli bir dosyadan satır silme : SED komutu, belirli bir dosyadan satır silmek için de kullanılabilir. Dosyayı açmadan silme işlemi yapmak için SED komutu kullanılır.
 
-Belirli satırları silme işlemi;
+- Belirli satırları silme işlemi;
 
-Syntax:
+**_Syntax:_**
+```Shell
 $ sed 'nd' filename.txt
+```
 
-Example:
+<ins> Example: </ins>
+
+```Shell
 $ sed '5d' filename.txt
+```
 
-Son satırı silme;
+- Son satırı silme;
 
-Syntax:
+**_Syntax:_**
+
+```Shell
 $ sed '$d' filename.txt
+```
 
-Belirli aralıktaki satırları silme (x’ten y’ye)
+- Belirli aralıktaki satırları silme (x’ten y’ye)
 
-Syntax:
+**_Syntax:_**
+
+```Shell
 $ sed 'x,yd' filename.txt
+```
 
-Example:
+<ins> Example: </ins>
+
+```Shell
 $ sed '3,6d' filename.txt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 <br/><br/><br/>
-
 
 
 ## _Genel Linux komutları_
