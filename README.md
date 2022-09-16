@@ -983,9 +983,9 @@ $cat > geekfile.txt
 ```
 
 unix is great os. unix is opensource. unix is free os.
-learn operating system.
-unix linux which one you choose.
-unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+</br> learn operating system.
+</br> unix linux which one you choose.
+</br> unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
 
 1) Dize değiştirme: Sed komutu çoğunlukla bir dosyadaki metni değiştirmek için kullanılır. Aşağıdaki basit sed komutu, dosyadaki "unix" kelimesini "linux" ile değiştirir.
 
@@ -995,11 +995,12 @@ $sed 's/unix/linux/' geekfile.txt
 
 Output :
 
-linux is great os. unix is opensource. unix is free os.
-learn operating system.
-linux linux which one you choose.
-linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
-Burada “s” yer değiştirme (substitution) işlemini belirtir. “/” sınırlayıcılardır. "unix" arama düzenidir ve "linux" değiştirme dizesidir.
+</br> linux is great os. unix is opensource. unix is free os.
+</br> learn operating system.
+</br> linux linux which one you choose.
+</br> linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+</br> Burada “s” yer değiştirme (substitution) işlemini belirtir. “/” sınırlayıcılardır. "unix" arama düzenidir ve "linux" değiştirme dizesidir.
 Varsayılan olarak, sed komutu her satırda kalıbın ilk oluşumunu değiştirir ve satırdaki ikinci, üçüncü… oluşumun yerini almaz.
 
 2) Bir desenin satırlarındaki n'inci oluşumunu değiştirme: Bir desenin satırlarındaki ilk, ikinci oluşumunu değiştirmek için /1, /2 vb. bayraklarını kullanın. Aşağıdaki komut, bir satırda "unix" kelimesinin ikinci oluşumunu "linux" ile değiştirir.
@@ -1010,10 +1011,10 @@ $sed 's/unix/linux/2' geekfile.txt
 
 Output:
 
-unix is great os. linux is opensource. unix is free os.
-learn operating system.
-unix linux which one you choose.
-unix is easy to learn.linux is a multiuser os.Learn unix .unix is a powerful.
+</br> unix is great os. linux is opensource. unix is free os.
+</br> learn operating system.
+</br> unix linux which one you choose.
+</br> unix is easy to learn.linux is a multiuser os.Learn unix .unix is a powerful.
 
 3) Bir satırdaki kalıbın tüm oluşumlarını değiştirme : /g bayrağı (genel değiştirme), dizenin satırdaki tüm oluşumlarını değiştirmek için sed komutunu belirtir.
 
@@ -1023,10 +1024,10 @@ $sed 's/unix/linux/g' geekfile.txt
 
 Output :
 
-linux is great os. linux is opensource. linux is free os.
-learn operating system.
-linux linux which one you choose.
-linux is easy to learn.linux is a multiuser os.Learn linux .linux is a powerful.
+</br> linux is great os. linux is opensource. linux is free os.
+</br> learn operating system.
+</br> linux linux which one you choose.
+</br> linux is easy to learn.linux is a multiuser os.Learn linux .linux is a powerful.
 
 4) Belirli bir dosyadan satır silme : SED komutu, belirli bir dosyadan satır silmek için de kullanılabilir. Dosyayı açmadan silme işlemi yapmak için SED komutu kullanılır.
 
