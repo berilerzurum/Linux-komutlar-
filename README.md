@@ -1514,11 +1514,21 @@ $ nc -l -p [Local Port]
 
 - Linux sistemlerde kullanıcıların dosyalara erişim haklarını belirlemek için “chmod” komutu kullanılınır. Chmod un tam karşılığı change moddur.
 - Chmod erişim izinleri herzaman rwx şeklinde sıralanmaktadır.
+- Chmod komutu ile yaptığımız değişiklikleri, terminale **_"ls -l"_** yazarak kontrol edebiliriz.
 
-a) r – Okuma izni ( Read permission )
-b) w – Yazma izni ( Write permission )
-c) x – Çalıştırma izni ( Execute permission )
+#### Syntax;
 
+**_chmod [permission] [file_name]_**
+
+İzni tanımlamanın iki yolu vardır:
+
+- sembolleri kullanma (alfanümerik karakterler),
+- sekizli notasyon yöntemini (octal notation) kullanarak
+
+a) r – Okuma izni ( Read permission )  Okuma izni olan kullanıcılar bir dosyanın (veya bir dizindeki dosyaların) içeriğini görebilirler. Ancak, onu değiştiremezler (veya bir dizine dosya ekleyemezler/kaldıramazlar).
+b) w – Yazma izni ( Write permission ) Yazma ayrıcalıklarına sahip olanlar dosyaları düzenleyebilir (ekleyebilir ve kaldırabilir).
+c) x – Çalıştırma izni ( Execute permission ) Çalıştırma izni, kullanıcının dosyayı çalıştırabileceği anlamına gelir. Bu seçenek çoğunlukla komut dosyalarını çalıştırmak için kullanılır.
+d) -  --> Hiçbir izne sahip değilse
 
 #### <ins> Bazı chmod örnekleri : </ins>
 
@@ -1530,6 +1540,70 @@ c) x – Çalıştırma izni ( Execute permission )
 - -w-  ---> Sadece yazma hakkı var.
 - –x   ---> Sadece çalıştırma hakkı var.
 - —    ---> Hiçbir erişim hakkı yok.
+
+#### <ins> Alfasayısal karakterler kullanarak izin ayarlarını belirtmek için; </ins>
+
+- Kullanıcı/sahip (u),
+- Grup (g),
+- Diğerleri (o) 
+
+parametreleri için erişilebilirlik tanımlamanız gerekir.
+
+-Her sınıf için ilk harfi, ardından eşittir işaretini (=) ve okuma (r), yazma (w) ve/veya yürütme (x) ayrıcalıklarının ilk harfini yazmamız gerekli.
+
+-Bir dosyayı okumak, yazmak ve yürütmek için herkese açık olacak şekilde ayarlamak için komut aşağıdaki gibidir:
+
+```Shell
+chmod u=rwx,g=rwx,o=rwx [dosya_adı]
+```
+
+- Mesela örnek bir text.txt dosyamızın izinlerini aşağıdaki gibi ayarlayalım:
+• kullanıcı için; okuma ve yazma
+• grubun üyeleri için; okuma
+• diğer kullanıcılar için; okuma
+
+izinlerini vererek komutumuzu aşağıdaki gibi girelim.
+
+```Shell
+chmod u=rw,g=r,o=r test.txt
+```
+
+Not: Kategoriler arasında boşluk yoktur; onları ayırmak için sadece virgül kullanırız.
+
+
+#### <ins> Sekizli notasyon yöntemini (octal notation) kullanarak izin belirtme </ins>
+
+- İzin belirtmenin başka bir yolu da sekizli/sayısal biçimi kullanmaktır. Bu seçenek, önceki yöntem kadar basit olmasa da daha az yazma gerektirdiğinden daha hızlıdır.
+
+- Sekizli biçim, harfler yerine, sayılarla ayrıcalıkları/izinleri temsil eder:
+
+- r(ead)  --> 4 değerine sahiptir
+- w(rite)  --> 2 değerine sahiptir
+- (e)x(ecute)  --> 1 değerine sahiptir
+- izin yok  --> 0 değerine sahiptir.
+
+Bazı ayrıcalıklar/izinler için, daha kısa ve hızlı olması amacıyla oluşturulmuş, -özet- birkaç sayı metodu da bulunuyor. Bunlar:
+
+- 7 - okuma, yazma ve yürütme izni için
+- 6 – okuma ve yazma izinleri için
+- 5 – okuma ve yürütme izinleri için
+- 4 – okuma izni için
+
+Her kategori (kullanıcı, grup, sahip(owner)) için izin tanımlamamız gerektiğinden, komut üç (3) sayı içerecektir (her biri ayrıcalıkların toplamını temsil eder).
+
+Örneğin; `chmod u=rw,g=r,o=r test.txt` komutu ile sembolik olarak yapılandırdığımız `test.txt` dosyasına bakalım.
+
+Aynı izin ayarları, şu komutla sekizli biçim kullanılarak tanımlanabilir:
+
+```Shell
+chmod 644 test.txt
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190989884-6d1a616c-cc51-447e-a6e8-b9d70486bb3a.jpg" />
+</p>
+
+
 
 ####  <ins> Dosya tür çeşitlerini şu şekilde sıralayabiliriz :  </ins>
 
@@ -1559,10 +1633,6 @@ $ chmod go+r deneme*
 
 
 
-
-
-
-
 <br/><br/><br/>
 
 ### 2) chown (Change owner)
@@ -1570,6 +1640,29 @@ $ chmod go+r deneme*
 - Dosya Sahibini veya grubunu değiştirmek için "chown" komutu kullanılır.
 
 - Chown komutu ile yaptığımız değişiklikleri, terminale **_"ls -l"_** yazarak kontrol edebiliriz.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190983116-cbc7a1cf-44ff-4623-a07d-b2c4b16a46b8.jpg" />
+</p>
+
+- Yukarıdaki resimde de görüldüğü gibi, çıktı aşağıdaki bilgileri sağlar:
+
+- dosya izni
+- dosyanın sahibi (oluşturucusu)
+- bu sahibin ait olduğu grup
+- yaratılış tarihi.
+
+- Resimde de görüldüğü üzere, dosya izin ayarları, 4 sınıflandırma metodu ile ( örneğin; -, r, w, x şeklinde) belirlenir. Bunlar;
+
+- Dosya tipi. (Tür için üç olasılık vardır. Normal bir dosya (–), bir dizin-directory (d) veya bir bağlantı-link (i) olabilir.)
+- Kullanıcının (sahibinin- owner) dosya izni
+- Sahibin(owner) grubunun dosya izni
+- Diğer kullanıcıların dosya izni
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190984806-7c3dc2af-f0a0-485d-a44e-0540a2693673.jpg" />
+</p>
+
 
 1) Bir dosyanın sahipliğini değiştirmek için temel komut:
 
@@ -1585,6 +1678,12 @@ $ chown user chownOrnegi.txt
 ```Shell
 $ chown kullanici[:grup] dosyaadi
 ```
+Yukarıdaki örnekte çıktı, test.txt dosyasının sahibine atanmış okuma ve yazma iznine sahip normal bir dosya olduğunu, ancak gruba ve diğerlerine salt okunur erişim sağladığını gösteriyor.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190985864-0e1671d0-43bb-41b3-805a-a9d46aad8d51.jpg" />
+</p>
+
 
 a) Eğer aynı dosyayı (chownOrnegi.txt) user adlı sahibe ve grup1 adlı grupla değiştirmek istersek o zaman komut da böyle olacaktır:
 ```Shell
