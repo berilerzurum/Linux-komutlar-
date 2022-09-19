@@ -1526,8 +1526,11 @@ $ nc -l -p [Local Port]
 - sekizli notasyon yöntemini (octal notation) kullanarak
 
 a) r – Okuma izni ( Read permission )  Okuma izni olan kullanıcılar bir dosyanın (veya bir dizindeki dosyaların) içeriğini görebilirler. Ancak, onu değiştiremezler (veya bir dizine dosya ekleyemezler/kaldıramazlar).
+
 b) w – Yazma izni ( Write permission ) Yazma ayrıcalıklarına sahip olanlar dosyaları düzenleyebilir (ekleyebilir ve kaldırabilir).
+
 c) x – Çalıştırma izni ( Execute permission ) Çalıştırma izni, kullanıcının dosyayı çalıştırabileceği anlamına gelir. Bu seçenek çoğunlukla komut dosyalarını çalıştırmak için kullanılır.
+
 d) -  --> Hiçbir izne sahip değilse
 
 #### <ins> Bazı chmod örnekleri : </ins>
@@ -1558,8 +1561,11 @@ chmod u=rwx,g=rwx,o=rwx [dosya_adı]
 ```
 
 - Mesela örnek bir text.txt dosyamızın izinlerini aşağıdaki gibi ayarlayalım:
+
 • kullanıcı için; okuma ve yazma
+
 • grubun üyeleri için; okuma
+
 • diğer kullanıcılar için; okuma
 
 izinlerini vererek komutumuzu aşağıdaki gibi girelim.
@@ -1569,6 +1575,12 @@ chmod u=rw,g=r,o=r test.txt
 ```
 
 Not: Kategoriler arasında boşluk yoktur; onları ayırmak için sadece virgül kullanırız.
+
+- Aşağıdaki örnekte çıktı, test.txt dosyasının sahibine atanmış okuma ve yazma iznine sahip normal bir dosya olduğunu, ancak gruba ve diğerlerine salt okunur erişim sağladığını gösteriyor.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/190985864-0e1671d0-43bb-41b3-805a-a9d46aad8d51.jpg" />
+</p>
 
 
 #### <ins> Sekizli notasyon yöntemini (octal notation) kullanarak izin belirtme </ins>
@@ -1637,6 +1649,8 @@ $ chmod go+r deneme*
 
 ### 2) chown (Change owner)
 
+- Dosya izinlerini değiştirmenin yanı sıra, kullanıcı dosya sahipliğini, hatta grup sahipliğini değiştirmeyi gerektiren bir durumla da karşılaşabiliriz. "Chown" komutu da tam bunun için bize yardımcı olur. Fakat, bu görevlerden herhangi birini gerçekleştirmek için ilk önce süper kullanıcı ayrıcalıklarına geçmeniz gerekir.
+
 - Dosya Sahibini veya grubunu değiştirmek için "chown" komutu kullanılır.
 
 - Chown komutu ile yaptığımız değişiklikleri, terminale **_"ls -l"_** yazarak kontrol edebiliriz.
@@ -1645,14 +1659,14 @@ $ chmod go+r deneme*
   <img src="https://user-images.githubusercontent.com/50303910/190983116-cbc7a1cf-44ff-4623-a07d-b2c4b16a46b8.jpg" />
 </p>
 
-- Yukarıdaki resimde de görüldüğü gibi, çıktı aşağıdaki bilgileri sağlar:
+-Yukarıdaki resimde de görüldüğü gibi, çıktı aşağıdaki bilgileri sağlar:
 
 - dosya izni
 - dosyanın sahibi (oluşturucusu)
 - bu sahibin ait olduğu grup
 - yaratılış tarihi.
-
-- Resimde de görüldüğü üzere, dosya izin ayarları, 4 sınıflandırma metodu ile ( örneğin; -, r, w, x şeklinde) belirlenir. Bunlar;
+</br>
+- Aşağıdaki resimde de görüldüğü üzere, dosya izin ayarları, 4 sınıflandırma metodu ile ( örneğin; -, r, w, x şeklinde) belirlenir. Bunlar;
 
 - Dosya tipi. (Tür için üç olasılık vardır. Normal bir dosya (–), bir dizin-directory (d) veya bir bağlantı-link (i) olabilir.)
 - Kullanıcının (sahibinin- owner) dosya izni
@@ -1666,7 +1680,7 @@ $ chmod go+r deneme*
 
 1) Bir dosyanın sahipliğini değiştirmek için temel komut:
 
-**_$chown kullanici dosyaadi_**
+**_$chown [kullanici_adi] [dosyaadi]_**
 
 - chownOrnegi.txt (kök sahipliğine sahip) için, sahipliği kökten, user adlı başka bir kullanıcıya değiştirmenize izin verir. Bu komutun bir örneği aşağıdaki gibidir:
 
@@ -1674,18 +1688,14 @@ $ chmod go+r deneme*
 $ chown user chownOrnegi.txt 
 ```
 
-2) Komut, grubu değiştirmek için de düzenlenebilir. Sahipliği ve grubu değiştirmek için temel formatsa:
+Yani [kullanici_adi] yerine dosyanın, yeni sahibi olacak kullanıcının adını yazmamız gerekli.
+
+2) Komut, grubu değiştirmek için de düzenlenebilir. -Sahipliği(owner) ve grubu- değiştirmek için temel formatsa:
 ```Shell
 $ chown kullanici[:grup] dosyaadi
 ```
-Yukarıdaki örnekte çıktı, test.txt dosyasının sahibine atanmış okuma ve yazma iznine sahip normal bir dosya olduğunu, ancak gruba ve diğerlerine salt okunur erişim sağladığını gösteriyor.
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/50303910/190985864-0e1671d0-43bb-41b3-805a-a9d46aad8d51.jpg" />
-</p>
-
-
-a) Eğer aynı dosyayı (chownOrnegi.txt) user adlı sahibe ve grup1 adlı grupla değiştirmek istersek o zaman komut da böyle olacaktır:
+a) Eğer aynı dosyayı (chownOrnegi.txt) -user adlı sahibe ve grup1 adlı grupla- değiştirmek istersek o zaman komut da böyle olacaktır:
 ```Shell
 $ chown user: grup1 chownOrnegi.txt
 ```
@@ -1693,6 +1703,11 @@ $ chown user: grup1 chownOrnegi.txt
 b) Eğer yalnızca grup değiştirilecekse sahipliği atlayabilirsiniz. Örnek olarak komut satırına bu komutu girebiliriz:
 ```Shell
 $ chown :grup1 chownOrnegi.txt
+```
+- Bunu `chgrp` komutu ile de yapabiliriz. Bu komutun temel syntax'ı ise şöyledir;
+
+```Shell
+chgrp [grup_adı] [dosya_adı]
 ```
 
 3)  Tıpkı dosyalar gibi dizinler için de sahipliği ve grubu değiştirebilirsiniz. Bu komutun bir örneği aşağıdaki gibidir:
