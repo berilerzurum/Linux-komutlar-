@@ -916,10 +916,10 @@ e)  “-“ işreti ile ayrılmış satır numaralarıyla birlikte, $1 ögesini 
 $ awk '{print NR "- " $1 }' geeksforgeeks.txt
 ```
 
-1 - A
-2 - Tarun
-3 – Manav    
-4 – Praveen
+1 - A </br>
+2 - Tarun </br>
+3 – Manav    </br> 
+4 – Praveen </br>
 
 
 f) İkinci sütunu/öğeyi geeksforgeeks.txt dosyasından döndürmek için:
@@ -928,10 +928,10 @@ f) İkinci sütunu/öğeyi geeksforgeeks.txt dosyasından döndürmek için:
 $ awk '{print $2}' geeksforgeeks.txt
 ```
 
-B
-A12
-B6
-M42
+B </br>
+A12 </br>
+B6 </br>
+M42 </br>
 
 
 g) Dosyada bulunan en uzun satırın uzunluğunu bulmak için:	
@@ -956,8 +956,8 @@ i) 10 karakterden fazla olan satırları göstermek için:
 $ awk 'length($0) > 10' geeksforgeeks.txt 
 ```
 
-Tarun    A12    1
-Praveen    M42    3
+Tarun    A12    1 </br>
+Praveen    M42    3 </br>
 
 j) Herhangi bir sütundaki, herhangi bir dizeyi bulmak/kontrol etmek için:
 
