@@ -1827,13 +1827,13 @@ $ sudo passwd -u tom
 - -S argümanı ile kullanıcı hakkındaki bazı bilgileri görebiliriz.
 
 Bunlar; </br>
-Kullanıcı adı </br>
-Şifre durumu Kilitli (L), Şifre Yok (NP), Şifre (P) </br>
-Son şifre değişikliği tarihi </br>
-Minimum şifre yaşı </br>
-Maksimum şifre yaşı </br>
-Uyarı süresi (kullanıcıya parolasını süresi dolmadan değiştirmesi için verilen gün sayısı) </br>
-Hareketsizlik süresi (bir şifrenin süresinin dolmasından sonraki gün sayısı, şifre kilitlenmeden önce) </br>
+-Kullanıcı adı </br>
+-Şifre durumu Kilitli (L), Şifre Yok (NP), Şifre (P) </br>
+-Son şifre değişikliği tarihi </br>
+-Minimum şifre yaşı </br>
+-Maksimum şifre yaşı </br>
+-Uyarı süresi (kullanıcıya parolasını süresi dolmadan değiştirmesi için verilen gün sayısı) </br>
+-Hareketsizlik süresi (bir şifrenin süresinin dolmasından sonraki gün sayısı, şifre kilitlenmeden önce) </br>
 
 ```Shell
 $ sudo passwd -S tom
