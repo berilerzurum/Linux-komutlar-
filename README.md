@@ -1746,7 +1746,7 @@ $ chown user symlink
 #### Syntax;
 
 **_$sudo useradd [options] USERNAME _**
-!Önemli: sudo her dağıtımda yüklü değil. Yüklü değilse, kullanıcı oluşturmak için uygun izinlere sahip bir hesaba giriş yapmanız gerekir.
+!!!Önemli: sudo her dağıtımda yüklü değil. Yüklü değilse, kullanıcı oluşturmak için uygun izinlere sahip bir hesaba giriş yapmanız gerekir.
 
 Örneğin basit bir kullanıcı oluşturarak başlayalım; 
 ```Shell
@@ -1776,16 +1776,91 @@ $ sudo useradd -m -d /alternatif test
 ### 4) passwd
 
 
-- passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola eklersiniz:
+```Shell
+$ passwd
+```
+- Yukarıdaki komutu kullanıcının şifresini değiştirmek için kullanırız.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192163215-17ff30a6-4e73-4865-a7fc-0e987f1928e8.png" />
+</p>
+
+
+- Eğer başka bir userın şifresini değiştirmek istiyorsak; yöneticisi olduğumuz kullanıcı, şifresini unuttu ve sudo ayrıcalığına sahip kullanıcının yetkileri gerkiyorsa, kullanıcının adını da belirterek şifreyi değiştirebiliriz.
+Öneğin; passwd komutunu kullanarak yukarıda oluşturduğumuz test kullanıcısı için bir parola ekleyelim:
+
 ```Shell
 $ sudo passwd test 
 ```
 Bu, sizden kullanıcı için bir şifre girmenizi isteyecektir.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192163155-f4a0e989-c4df-4b6b-a37e-31339ae0cdfc.png" />
+</p>
+Bu örnekte de tom adlı kullanıcının şifresini değiştirdik.
+
+- Passwd komutunun bir diğer özelliği ise; -e argümanını kullanarak, parolalarının süresinin dolmasını sağlayıp, parola sıfırlamayı zorunlu kılabiliriz.
+
+```Shell
+$ sudo passwd -e tom
+```
+
+- Bir kullanıcı hesabının geçici olarak kilitlenmesi gerekeceği ve oturum açmasının engelleneceği durumlarda -l argümanını kullanabiliriz. Böylelikle hesabı kilitleyebiliriz.
+
+```Shell
+$ sudo passwd -l tom
+```
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192164388-128d8254-f537-4c13-863b-c5997fed37eb.png" />
+</p>
+
+- Kilidi kaldırabilmek için aşağıdaki komutu kullanmamız gereklidir.
+
+```Shell
+$ sudo passwd -u tom
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192164443-1628edda-ee2a-4ace-93e6-470662e34709.png" />
+</p>
+
+- -S argümanı ile kullanıcı hakkındaki bazı bilgileri görebiliriz.
+
+Bunlar; </br>
+Kullanıcı adı </br>
+Şifre durumu Kilitli (L), Şifre Yok (NP), Şifre (P) </br>
+Son şifre değişikliği tarihi </br>
+Minimum şifre yaşı </br>
+Maksimum şifre yaşı </br>
+Uyarı süresi (kullanıcıya parolasını süresi dolmadan değiştirmesi için verilen gün sayısı) </br>
+Hareketsizlik süresi (bir şifrenin süresinin dolmasından sonraki gün sayısı, şifre kilitlenmeden önce) </br>
+
+```Shell
+$ sudo passwd -S tom
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192164641-89b9660b-90e1-47a7-810c-ab185b9f9ff1.png" />
+</p>
 
 
+- Eğer kullanıcının şifresini değiştirmesi için olan uyarı süresini değiştirmek istersek aşağıdaki komutu kullanabiliriz.
+
+```Shell
+sudo passwd -w 14 tom
+```
+- Bu komut ile tom kullanıcısının, şifresini değiştirmesi için olan uyarı süresini 14 gün olarak ayarlıyoruz.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192165328-579ad8bc-e0ec-458f-a938-d75ab66c1f4f.png" />
+</p>
 
 
+- Tüm kullanıcılar için parola durumunu listelemek istiyorsanız, -a argümanını kullanabiliriz. Bu argüman -S ile birlikte her kullanıcının, hatta varlığından haberdar bile olmadığınız kullanıcıların durumunu listelemek için kullanılır. Bu ekstra kullanıcılar, yazıcılar ve ağ oluşturma gibi belirli görevler için kullanılır.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/50303910/192165499-3f29f51a-19f1-4f41-af3e-50a7212ffff9.png" />
+</p>
 
 
 <br/><br/><br/><br/>
