@@ -1826,7 +1826,7 @@ $ sudo passwd -u tom
 
 - -S argümanı ile kullanıcı hakkındaki bazı bilgileri görebiliriz.
 
-Bunlar; </br>
+Bunlar sırasıyla; </br>
 -Kullanıcı adı </br>
 -Şifre durumu Kilitli (L), Şifre Yok (NP), Şifre (P) </br>
 -Son şifre değişikliği tarihi </br>
